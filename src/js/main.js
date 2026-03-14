@@ -35,8 +35,8 @@ $(document).ready(function () {
     /**
      * Header actions
      */
-    const headerAction = '.js-header__action';
-    const headerActionDropdown = '.js-header-action__dropdown';
+    const headerAction = '.js-header-action';
+    const headerActionDropdown = '.js-header-action-dropdown';
 
     $(headerAction).hover(function () {
         $(this).find(headerActionDropdown).stop().fadeIn(animationDuration);
@@ -113,10 +113,20 @@ $(document).ready(function () {
     const header = '.js-header';
 
     $(window).on('scroll', function () {
-        if($(this).scrollTop() > 200) {
-            $(header).addClass('fixed');
+        let scrollTop = $(this).scrollTop();
+
+        // На 100px делаем шапку fixed, но оставляем скрытой за верхом экрана
+        if(scrollTop > 100) {
+            $(header).addClass('site-header--fixed');
         } else {
-            $(header).removeClass('fixed');
+            $(header).removeClass('site-header--fixed');
+        }
+
+        // На 200px плавно выкатываем шапку
+        if(scrollTop > 200) {
+            $(header).addClass('site-header--fixed-show');
+        } else {
+            $(header).removeClass('site-header--fixed-show');
         }
     });
 });

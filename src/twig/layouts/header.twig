@@ -41,7 +41,7 @@
         </div>
     </div>
 
-    <div class="site-header__fixed js-header__fixed">
+    <div class="site-header__fixed js-header-fixed">
         <div class="site-header__main">
             <div class="container">
                 <a href="" class="site-header__logo logo">
@@ -131,7 +131,7 @@
 
                 <div class="site-header__actions">
                     {% for action in actions %}
-                        <div class="site-header-action js-header__action">
+                        <div class="site-header-action js-header-action">
                             <a href="{{ action.href }}" class="site-header-action__link">
                         <span class="site-header-action__top">
                             <svg class="site-header-action__icon" width="{{ action.width }}"
@@ -148,7 +148,7 @@
                             {% if loop.index != 1 %}
                                 {% include '../components/shop/float-cart.twig' with {
                                     cart: loop.last,
-                                    class: 'js-header-action__dropdown'
+                                    class: 'js-header-action-dropdown'
                                 } %}
                             {% endif %}
                         </div>
