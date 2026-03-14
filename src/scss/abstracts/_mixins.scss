@@ -1,22 +1,16 @@
-@use "variables";
+@use "vars";
 
-// Миксин для перебора цветов темы
-@mixin theme_colors_each {
-  @each $color, $value in variables.$theme-colors {
-    @content($color, $value);
-  }
-}
-
-// Миксин для установки основного цвета темы
+/**
+ Установки основного цвета темы
+ */
 @mixin set_main_theme($opacity: 1) {
   color: rgb(var(--settings-theme-primary-text));
   background-color: rgba(var(--settings-theme-primary), $opacity);
 }
 
-@mixin debug {
-  outline: 1px solid red;
-}
-
+/**
+  Обрезать строку по высоте
+ */
 @mixin shorted_text ($line_count: 3) {
   -webkit-line-clamp: #{$line_count};
   display: -webkit-box;

@@ -1,11 +1,6 @@
 @use "../abstracts";
 
 :root {
-  // Переменные для политры
-  @include abstracts.theme_colors_each using($color, $value) {
-    --color-#{$color}: #{$value};
-  }
-
   // Типографика
   --settings-typography-font-size: 16px;
   --settings-typography-weight: 500;
