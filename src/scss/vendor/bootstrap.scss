@@ -1,0 +1,19 @@
+// Note: We use @import here instead of @use because Bootstrap 5.x components 
+// require a shared global scope for variables and functions. 
+// Deprecation warnings for these files are suppressed by `quietDeps: true` in gulpfile.js where possible.
+@import "bootstrap-config";
+
+// --- REQUIRED ---
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/variables-dark";
+@import "../../../node_modules/bootstrap/scss/maps";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/reboot";
+
+// --- OPTIONAL (Requested) ---
+@import "../../../node_modules/bootstrap/scss/containers";
+@import "../../../node_modules/bootstrap/scss/grid";
+@import "../../../node_modules/bootstrap/scss/transitions";
+@import "../../../node_modules/bootstrap/scss/modal";
+@import "../../../node_modules/bootstrap/scss/nav";

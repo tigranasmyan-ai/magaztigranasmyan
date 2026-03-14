@@ -1,0 +1,14 @@
+// Custom bootstrap variables
+$enable-utils: false;
+$enable-grid-classes: true;
+$enable-dark-mode: false;
+$enable-color-modes: false;
+
+// Disable color variables generation by emptying maps
+$colors: ();
+$grays: ();
+$theme-colors: ();
+$theme-colors-rgb: ();
+$theme-colors-text: ();
+$theme-colors-bg-subtle: ();
+$theme-colors-border-subtle: ();

@@ -1,0 +1,290 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Home Page - Aspro{% endblock %}
+
+{% block body_class %}home-page{% endblock %}
+
+{% block content %}
+    <div class="container" style="display:none;">
+        <div>
+            {% for color in [
+                'default',
+                'success',
+                'info',
+                'warning',
+                'danger',
+                'white',
+                'transparent',
+                'transparent-bg',
+                'transparent-border',
+                'link',
+                'secondary-dark',
+                'black-opacity-blur'
+            ] %}
+                {% include 'components/button.twig' with {
+                    text: 'Возможности',
+                    type: color,
+                } %}
+            {% endfor %}
+        </div>
+
+        <hr>
+
+        {% for size in ['xl', 'lg', 'sm', 'xs'] %}
+            {% include 'components/button.twig' with {
+                text: 'Возможности',
+                type: color,
+                size: size
+            } %}
+        {% endfor %}
+
+        {% include 'components/button.twig' with {
+            text: 'Возможности',
+            type: color,
+            size: size,
+            attributes: 'disabled'
+        } %}
+
+        <hr>
+
+        <div class="text-content">
+            {% for item in 1..6 %}
+                <h{{ loop.index }}>Heading {{ loop.index }}</h{{ loop.index }}>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid atque commodi consectetur
+                    doloremque et, exercitationem harum, inventore laboriosam minus nam natus nulla obcaecati officiis
+                    possimus quidem soluta totam ullam voluptates.
+                </p>
+
+                <hr>
+            {% endfor %}
+
+            <ul>
+                <li>Pellentesque pellentesque eget tempor tellus.</li>
+                <li>Pellentesque pellentesque eget tempor tellus.</li>
+                <li>Pellentesque pellentesque eget tempor tellus.</li>
+                <li>
+                    Pellentesque pellentesque eget tempor tellus.
+
+                    <ul>
+                        <li>Pellentesque pellentesque eget tempor tellus.</li>
+                        <li>Pellentesque pellentesque eget tempor tellus.</li>
+                        <li>Pellentesque pellentesque eget tempor tellus.</li>
+                        <li>
+                            Pellentesque pellentesque eget tempor tellus.
+
+                            <ol>
+                                <li>Pellentesque pellentesque eget tempor tellus.</li>
+                                <li>Pellentesque pellentesque eget tempor tellus.</li>
+                                <li>Pellentesque pellentesque eget tempor tellus.</li>
+                                <li>Pellentesque pellentesque eget tempor tellus.</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ol>
+                <li>Pellentesque pellentesque eget tempor tellus.</li>
+                <li>Pellentesque pellentesque eget tempor tellus.</li>
+                <li>Pellentesque pellentesque eget tempor tellus.</li>
+                <li>Pellentesque pellentesque eget tempor tellus.</li>
+            </ol>
+
+            <p>
+                Pellentesque pellentesque eget tempor tellus. Fusce lacllentesque eget tempor tellus ellentesque
+                pelleinia
+                tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor
+                tellus.
+                Fusce lacinia tempor malesuada.
+            </p>
+
+            <table>
+                <thead>
+                <tr>
+                    {% for item in 1..5 %}
+                        <th>item {{ loop.index }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    {% for item in 1..5 %}
+                        <td>item {{ loop.index }}</td>
+                    {% endfor %}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <hr>
+
+        {% set tabs = [
+            {'id': 'home', 'label': 'Home', 'active': true, 'disabled': false},
+            {'id': 'profile', 'label': 'Profile', 'active': false, 'disabled': false},
+            {'id': 'contact', 'label': 'Contact', 'active': false, 'disabled': false},
+        ] %}
+
+        <div id="myTab" role="tablist" class="tabs-head">
+            {% for tab in tabs %}
+                <button
+                        class="tabs-head__link {% if tab.active %}active{% endif %}"
+                        id="{{ tab.id }}-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#{{ tab.id }}-tab-pane"
+                        type="button"
+                        role="tab"
+                        aria-controls="{{ tab.id }}-tab-pane"
+                        aria-selected="{{ tab.active ? 'true' : 'false' }}"
+                >
+                    {{ tab.label }}
+                </button>
+            {% endfor %}
+        </div>
+
+        <div class="tab-content tabs-content" id="myTabContent">
+            {% for tab in tabs %}
+                <div
+                        class="tabs-content__item tab-pane fade {% if tab.active %}show active{% endif %}"
+                        id="{{ tab.id }}-tab-pane"
+                        role="tabpanel"
+                        aria-labelledby="{{ tab.id }}-tab"
+                        tabindex="0"
+                >
+                    <div class="text-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto delectus deserunt
+                            distinctio, eveniet ex facere impedit, ipsa iste laboriosam libero maxime modi mollitia,
+                            nemo nesciunt optio quam totam voluptate.</p>
+
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad architecto delectus deserunt
+                            distinctio, eveniet ex facere impedit, ipsa iste laboriosam libero maxime modi mollitia,
+                            nemo nesciunt optio quam totam voluptate.</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <hr>
+
+        <form>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+
+                <input type="email" class="form-input" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+
+                <input type="password" class="form-input" id="exampleInputPassword1">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+
+                <select name="" id="" class="form-input">
+                    <option value="">Password</option>
+                    <option value="">Password</option>
+                    <option value="">Password</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Textarea</label>
+
+                <textarea name="" id="" class="form-input"></textarea>
+            </div>
+
+            <button type="submit" class="button button-primary button-lg">
+                Post comment
+            </button>
+        </form>
+
+        <hr>
+
+        {% for item in ['default', 'primary', 'success', 'info', 'warning', 'danger'] %}
+            <div class="badge badge-{{ item }}">{{ item }}</div>
+        {% endfor %}
+
+        <hr>
+
+        <div class="collapse-list">
+            {% for item in 1..5 %}
+                <div class="collapse-item">
+                    <button class="collapse-item__head collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFirst{{ loop.index }}" aria-expanded="false"
+                            aria-controls="collapseFirst{{ loop.index }}">
+                        <span class="collapse-item__title">
+                            Pricing Tables
+                        </span>
+
+                        <svg class="collapse-item__icon  collapse-item__icon--end" width="20" height="20"
+                             viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2V18" stroke-width="2" stroke-linecap="round"></path>
+                            <path d="M18 10L2 10" stroke-width="2" stroke-linecap="round"></path>
+                        </svg>
+                    </button>
+
+                    <div class="collapse" id="collapseFirst{{ loop.index }}">
+                        <div class="collapse-item__content">
+                            Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim
+                            sit
+                            amet odio vulputate eleifend in in tortor. Donec tellus massa, tristique sit amet condim
+                            vel,
+                            facilisis quis sapien. Praesent id enim sit amet odio vulputate eleifend in in tortor. Donec
+                            tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim sit
+                            amet
+                            odio vulputate eleifend in in tortor.
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <hr>
+
+        <div class="collapse-list">
+            {% for item in 1..5 %}
+                <div class="collapse-item">
+                    <button class="collapse-item__head collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFirst1{{ loop.index }}" aria-expanded="false"
+                            aria-controls="collapseFirst1{{ loop.index }}">
+                        <svg class="collapse-item__icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 2V18" stroke-width="2" stroke-linecap="round"></path>
+                            <path d="M18 10L2 10" stroke-width="2" stroke-linecap="round"></path>
+                        </svg>
+
+                        <span class="collapse-item__title">
+                            Pricing Tables
+                        </span>
+                    </button>
+
+                    <div class="collapse" id="collapseFirst1{{ loop.index }}">
+                        <div class="collapse-item__content">
+                            Donec tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim
+                            sit
+                            amet odio vulputate eleifend in in tortor. Donec tellus massa, tristique sit amet condim
+                            vel,
+                            facilisis quis sapien. Praesent id enim sit amet odio vulputate eleifend in in tortor. Donec
+                            tellus massa, tristique sit amet condim vel, facilisis quis sapien. Praesent id enim sit
+                            amet
+                            odio vulputate eleifend in in tortor.
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <hr>
+
+        <div class="alert alert-success"><b>Well done!</b> You successfully read this important alert message.</div>
+
+        <div class="alert alert-info"><b>Well done!</b> You successfully read this important alert message.</div>
+
+        <div class="alert alert-warning"><b>Well done!</b> You successfully read this important alert message.</div>
+
+        <div class="alert alert-danger"><b>Well done!</b> You successfully read this important alert message.</div>
+    </div>
+{% endblock %}

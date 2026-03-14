@@ -1,0 +1,66 @@
+<nav class="mega-menu">
+    {% for item in [
+        'Акции',
+        'Бренды',
+        'Услуги',
+        'Компания',
+        'Блог',
+        'Образы',
+        'Информация',
+        'Контакты',
+    ] %}
+        <div class="mega-menu__item js-mega-menu__item">
+            <a href="" class="mega-menu__link">
+                {% if loop.first %}
+                    <svg class="mega-menu__icon">
+                        <use href="img/svg-icons-final.svg#sale"></use>
+                    </svg>
+                {% endif %}
+
+                <span class="mega-menu__text">{{ item }}</span>
+
+                <svg class="mega-menu__chevron">
+                    <use href="img/svg-icons-final.svg#down"></use>
+                </svg>
+            </a>
+
+            <ul class="mega-menu__list mega-menu__list--first js-mega-menu__list">
+                {% for item in 1..5 %}
+                    <li class="mega-menu__item mega-menu__item--sub js-mega-menu__item">
+                        <a href="#" class="mega-menu__link mega-menu__link--sub">
+                            Настройка электроники
+
+                            <svg class="mega-menu__chevron mega-menu__chevron--sub">
+                                <use xlink:href="img/svg-icons.svg#down"></use>
+                            </svg>
+                        </a>
+
+                        <ul class="mega-menu__list mega-menu__list--sub js-mega-menu__list">
+                            {% for item in 1..2 %}
+                                <li class="mega-menu__item mega-menu__item--sub js-mega-menu__item">
+                                    <a href="#" class="mega-menu__link mega-menu__link--sub">
+                                        Настройка электроники
+
+                                        <svg class="mega-menu__chevron mega-menu__chevron--sub">
+                                            <use xlink:href="img/svg-icons.svg#down"></use>
+                                        </svg>
+                                    </a>
+
+                                    <ul class="mega-menu__list mega-menu__list--sub js-mega-menu__list">
+                                        {% for item in 1..5 %}
+                                            <li class="mega-menu__item mega-menu__item--sub">
+                                                <a href="#" class="mega-menu__link mega-menu__link--sub">
+                                                    Монтаж оборудования
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</nav>

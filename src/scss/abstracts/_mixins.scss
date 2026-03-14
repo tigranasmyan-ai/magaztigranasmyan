@@ -1,0 +1,18 @@
+@use "variables";
+
+// Миксин для перебора цветов темы
+@mixin theme_colors_each {
+  @each $color, $value in variables.$theme-colors {
+    @content($color, $value);
+  }
+}
+
+// Миксин для установки основного цвета темы
+@mixin set_main_theme($opacity: 1) {
+  color: rgb(var(--settings-theme-primary-text));
+  background-color: rgba(var(--settings-theme-primary), $opacity);
+}
+
+@mixin debug {
+  outline: 1px solid red;
+}

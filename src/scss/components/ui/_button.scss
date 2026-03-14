@@ -1,0 +1,180 @@
+$button-themes: (
+        "primary": var(--settings-button-theme-primary),
+        "success": var(--settings-button-theme-success),
+        "info": var(--settings-button-theme-info),
+        "warning": var(--settings-button-theme-warning),
+        "danger": var(--settings-button-theme-danger)
+);
+
+@use "../../abstracts/index" as *;
+
+.button {
+  --button-height: 38px;
+  --button-font-size: .9375rem;
+  --button-pl: 16px;
+  --button-pr: 16px;
+  --button-text-color: rgb(var(--settings-theme-primary-text));
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--button-height);
+  padding: 0 var(--button-pr) 0 var(--button-pl);
+
+  font-size: var(--button-font-size);
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+
+  border: 1px solid transparent;
+  border-radius: var(--settings-main-border-radius);
+
+  cursor: pointer;
+  user-select: none;
+  appearance: none;
+  transition: background-color .3s ease, border-color .3s ease, color .3s ease;
+
+  // Sizes
+  &-xl {
+    --button-height: 52px;
+    --button-font-size: 1rem;
+    --button-pl: 24px;
+    --button-pr: 24px;
+  }
+
+  &-lg {
+    --button-height: 44px;
+    --button-font-size: .9375rem;
+    --button-pl: 20px;
+    --button-pr: 20px;
+  }
+
+  &-sm {
+    --button-height: 36px;
+    --button-font-size: .875rem;
+    --button-pl: 16px;
+    --button-pr: 16px;
+  }
+
+  &-xs {
+    --button-height: 30px;
+    --button-font-size: .8125rem;
+    --button-pl: 12px;
+    --button-pr: 12px;
+  }
+
+  // Variants
+  &-default {
+    background-color: rgb(var(--settings-theme-primary));
+    color: var(--button-text-color);
+    border-color: rgb(var(--settings-theme-primary));
+
+    &:hover {
+      background-color: color-mix(in srgb, rgb(var(--settings-theme-primary)), black 20%);
+      border-color: color-mix(in srgb, rgb(var(--settings-theme-primary)), black 20%);
+    }
+  }
+
+  @each $name, $color in $button-themes {
+    &-#{$name} {
+      background-color: rgb($color);
+      color: rgb(255, 255, 255);
+      border-color: rgb($color);
+
+      &:hover {
+        background-color: color-mix(in srgb, rgb($color), black 10%);
+        border-color: color-mix(in srgb, rgb($color), black 10%);
+      }
+    }
+  }
+
+  &-white {
+    background-color: #fff;
+    color: rgb(var(--settings-theme-primary));
+    border-color: #fff;
+
+    &:hover {
+      background-color: rgb(var(--settings-theme-primary));
+      color: #fff;
+      border-color: rgb(var(--settings-theme-primary));
+    }
+  }
+
+  &-transparent {
+    $bg: color-mix(in srgb, rgb(var(--settings-theme-primary)), white 80%);
+    background-color: $bg;
+    color: rgb(var(--settings-theme-primary));
+    border-color: $bg;
+
+    &:hover {
+      background-color: rgb(var(--settings-theme-primary));
+      color: var(--button-text-color);
+      border-color: rgb(var(--settings-theme-primary));
+    }
+  }
+
+  &-transparent-bg {
+    background-color: transparent;
+    color: rgb(var(--gray-900));
+    border-color: rgba(var(--gray-900), 0.2);
+
+    &:hover {
+      background-color: rgb(var(--settings-theme-primary));
+      color: var(--button-text-color);
+      border-color: rgb(var(--settings-theme-primary));
+    }
+  }
+
+  &-transparent-border {
+    background-color: transparent;
+    color: rgb(var(--gray-900));
+    border-color: transparent;
+
+    &:hover {
+      background-color: rgb(var(--settings-theme-primary));
+      color: var(--button-text-color);
+      border-color: rgb(var(--settings-theme-primary));
+    }
+  }
+
+  &-secondary-dark {
+    background-color: rgb(var(--gray-900), 10%);
+    color: rgb(var(--gray-900));
+    border-color: transparent;
+
+    &:hover {
+      background-color: color-mix(in srgb, rgb(var(--gray-900)), white 80%);
+    }
+  }
+
+  &-black-opacity-blur {
+    background-color: color-mix(in srgb, rgb(var(--gray-900)), white 60%);
+    color: #fff;
+    border-color: transparent;
+
+    &:hover {
+      background-color: color-mix(in srgb, rgb(var(--gray-900)), white 50%);
+    }
+  }
+
+  &-link {
+    background-color: transparent;
+    color: rgb(var(--settings-theme-primary));
+    border-color: transparent;
+
+    &:hover {
+      color: color-mix(in srgb, rgb(var(--settings-theme-primary)), black 30%);
+    }
+  }
+
+  // States
+  &:disabled,
+  &[disabled] {
+    background-color: transparent;
+    border: 1px solid #bbb;
+    color: #bbb;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}

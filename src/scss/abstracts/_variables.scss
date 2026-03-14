@@ -1,0 +1,15 @@
+// Colors
+$color_primary: 0, 178, 144;
+$color_success: 132, 188, 41;
+$color_info: 12, 169, 227;
+$color_warning: 243, 139, 4;
+$color_danger: 220, 19, 13;
+
+// Colors map
+$theme-colors: (
+        'primary': $color_primary,
+        'success': $color_success,
+        'info': $color_info,
+        'warning': $color_warning,
+        'danger': $color_danger
+);

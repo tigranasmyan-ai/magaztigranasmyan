@@ -1,0 +1,113 @@
+@use "../abstracts";
+
+:root {
+  // Переменные для политры
+  @include abstracts.theme_colors_each using($color, $value) {
+    --color-#{$color}: #{$value};
+  }
+
+  // Типографика
+  --settings-typography-font-size: 16px;
+  --settings-typography-weight: 500;
+  --settings-typography-font-family-secondary: 'Golos Text';
+  --settings-typography-font-family-primary: 'Roboto Slab';
+
+  // Лей аут
+  --settings-layout-container-width: 1760px;
+  --settings-layout-container-indent: 30px;
+  --settings-layout-grid-gutter: 24px;
+
+  // Основные настройки
+  --settings-main-border-radius: 12px;
+
+  // Переменные для настройки картинок
+  --settigs-image-border-radius: 10px;
+
+  // Основной цвет сайта
+  --settings-theme-primary: 37, 125, 277;
+  --settings-theme-primary-text: 255, 255, 255;
+
+  // Системные цвета
+  --basic_text_black: 85, 85, 88;
+  --secondary: 141, 141, 141;
+  --white_text_black: 34, 34, 40;
+  --white_text_black_reverse: 255, 255, 255;
+  --secondary-black-dark-light-bg: 239, 240, 242;
+  --lite_basic_text_black: 9, 8, 8;
+  --grey_bg: 243, 244, 247;
+  --black_bg_black: 255, 255, 255;
+  --darkerblack_bg_black: 248, 248, 252;
+  --darkgrey_bg_black: 244, 244, 244;
+  --stroke_black: 235, 236, 239;
+  --stroke_black_hover: 255, 255, 255;
+  --card_bg_black: 255, 255, 255;
+  --card_bg_hover: 248, 248, 252;
+  --card_bg_active: 243, 244, 247;
+  --card_bg_hover_black: 255, 255, 255;
+  --card_bg_hover_grey: 255, 255, 255;
+  --arrows_bg_black: 255, 255, 255;
+  --lite_bg_black: 248, 248, 252;
+  --light2_bg_black: 250, 250, 250;
+  --gray_bg_black: 184, 184, 185;
+  --white_bg_ccc: 255, 255, 255;
+  --fill_dark_light: 34, 34, 40;
+  --fill_dark_lite_ccc: 34, 34, 40;
+  --fill_dark_lite_white_hover: 34, 34, 40;
+  --checkbox_dark_light: 175, 175, 175;
+  --dff_dark_light: 255, 255, 255;
+  --stroke_input: 215, 216, 218;
+  --icon_on_card: 184, 184, 185;
+  --tag_hover: 232, 233, 237;
+
+  --input_color: var(--white_text_black);
+  --input_bg_color: var(--black_bg_black);
+  --input_bg_color-hover: var(--black_bg_black);
+  --input_bg_color-focus: var(--black_bg_black);
+  --input_border_color: var(--stroke_input);
+  --input_border_color-hover: var(--icon_on_card);
+  --input_border_color-focus: var(--secondary);
+}
+
+[data-theme="dark"] {
+  // Системные цвета
+  --basic_text_black: 209, 209, 215;
+  --secondary: 161, 161, 167;
+  --white_text_black: 255, 255, 255;
+  --white_text_black_reverse: 34, 34, 40;
+  --secondary-black-dark-light-bg: 56, 56, 63;
+  --lite_basic_text_black: 209, 209, 215;
+  --grey_bg: 49, 49, 55;
+  --black_bg_black: 34, 34, 40;
+  --darkerblack_bg_black: 42, 42, 49;
+  --darkgrey_bg_black: 52, 52, 52;
+  --stroke_black: 63, 63, 69;
+  --stroke_black_hover: 63, 63, 69;
+  --card_bg_black: 42, 42, 49;
+  --card_bg_hover: 49, 49, 55;
+  --card_bg_active: 56, 56, 63;
+  --card_bg_hover_black: 43, 43, 43;
+  --card_bg_hover_grey: 244, 244, 244;
+  --arrows_bg_black: 68, 68, 68;
+  --lite_bg_black: 34, 34, 40;
+  --light2_bg_black: 35, 35, 35;
+  --gray_bg_black: 141, 141, 141;
+  --white_bg_ccc: 204, 204, 204;
+  --fill_dark_light: 255, 255, 255;
+  --fill_dark_lite_ccc: 204, 204, 204;
+  --fill_dark_lite_white_hover: 255, 255, 255;
+  --checkbox_dark_light: 58, 58, 58;
+  --dff_dark_light: 18, 18, 18;
+  --stroke_input: 80, 80, 86;
+  --icon_on_card: 105, 107, 112;
+  --tag_hover: 75, 75, 81;
+}
+
+body {
+  font-family: var(--settings-typography-font-family-secondary), sans-serif;
+  font-size: var(--settings-typography-font-size);
+
+  background-color: rgb(var(--black_bg_black));
+  color: rgb(var(--white_text_black));
+
+  height: 6000px;
+}

@@ -1,0 +1,30 @@
+.tabs-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &__link {
+    background: rgb(239, 240, 242);
+    border: none;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: calc(1rem - 2px);
+    line-height: calc(1em + 6px);
+    border-radius: var(--settings-main-border-radius);
+    transition: background-color .3s ease, color .3s ease;
+
+    &.active {
+      background-color: rgb(var(--settings-theme-primary));
+      color: rgb(var(--settings-theme-primary-box-text));
+      cursor: default;
+    }
+  }
+}
+
+.tabs-content {
+  padding-top: 40px;
+}
