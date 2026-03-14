@@ -111,4 +111,8 @@ body {
 
   background-color: rgb(var(--black_bg_black));
   color: rgb(var(--white_text_black));
+
+  @media (max-width: 991px) {
+    padding-top: 60px;
+  }
 }

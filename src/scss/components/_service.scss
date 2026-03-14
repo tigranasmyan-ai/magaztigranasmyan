@@ -1,3 +1,33 @@
+.services-gird {
+  @media (min-width: 992px) {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  @media (max-width: 991px) {
+    overflow: auto;
+    display: flex;
+    flex-wrap: nowrap;
+
+    margin-left: calc(var(--settings-layout-container-indent) * -1);
+    margin-right: calc(var(--settings-layout-container-indent) * -1);
+
+    padding-left: var(--settings-layout-container-indent);
+    padding-right: var(--settings-layout-container-indent);
+
+    .service-item {
+      max-width: 260px;
+      width: 260px;
+      flex: 0 0 260px;
+
+      &:not(:first-child) {
+        margin-left: calc(var(--settings-layout-container-indent) / 2);
+      }
+    }
+  }
+}
+
 .service-item {
   $self: &;
 
@@ -10,14 +40,24 @@
   justify-content: space-between;
   transition: box-shadow .3s ease, border .3s ease;
 
+  @media (max-width: 991px) {
+    height: 350px;
+  }
+
   &:hover {
-    box-shadow: 0 5px 30px rgba(34, 34, 40, .08);
-    border-color: transparent;
+    @media (min-width: 992px) {
+      box-shadow: 0 5px 30px rgba(34, 34, 40, .08);
+      border-color: transparent;
+    }
   }
 
   &__picture {
     height: 270px;
     overflow: hidden;
+
+    @media (max-width: 991px) {
+      height: 170px;
+    }
 
     #{$self}:hover & {
       img {
@@ -71,5 +111,9 @@
 
   &__content {
     padding: 24px;
+
+    @media (max-width: 991px) {
+      padding: 16px;
+    }
   }
 }

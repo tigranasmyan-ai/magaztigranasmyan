@@ -5,12 +5,22 @@
   padding: 32px;
   border-radius: var(--settings-main-border-radius);
 
+  @media (max-width: 991px) {
+    padding: 16px;
+  }
+
   &__head {
     margin-bottom: 32px;
     padding-bottom: 32px;
     border-bottom: 1px solid rgb(var(--stroke_black));
     display: flex;
     justify-content: space-between;
+    gap: 24px;
+
+    @media (max-width: 991px) {
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+    }
   }
 
   &__name {
@@ -20,7 +30,8 @@
   &__info {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 5px 15px;
+    flex-wrap: wrap;
 
     & > span {
       font-size: calc(1rem - 3px);
@@ -83,6 +94,10 @@
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @media (max-width: 991px) {
+      gap: 12px;
+    }
   }
 
   &__picture {

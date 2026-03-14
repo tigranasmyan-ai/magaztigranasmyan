@@ -254,7 +254,14 @@ $(document).ready(function () {
     });
 
     new Swiper('.js-reviews-slider', {
-        slidesPerView: 2,
         spaceBetween: 15,
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+            },
+            991: {
+                slidesPerView: 2,
+            },
+        },
     });
 });

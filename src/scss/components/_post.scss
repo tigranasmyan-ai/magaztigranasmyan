@@ -1,5 +1,35 @@
 @use "../abstracts/mixins";
 
+.posts-grid {
+  @media (min-width: 992px) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  @media (max-width: 991px) {
+    overflow: auto;
+    display: flex;
+    flex-wrap: nowrap;
+
+    margin-left: calc(var(--settings-layout-container-indent) * -1);
+    margin-right: calc(var(--settings-layout-container-indent) * -1);
+
+    padding-left: var(--settings-layout-container-indent);
+    padding-right: var(--settings-layout-container-indent);
+
+    .post-item {
+      max-width: 260px;
+      width: 260px;
+      flex: 0 0 260px;
+
+      &:not(:first-child) {
+        margin-left: calc(var(--settings-layout-container-indent) / 2);
+      }
+    }
+  }
+}
+
 .post-item-bg {
   height: 435px;
   padding: 24px;
@@ -10,6 +40,14 @@
   position: relative;
   overflow: hidden;
   text-decoration: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @media (max-width: 991px) {
+    height: 260px;
+    padding: 16px;
+  }
 
   &::before {
     content: '';
@@ -83,6 +121,7 @@
     font-size: calc(1rem - 3px);
     line-height: calc(1em + 5px);
     color: #8D8D8D;
+    margin-top: 15px;
   }
 
   &__content {
@@ -91,6 +130,10 @@
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
+
+    @media (max-width: 991px) {
+      padding: 16px;
+    }
   }
 
   &__badge {
@@ -101,6 +144,10 @@
 
   &__picture {
     height: 275px;
+
+    @media (max-width: 991px) {
+      height: 170px;
+    }
 
     img {
       height: 100%;
