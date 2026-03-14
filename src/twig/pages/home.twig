@@ -1,0 +1,527 @@
+{% extends 'layouts/base.twig' %}
+
+{% block title %}Home Page - Aspro{% endblock %}
+
+{% block body_class %}home-page{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="jumbotron__slide" style="background-image: url(https://premier-demo.ru/upload/iblock/04e/c4b0gseapzp7hop5a4058aiy52s60onu.jpg)">
+                            <h2 class="jumbotron__title title title-h1">
+                                Полное погружение в мир виртуальной реальности
+                            </h2>
+
+                            <div class="jumbotron__text">
+                                Ваш постоянный источник энергии. Универсален для любой ситуаций: от оснащения
+                                электропитанием
+                            </div>
+
+                            <a href="" class="button button-lg button-default">В каталог</a>
+
+                            <img src="https://premier-demo.ru/upload/iblock/ca4/9vnae1b2nkshojojds0v4b1cphxyorcp.png"
+                                 class="jumbotron__person"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="home-page-section">
+        <div class="container">
+            <div class="swiper catalog-slider js-catalog-slider">
+                <div class="swiper-wrapper">
+                    {% for item in 1..15 %}
+                        <div class="swiper-slide">
+                            <a href="" class="catalog-slider-item">
+                                <img src="https://premier-demo.ru/upload/iblock/b2e/ay221srrr73tkvc5i51e23uy1x9c4qrp.jpg" alt="" class="catalog-slider-item__picture">
+
+                                <span class="catalog-slider-item__text title title-h7">
+                                    Хобби и творчество
+                                </span>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="swiper-button-next swiper-arrow"></div>
+                <div class="swiper-button-prev swiper-arrow"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-page__section home-page-section">
+        <div class="container">
+            <div class="home-page-section__head">
+                <a href="" class="home-page-section__title title title-h3">
+                    <span>Лучшие предложения</span>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 12" fill="none">
+                        <path d="M1 1L5 6L1 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="home-page-section__tabs">
+                {% set tabs = [
+                    {'id': 'home', 'label': 'Хит', 'active': true, 'disabled': false},
+                    {'id': 'profile', 'label': 'Советуем', 'active': false, 'disabled': false},
+                    {'id': 'contact', 'label': 'Новинка', 'active': false, 'disabled': false},
+                    {'id': 'sales', 'label': 'Акция', 'active': false, 'disabled': false},
+                ] %}
+
+                <div id="myTab" role="tablist" class="tabs-head">
+                    {% for tab in tabs %}
+                        <button
+                                class="tabs-head__link {% if tab.active %}active{% endif %}"
+                                id="{{ tab.id }}-tab"
+                                data-bs-toggle="tab"
+                                data-bs-target="#{{ tab.id }}-tab-pane"
+                                type="button"
+                                role="tab"
+                                aria-controls="{{ tab.id }}-tab-pane"
+                                aria-selected="{{ tab.active ? 'true' : 'false' }}"
+                        >
+                            {{ tab.label }}
+                        </button>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="home-page-section__content">
+                <div class="tab-content tabs-content" id="myTabContent">
+                    {% for tab in tabs %}
+                        <div
+                                class="tabs-content__item tab-pane fade {% if tab.active %}show active{% endif %}"
+                                id="{{ tab.id }}-tab-pane"
+                                role="tabpanel"
+                                aria-labelledby="{{ tab.id }}-tab"
+                                tabindex="0"
+                        >
+                            <div class="row row-cols-5 g-3">
+                                {% for item in 1..10 %}
+                                    <div class="col">
+                                        {% include '../components/shop/product-item.twig' %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="home-page__section home-page-section">
+        <div class="container">
+            <div class="home-page-section__head">
+                <a href="" class="home-page-section__title title title-h3">
+                    <span>Бренды</span>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 12" fill="none">
+                        <path d="M1 1L5 6L1 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="home-page-section__content">
+                <div class="row row-cols-6 g-3">
+                    {% for item in 1..12 %}
+                        <div class="col">
+                            <a href="" class="brand-item">
+                                <img src="https://premier-demo.ru/upload/iblock/0aa/etjlwqlggz5dpkqy92vy5dqbbfmk70mp.png"
+                                     alt="">
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-page__section home-page-section">
+        <div class="container">
+            <div class="row g-3">
+                {% for item in 1..4 %}
+                    <div class="col-3">
+                        <div class="catalog-banner">
+                            <img src="https://premier-demo.ru/upload/iblock/917/63i7t3kzcl2l03awdzokmecrfaztjs4p.jpg"
+                                 alt=""
+                                 class="catalog-banner__img">
+
+                            <div class="catalog-banner__content">
+                                <div class="catalog-banner__value">Новинка</div>
+                                <div class="catalog-banner__title title title-h5">Женская парфюмерия</div>
+
+                                <div class="catalog-banner__actions">
+                                    <a href="" class="button button-sm">Спальные мешки</a>
+                                    <a href="" class="button button-sm">Посуда</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="home-page__section home-page-section">
+        <div class="container">
+            <div class="home-page-section__head">
+                <a href="" class="home-page-section__title title title-h3">
+                    <span>Отзывы</span>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 12" fill="none">
+                        <path d="M1 1L5 6L1 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="home-page-section__content">
+                <div class="swiper js-reviews-slider">
+                    <div class="swiper-wrapper">
+                        {% for item in 1..10 %}
+                            <div class="swiper-slide">
+                                <div class="review-item">
+                                    <div class="review-item__head">
+                                        <div class="review-item__author">
+                                            <img src="https://premier-demo.ru/upload/resize_cache/iblock/09f/56_56_2/ko3l6vf2lan6p5bqojivm8nzlvn4m0kc.jpg"
+                                                 alt="" class="review-item__picture">
+
+                                            <div>
+                                                <div class="review-item__name title title title-h4">Иван Иванов</div>
+
+                                                <div class="review-item__info">
+                                                    <span>Душевая кабина Misterio 3000</span>
+                                                    <span>12.12.2023</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="review-item__rating">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15"
+                                                 viewBox="0 0 14 15" fill="none">
+                                                <path d="M6.47327 0.596967C6.64254 0.0676935 7.35746 0.0676942 7.52673 0.596967L8.82832 4.66666C8.90357 4.90195 9.11308 5.06135 9.35005 5.06359L13.4485 5.10223C13.9815 5.10726 14.2024 5.81924 13.774 6.15137L10.48 8.70522C10.2896 8.85288 10.2095 9.11079 10.2807 9.34747L11.5121 13.441C11.6723 13.9734 11.0939 14.4135 10.6598 14.0894L7.32245 11.5981C7.12949 11.4541 6.87051 11.4541 6.67755 11.5981L3.34015 14.0895C2.90612 14.4135 2.32774 13.9734 2.48789 13.441L3.71927 9.34747C3.79047 9.11079 3.71044 8.85288 3.51999 8.70522L0.225976 6.15137C-0.202419 5.81924 0.0185023 5.10726 0.551515 5.10223L4.64995 5.06359C4.88691 5.06135 5.09643 4.90195 5.17168 4.66666L6.47327 0.596967Z"
+                                                      fill="#E6AC1A"></path>
+                                            </svg>
+
+                                            <span>4</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="review-item__text">
+                                        <p>
+                                            Купили сыну телефон Nika 8 LITE в этом интернет-магазине. Всем рекомендую!
+                                            Сейчас
+                                            такой ритм жизни, что совсем нет времени ездить по магазинам. Сайт нашел в
+                                            поиске. Понравились характеристики и адекватная цена за телефон. Выбирал
+                                            подарок
+                                            на день рождения. Самое интересное, что смартфон сразу упаковали в
+                                            праздничную
+                                            бумагу и поверх закрепили бант. Менеджер сам это предложил! И это совершенно
+                                            бесплатно. Доставили в оговоренное время. Рекомендую всем)
+                                        </p>
+                                    </div>
+
+                                    <a href="" class="review-item__link">Отзыв полностью</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="home-page__divider"></div>
+
+    <section class="home-page__section home-page-section">
+        <div class="container">
+            <div class="home-page-section__head">
+                <a href="" class="home-page-section__title title title-h3">
+                    <span>Услуги</span>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 12" fill="none">
+                        <path d="M1 1L5 6L1 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="home-page-section__content">
+                <div class="row g-3">
+                    {% for item in 1..4 %}
+                        <div class="col-3">
+                            <div class="service-item">
+                                <a href="" class="service-item__picture">
+                                    <img src="https://premier-demo.ru/upload/iblock/b45/gtswttsrxl4gv7ku38e9id772k0f7j2a.jpg"
+                                         alt="">
+                                </a>
+
+                                <div class="service-item__content">
+                                    <a href="" class="service-item__title title title-h6">Монтаж оборудования</a>
+
+                                    <div class="service-item__info">
+                                        <div class="product-price">
+                                            <span class="product-price__new">от 1 000 ₽</span>
+                                            <span class="product-price__old">от 1 000 ₽</span>
+                                        </div>
+
+                                        <div class="service-item__sale">-50%</div>
+                                    </div>
+
+                                    {% include '../components/shop/cashback.twig' %}
+
+                                    <a href="" class="button button-sm button-default">
+                                        Заказать услугу
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-page__section home-page-section home-page-section--theme-light">
+        <div class="container">
+            <div class="home-page-section__head">
+                <a href="" class="home-page-section__title title title-h3">
+                    <span>Акции</span>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 12" fill="none">
+                        <path d="M1 1L5 6L1 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="home-page-section__content">
+                <div class="row g-3">
+                    {% for item in 1..2 %}
+                        <div class="col-6">
+                            <div class="sale-item">
+                                <div class="sale-item__content">
+                                    <span class="sale-item__category">
+                                        Бессрочная акция
+                                    </span>
+
+                                    <a href="" class="sale-item__title title title-h6">
+                                        Акция «2 по цене 1» за игры для консоли
+                                    </a>
+
+                                    <span class="sale-item__text">
+                                        В преддверии киберспортивных соревнований запускаем акцию: 2 по цене 1. Подбирайте
+                                        консольные игры на ваш вкус и наслаждайтесь атмосферным геймплеем.
+                                    </span>
+
+                                    <div class="sale-item__badge">-10%</div>
+                                </div>
+
+                                <a href="">
+                                    <img src="https://premier-demo.ru/upload/iblock/1d3/hccjg6lv2pcekmizraow829mwp5adfkk.jpg"
+                                         alt="" class="sale-item__picture">
+                                </a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="home-page-section__footer">
+                <a href="" class="button button-lg button-default">
+                    Показать все
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-page__section home-page-section">
+        <div class="container">
+            <div class="home-page-section__head">
+                <a href="" class="home-page-section__title title title-h3">
+                    <span>Время подкрепиться</span>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 12" fill="none">
+                        <path d="M1 1L5 6L1 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="home-page-section__content">
+                <div class="row row-cols-5 g-3">
+                    {% for item in 1..5 %}
+                        <div class="col">
+                            {% include '../components/shop/product-item.twig' %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-page__section home-page-section">
+        <div class="container">
+            <div class="home-page-section__head">
+                <a href="" class="home-page-section__title title title-h3">
+                    <span>Блог</span>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 12" fill="none">
+                        <path d="M1 1L5 6L1 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="row">
+                <div class="col-8">
+                    <div class="home-page-section__description text-content">
+                        <p>
+                            В интернет-магазине вы найдете многое: от строительных материалов до товаров для творчества.
+                            Мы работаем с крупными брендами и проверенными индивидуальными предпринимателями. Будьте
+                            уверены в качестве наших товаров!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-page-section__content">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <a href="" class="post-item-bg"
+                           style="background-image: url(https://premier-demo.ru/upload/iblock/d42/1ebgxewg8gzksy980o3uj8hdvzlzyfsv.jpg)">
+                            <span class="post-badge">Творчество</span>
+
+                            <span class="post-item-bg__title title title-h3">
+                                Как рукоделие помогает развивать фантазию и улучшать настроение
+                            </span>
+
+                            <span class="post-item-bg__date">13 мая 2024</span>
+                        </a>
+                    </div>
+
+                    {% for item in 1..2 %}
+                        <div class="col-3">
+                            <div class="post-item">
+                                <div class="post-badge post-item__badge">Творчество</div>
+
+                                <div class="post-item__picture">
+                                    <img src="https://premier-demo.ru/upload/iblock/c3d/os6fn6gr7erb2gdk1zioizm8ti4rysvw.jpg"
+                                         alt="">
+                                </div>
+
+                                <div class="post-item__content">
+                                    <span class="post-item__title title title-h6">
+                                        Здоровое питание без глютена: как выбрать и приготовить?
+                                    </span>
+
+                                    <div class="post-item__date">
+                                        11 мая 2024
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-page__section home-page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="home-page-about">
+                        <div class="home-page-about__title title title-h3">Интернет-магазин в Челябинске</div>
+
+                        <div class="text-content">
+                            <p>
+                                Аспро: Премьер — магазин полезных вещей для себя, дома, офиса и дачи. Здесь вы найдете
+                                товары под свои предпочтения: от аудиотехники и одежды до строительных материалов и
+                                велосипедов. Работаем с проверенными производителями с 2005 года. Доставляем товары
+                                точно в срок.
+                            </p>
+
+                            <p>
+                                В нашем магазине услуги доставки, сборки, установки и облуживания товаров продуманы до
+                                мелочей. Уделите внимание только подбору позиций в каталоге. Все остальные задачи
+                                выполнит наша команда!
+                            </p>
+                        </div>
+
+                        <a href="" class="button button-default button-xl">
+                            О компании
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-6">
+                    <div class="home-page-about__picture">
+                        <img src="https://premier-demo.ru/upload/iblock/23d/z803y75u7vhq7ojqasdbimqwvt921sjr.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-page__section home-page-section">
+        <div class="container">
+            <div class="home-page-section__head">
+                <a href="" class="home-page-section__title title title-h2">
+                    <span>Контакты</span>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 12" fill="none">
+                        <path d="M1 1L5 6L1 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="home-page-section__content">
+
+            </div>
+        </div>
+    </section>
+
+    <section class="home-page__section home-page-section home-page-section--theme-light">
+        <div class="container">
+            <div class="text-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet architecto beatae deserunt
+                    distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat, quos
+                    rem sunt unde veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet
+                    architecto beatae deserunt
+                    distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat, quos
+                    rem sunt unde veniam.</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet architecto beatae deserunt
+                    distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat, quos
+                    rem sunt unde veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet
+                    architecto beatae deserunt
+                    distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat, quos
+                    rem sunt unde veniam.</p>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet architecto beatae deserunt
+                    distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat, quos
+                    rem sunt unde veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet
+                    architecto beatae deserunt
+                    distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat, quos
+                    rem sunt unde veniam.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="home-page__section home-page-section">
+        <div class="container">
+            <div class="home-page-section__head">
+                <h2 class="home-page-section__title title title-h2">Вы смотрели</h2>
+            </div>
+
+            <div class="home-page-section__content">
+                asd
+            </div>
+        </div>
+    </section>
+{% endblock %}

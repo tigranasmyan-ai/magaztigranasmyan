@@ -24,7 +24,7 @@
 
 		{% include 'layouts/header.twig' %}
 
-		<main>
+		<main class="{% block main_class %}{% endblock %}">
 			{% block content %}{% endblock %}
 		</main>
 

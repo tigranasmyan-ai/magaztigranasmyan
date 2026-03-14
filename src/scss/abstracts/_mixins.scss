@@ -16,3 +16,14 @@
 @mixin debug {
   outline: 1px solid red;
 }
+
+@mixin shorted_text ($line_count: 3) {
+  -webkit-line-clamp: #{$line_count};
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-line-clamp: #{$line_count};
+  overflow: hidden;
+  word-break: break-word;
+}

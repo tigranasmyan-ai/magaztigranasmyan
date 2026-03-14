@@ -47,7 +47,7 @@
                         <li>
                             <a href="" class="fixed-bar-menu__link js-fixed-bar-menu__link">
                                 {{ item.text }}
-                                <span class="fixed-bar-menu__chevron">
+                                <span class="fixed-bar-menu__chevron js-fixed-bar-menu__chevron">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 5">
                                         <path d="M2.98043e-07 5L3 2.50006L0 3.57746e-08L2.98043e-07 5Z"/>
                                     </svg>
@@ -113,7 +113,7 @@
                             <a href="" class="fixed-bar-menu__link js-fixed-bar-menu__link">
                                 {{ item.text }}
                                 {% if item.sub %}
-                                    <span class="fixed-bar-menu__chevron">
+                                    <span class="fixed-bar-menu__chevron js-fixed-bar-menu__chevron">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 5">
                                             <path d="M2.98043e-07 5L3 2.50006L0 3.57746e-08L2.98043e-07 5Z"/>
                                         </svg>
@@ -128,7 +128,7 @@
                                             <a href="" class="js-fixed-bar-menu__link fixed-bar-menu__link">
                                                 {{ sub1.text|default(sub1) }}
                                                 {% if sub1.sub is defined and sub1.sub %}
-                                                    <span class="fixed-bar-menu__chevron">
+                                                    <span class="fixed-bar-menu__chevron js-fixed-bar-menu__chevron">
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 5">
                                                             <path d="M2.98043e-07 5L3 2.50006L0 3.57746e-08L2.98043e-07 5Z"/>
                                                         </svg>

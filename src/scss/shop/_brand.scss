@@ -1,0 +1,16 @@
+.brand-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 32px;
+  border: 1px solid rgba(var(--input_border_color), 0.5);
+  background-color: #fff;
+  border-radius: var(--settings-main-border-radius);
+  transition: box-shadow .3s ease;
+
+  &:hover {
+    box-shadow: 0 5px 30px rgba(34, 34, 40, .08);
+  }
+}

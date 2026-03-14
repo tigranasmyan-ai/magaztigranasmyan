@@ -4,12 +4,12 @@ h3,
 h4,
 h5,
 h6,
-[data-class^="title-"] {
+.title {
   font-family: var(--settings-typography-font-family-primary, var(--settings-typography-font-family-secondary)), sans-serif;
   line-height: calc(1em + 8px);
   margin-bottom: 0;
   font-weight: var(--settings-typography-weight);
-  color: rgb(var(--gray-900));
+  color: rgb(var(--white_text_black));
 }
 
 h1,
@@ -42,6 +42,13 @@ h6,
   font-size: 1rem;
 }
 
+.title-h7 {
+  font-size: calc(1rem - 2px);
+  line-height: calc(1em + 6px);
+  font-family: var(--settings-typography-font-family-secondary), sans-serif;
+}
+
+
 hr {
   height: 1px;
   margin: 25px 0;
@@ -73,8 +80,11 @@ table {
     margin: 32px 0 16px;
   }
 
+  color: rgb(var(--basic_text_black));
+
   p {
     margin-bottom: 16px;
+    line-height: 1.4;
   }
 
   ol,

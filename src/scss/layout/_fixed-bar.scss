@@ -198,10 +198,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
+    border-radius: var(--settings-main-border-radius);
+    transition: background-color .3s ease;
+
+    &:hover {
+      background-color: rgb(var(--card_bg_active));
+    }
 
     svg {
-      width: 3px;
-      height: 5px;
+      width: 5px;
+      height: 10px;
     }
   }
 }

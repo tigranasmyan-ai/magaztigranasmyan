@@ -10,12 +10,11 @@
   --settings-typography-font-size: 16px;
   --settings-typography-weight: 500;
   --settings-typography-font-family-secondary: 'Golos Text';
-  --settings-typography-font-family-primary: 'Roboto Slab';
+  --settings-typography-font-family-primary: 'Golos Text';
 
   // Лей аут
   --settings-layout-container-width: 1760px;
   --settings-layout-container-indent: 30px;
-  --settings-layout-grid-gutter: 24px;
 
   // Основные настройки
   --settings-main-border-radius: 12px;
@@ -112,6 +111,4 @@ body {
 
   background-color: rgb(var(--black_bg_black));
   color: rgb(var(--white_text_black));
-
-  height: 6000px;
 }
