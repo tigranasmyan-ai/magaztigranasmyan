@@ -1,4 +1,10 @@
 .page {
+  --page-indent: 80px;
+
+  @media (max-width: 991px) {
+    --page-indent: 40px;
+  }
+
   &__head {
     display: flex;
     flex-direction: column;
@@ -18,6 +24,24 @@
 
     p {
       margin-bottom: 0;
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: var(--page-indent);
+  }
+
+  &__layout {
+    &--default {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+
+      @media (max-width: 991px) {
+        gap: 24px;
+      }
     }
   }
 }

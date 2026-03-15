@@ -37,6 +37,7 @@
 @use "pages/home";
 @use "pages/page";
 @use "pages/brands";
+@use "pages/page-solid";
 
 // Blocks
 @use "blocks/categories";
@@ -53,6 +54,7 @@
 // Sections
 @use "sections/jumbotron";
 @use "sections/about";
+@use "sections/default";
 
 // Modules
 @use "modules/swiper";

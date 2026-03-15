@@ -53,7 +53,8 @@ hr {
   height: 1px;
   margin: 25px 0;
   border: none;
-  background: rgb(var(--gray-900), 20%);
+  background: rgb(var(--stroke_black));
+  opacity: 1;
 }
 
 table {
@@ -61,7 +62,7 @@ table {
 
   td,
   th {
-    border: 1px solid rgb(var(--white-100));
+    border: 1px solid rgb(var(--stroke_black));
     padding: 12px 16px;
   }
 
@@ -70,7 +71,7 @@ table {
   }
 
   thead {
-    background-color: rgb(var(--white-50));
+    background-color: rgb(var(--stroke_black));
     font-size: 14px;
   }
 }
