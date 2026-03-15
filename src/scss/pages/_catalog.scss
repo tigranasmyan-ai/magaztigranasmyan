@@ -1,0 +1,17 @@
+.catalog-page {
+  &__wrapper {
+    display: flex;
+  }
+
+  &__content {
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__aside {
+    flex: 0 0 260px;
+    max-width: 260px;
+  }
+}

@@ -31,12 +31,14 @@
 @use "layout/header";
 @use "layout/footer";
 @use "layout/container";
+@use "layout/filter";
 @use "layout/fixed-bar";
 
 // Pages
 @use "pages/home";
 @use "pages/page";
 @use "pages/brands";
+@use "pages/catalog";
 @use "pages/page-solid";
 
 // Blocks

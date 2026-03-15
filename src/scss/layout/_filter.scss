@@ -1,0 +1,29 @@
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.filter-item {
+  &__head {
+    display: flex;
+    align-items: center;
+    stroke: white;
+    gap: 8px;
+    text-decoration: none;
+
+    &:not(.collapsed) {
+      svg {
+        transform: rotate(90deg);
+      }
+    }
+
+    span {
+      line-height: 1;
+    }
+  }
+
+  &__content {
+    padding-top: 16px;
+  }
+}
