@@ -72,8 +72,9 @@
 
             <div class="site-header__actions">
                 {% for action in actions %}
-                    <div class="site-header-action js-header-action {{ action.class }}">
-                        <a href="{{ action.href }}" class="site-header-action__link" {% if loop.first %}data-bs-toggle="modal" data-bs-target="#LoginModal"{% endif %}>
+                    <div class="site-header-action js-header-action {{ action.class }} {{ action.icon == 'search-action' ? 'js-search-mobile-opener' : '' }}">
+                        <a href="{{ action.href }}" class="site-header-action__link" 
+                           {% if action.icon == 'log-out' %}data-bs-toggle="modal" data-bs-target="#LoginModal"{% endif %}>
                             <span class="site-header-action__top">
                                 <svg class="site-header-action__icon" width="{{ action.width }}"
                                      height="{{ action.height }}">

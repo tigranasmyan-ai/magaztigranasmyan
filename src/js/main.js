@@ -329,6 +329,23 @@ $(document).ready(function () {
     })
 
     /**
+     * Mobile Search Toggle
+     */
+    const $body = $('body');
+    const $searchOverlay = $('.site-header__search');
+
+    $(document).on('click', '.js-search-mobile-opener', function (e) {
+        e.preventDefault();
+        $searchOverlay.addClass('is-active');
+        $body.addClass('is-frozen');
+    });
+
+    $(document).on('click', '.js-search__close', function () {
+        $searchOverlay.removeClass('is-active');
+        $body.removeClass('is-frozen');
+    });
+
+    /**
      * Password toggle
      */
     $(document).on('click', '.js-password-toggle', function () {
