@@ -1,0 +1,38 @@
+{% set type = type|default('text') %}
+{% set input_classes = 'form-input' %}
+{% if error %}{% set input_classes = input_classes ~ ' is-invalid' %}{% endif %}
+{% if class %}{% set input_classes = input_classes ~ ' ' ~ class %}{% endif %}
+
+<div class="form-group {{ type == 'password' ? 'is-password' : '' }}">
+    {% if label %}
+        <label {% if id %}for="{{ id }}"{% endif %} class="form-label">{{ label }}</label>
+    {% endif %}
+    
+    <div class="form-input-wrapper">
+        <input 
+            type="{{ type }}"
+            class="{{ input_classes }}"
+            {% if id %}id="{{ id }}"{% endif %}
+            {% if name %}name="{{ name }}"{% endif %}
+            {% if value %}value="{{ value }}"{% endif %}
+            {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
+            {% if required %}required{% endif %}
+            {% if disabled %}disabled{% endif %}
+        >
+
+        {% if type == 'password' %}
+            <button type="button" class="form-input-toggle js-password-toggle">
+                <svg class="form-input-toggle__icon icon-eye">
+                    <use href="img/svg-icons-final.svg#eye"></use>
+                </svg>
+                <svg class="form-input-toggle__icon icon-eye-hide">
+                    <use href="img/svg-icons-final.svg#eye-hide"></use>
+                </svg>
+            </button>
+        {% endif %}
+    </div>
+
+    {% if error %}
+        <div class="invalid-feedback">{{ error }}</div>
+    {% endif %}
+</div>

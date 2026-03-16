@@ -1,0 +1,22 @@
+.compare-page {
+  background-color: red;
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__tabs {
+    @media (max-width: 991px) {
+      overflow: auto;
+
+      white-space: nowrap;
+      margin-left: calc(var(--settings-layout-container-indent) * -1);
+      margin-right: calc(var(--settings-layout-container-indent) * -1);
+
+      padding-left: var(--settings-layout-container-indent);
+      padding-right: var(--settings-layout-container-indent);
+    }
+  }
+}

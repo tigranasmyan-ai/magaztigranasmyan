@@ -1,4 +1,4 @@
-<div class="product-card js-product-card" data-view="grid">
+<div class="product-card js-product-card {{ disabled_bottom == true ? 'product-card--disabled-bottom' : '' }}" data-view="grid">
     <div class="product-card__top">
         <div class="product-card__badges product-badges">
             {% include '../ui/badge.twig' with { text: 'Хит', type: 'green', tag: 'div' } %}
@@ -148,43 +148,47 @@
         <a href="" class="product-card__button button button-sm button-default">В корзину</a>
     </div>
 
-    <div class="product-card__bottom">
-        <div class="product-card__variants variants">
-            {% for item in 1..2 %}
-                <div class="variant">
-                    <div class="variant__title">Цвет: 232 Нежный кашемир</div>
+    {% if disabled_bottom != true %}
+        <div class="product-card__bottom">
+            <div class="product-card__variants variants">
+                {% for item in 1..2 %}
+                    <div class="variant">
+                        <div class="variant__title">Цвет: 232 Нежный кашемир</div>
 
-                    <div class="variant__list">
-                        {% for item in 1..12 %}
-                            <button type="button" class="variant__item {{ loop.index == 1 ? 'active' : '' }}">
-                                <img src="https://premier-demo.ru/upload/iblock/ca7/cyah1pp4hju0qyqahn0u32rv5hplyn17.jpg" alt="">
-                            </button>
-                        {% endfor %}
+                        <div class="variant__list">
+                            {% for item in 1..12 %}
+                                <button type="button" class="variant__item {{ loop.index == 1 ? 'active' : '' }}">
+                                    <img src="https://premier-demo.ru/upload/iblock/ca7/cyah1pp4hju0qyqahn0u32rv5hplyn17.jpg"
+                                         alt="">
+                                </button>
+                            {% endfor %}
+                        </div>
                     </div>
+                {% endfor %}
+            </div>
+
+            <div class="product-card__props properties">
+                <div class="properties__item">
+                    <span>Материал:</span>
+                    <span><a href="">Дерево</a>, <a href="">Пластик</a></span>
                 </div>
-            {% endfor %}
-        </div>
 
-        <div class="product-card__props properties">
-            <div class="properties__item">
-                <span>Материал:</span>
-                <span><a href="">Дерево</a>, <a href="">Пластик</a></span>
-            </div>
+                <div class="properties__item">
+                    <span>Общая мощность, Вт:</span>
+                    <span>12</span>
+                </div>
 
-            <div class="properties__item">
-                <span>Общая мощность, Вт:</span>
-                <span>12</span>
-            </div>
+                <div class="properties__item">
+                    <span>Габариты (ВхШхГ), см:</span>
+                    <span>13х34х6</span>
+                </div>
 
-            <div class="properties__item">
-                <span>Габариты (ВхШхГ), см:</span>
-                <span>13х34х6</span>
-            </div>
-
-            <div class="properties__item">
-                <span>Дополнительно:</span>
-                <span>Кодирование звука в MP3 формат</span>
+                <div class="properties__item">
+                    <span>Дополнительно:</span>
+                    <span>Кодирование звука в MP3 формат</span>
+                </div>
             </div>
         </div>
-    </div>
+    {% endif %}
+
 </div>

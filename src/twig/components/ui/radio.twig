@@ -1,0 +1,21 @@
+{% set radio_classes = 'form-radio' %}
+{% if class %}{% set radio_classes = radio_classes ~ ' ' ~ class %}{% endif %}
+
+<div class="radio-group">
+    <label class="radio {{ radio_classes }}">
+        <input 
+            type="radio" 
+            class="radio__input"
+            {% if id %}id="{{ id }}"{% endif %}
+            {% if name %}name="{{ name }}"{% endif %}
+            {% if value %}value="{{ value }}"{% endif %}
+            {% if checked %}checked{% endif %}
+            {% if required %}required{% endif %}
+            {% if disabled %}disabled{% endif %}
+        >
+        <span class="radio__box"></span>
+        {% if label %}
+            <span class="radio__text">{{ label|raw }}</span>
+        {% endif %}
+    </label>
+</div>

@@ -1,0 +1,32 @@
+{% set switch_classes = 'form-switch' %}
+{% if class %}{% set switch_classes = switch_classes ~ ' ' ~ class %}{% endif %}
+
+<div class="switch-group">
+    <label class="switch {{ switch_classes }}">
+        <input 
+            type="checkbox" 
+            class="switch__input"
+            {% if id %}id="{{ id }}"{% endif %}
+            {% if name %}name="{{ name }}"{% endif %}
+            {% if checked %}checked{% endif %}
+            {% if required %}required{% endif %}
+            {% if disabled %}disabled{% endif %}
+        >
+        <div class="switch__container">
+            <span class="switch__slider"></span>
+            {% if text_on or text_off %}
+                <div class="switch__labels">
+                    {% if text_on %}
+                        <span class="switch__on">{{ text_on }}</span>
+                    {% endif %}
+                    {% if text_off %}
+                        <span class="switch__off">{{ text_off }}</span>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+        {% if label %}
+            <span class="switch__text">{{ label|raw }}</span>
+        {% endif %}
+    </label>
+</div>

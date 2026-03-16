@@ -1,0 +1,9 @@
+{% set methods = methods|default(['visa', 'mastercard', 'maestro', 'mir', 'sbp', 'tinkoff', 'halva', 'cash']) %}
+
+<div class="payments">
+    {% for method in methods %}
+        <div class="payments__item">
+            <span class="payments__icon {{ method }}" title="{{ method|capitalize }}"></span>
+        </div>
+    {% endfor %}
+</div>

@@ -45,6 +45,7 @@
 @use "pages/brands";
 @use "pages/catalog";
 @use "pages/page-solid";
+@use "pages/compare-page";
 
 // Blocks
 @use "blocks/categories";
@@ -73,3 +74,4 @@
 @use "modules/modal";
 @use "modules/dropdown";
 @use "modules/fast-menu";
+@use "modules/compare";

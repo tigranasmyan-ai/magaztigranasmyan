@@ -1,0 +1,20 @@
+{% set checkbox_classes = 'form-checkbox' %}
+{% if class %}{% set checkbox_classes = checkbox_classes ~ ' ' ~ class %}{% endif %}
+
+<div class="checkbox-group">
+    <label class="checkbox {{ checkbox_classes }}">
+        <input 
+            type="checkbox" 
+            class="checkbox__input"
+            {% if id %}id="{{ id }}"{% endif %}
+            {% if name %}name="{{ name }}"{% endif %}
+            {% if checked %}checked{% endif %}
+            {% if required %}required{% endif %}
+            {% if disabled %}disabled{% endif %}
+        >
+        <span class="checkbox__box"></span>
+        {% if label %}
+            <span class="checkbox__text">{{ label|raw }}</span>
+        {% endif %}
+    </label>
+</div>

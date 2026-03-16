@@ -432,4 +432,67 @@ $(document).ready(function () {
             });
         });
     });
+
+    const compareSlider = new Swiper('.js-compare-products-slider', {
+        slidesPerView: 5,
+        spaceBetween: 15,
+        breakpoints: {
+            0: {
+                slidesPerView: 2,
+                spaceBetween: 10
+            },
+            768: {
+                slidesPerView: 3
+            },
+            1024: {
+                slidesPerView: 5
+            }
+        }
+    });
+
+    const compareDetails = new Swiper('.js-compare-products-details', {
+        slidesPerView: 5,
+        spaceBetween: 0,
+        breakpoints: {
+            0: {
+                slidesPerView: 2,
+            },
+            768: {
+                slidesPerView: 3
+            },
+            1024: {
+                slidesPerView: 5
+            }
+        }
+    });
+
+    if (compareSlider && compareDetails) {
+        const sliders = Array.isArray(compareSlider) ? compareSlider : [compareSlider];
+        const details = Array.isArray(compareDetails) ? compareDetails : [compareDetails];
+
+        sliders.forEach(s => {
+            s.controller.control = details;
+        });
+
+        details.forEach(d => {
+            d.controller.control = sliders;
+        });
+    }
+
+    /**
+     * Compare details synchronized hover
+     */
+    $(document).on('mouseenter', '.js-compare-products-details .compare-list-item', function() {
+        const index = $(this).index();
+        const $parents = $(this).closest('.js-compare-products-details');
+        
+        $parents.find('.compare-list').each(function() {
+            $(this).find('.compare-list-item').eq(index).addClass('is-hovered');
+        });
+    });
+
+    $(document).on('mouseleave', '.js-compare-products-details .compare-list-item', function() {
+        const $parents = $(this).closest('.js-compare-products-details');
+        $parents.find('.compare-list-item').removeClass('is-hovered');
+    });
 });
