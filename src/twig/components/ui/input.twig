@@ -1,14 +1,26 @@
 {% set type = type|default('text') %}
 {% set input_classes = 'form-input' %}
+{% if size %}{% set input_classes = input_classes ~ ' form-input--' ~ size %}{% endif %}
+{% if theme %}{% set input_classes = input_classes ~ ' form-input--theme-' ~ theme %}{% endif %}
 {% if error %}{% set input_classes = input_classes ~ ' is-invalid' %}{% endif %}
 {% if class %}{% set input_classes = input_classes ~ ' ' ~ class %}{% endif %}
 
-<div class="form-group {{ type == 'password' ? 'is-password' : '' }}">
+{% set wrapper_classes = 'form-input-wrapper' %}
+{% if type == 'password' %}{% set wrapper_classes = wrapper_classes ~ ' is-password' %}{% endif %}
+{% if icon_left %}{% set wrapper_classes = wrapper_classes ~ ' has-icon-left' %}{% endif %}
+{% if icon_right %}{% set wrapper_classes = wrapper_classes ~ ' has-icon-right' %}{% endif %}
+
+<div class="form-group">
     {% if label %}
         <label {% if id %}for="{{ id }}"{% endif %} class="form-label">{{ label }}</label>
     {% endif %}
     
-    <div class="form-input-wrapper">
+    <div class="{{ wrapper_classes }}">
+        {% if icon_left %}
+            <svg class="form-input-icon form-input-icon--left">
+                <use href="img/svg-icons-final.svg#{{ icon_left }}"></use>
+            </svg>
+        {% endif %}
         <input 
             type="{{ type }}"
             class="{{ input_classes }}"
@@ -19,6 +31,12 @@
             {% if required %}required{% endif %}
             {% if disabled %}disabled{% endif %}
         >
+
+        {% if icon_right and type != 'password' %}
+            <svg class="form-input-icon form-input-icon--right">
+                <use href="img/svg-icons-final.svg#{{ icon_right }}"></use>
+            </svg>
+        {% endif %}
 
         {% if type == 'password' %}
             <button type="button" class="form-input-toggle js-password-toggle">

@@ -7,6 +7,19 @@
     }
   }
 
+  &__counter {
+    height: 33px;
+    font-size: clamp(1rem, 2vw, 1rem + 2px);
+    line-height: calc(1em + 8px);
+    border: 1px solid rgb(var(--stroke_black));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 10px 4px 10px;
+    border-radius: var(--settings-main-border-radius);
+    transform: translateY(4px);
+  }
+
   &__thead {
     display: flex;
     padding-bottom: 12px;

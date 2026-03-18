@@ -28,6 +28,19 @@
   &.is-invalid {
     border-color: #ff4d4f;
   }
+
+  // Sizes
+  &--sm {
+    height: 40px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+
+  &--lg {
+    height: 56px;
+    padding: 0 20px;
+    font-size: 18px;
+  }
 }
 
 .form-input-wrapper {
@@ -37,6 +50,71 @@
 
   .form-input {
     margin-bottom: 0; // Reset margin if it's in a group
+  }
+
+  &.has-icon-left .form-input {
+    padding-left: 44px;
+  }
+
+  &.has-icon-right .form-input {
+    padding-right: 44px;
+  }
+
+  &.is-password .form-input {
+    padding-right: 48px;
+  }
+
+  &.has-icon-left {
+    .form-input--sm { padding-left: 38px; }
+    .form-input--lg { padding-left: 50px; }
+  }
+
+  &.has-icon-right {
+    .form-input--sm { padding-right: 38px; }
+    .form-input--lg { padding-right: 50px; }
+  }
+}
+
+.form-input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: rgb(var(--secondary));
+  pointer-events: none;
+  z-index: 2;
+
+  &--left {
+    left: 14px;
+
+    .form-input--sm ~ & {
+        left: 10px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .form-input--lg ~ & {
+        left: 18px;
+        width: 22px;
+        height: 22px;
+    }
+  }
+
+  &--right {
+    right: 14px;
+
+    .form-input--sm ~ & {
+        right: 10px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .form-input--lg ~ & {
+        right: 18px;
+        width: 22px;
+        height: 22px;
+    }
   }
 }
 

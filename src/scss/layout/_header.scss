@@ -459,6 +459,7 @@
 .site-header.compact {
   border-bottom: 1px solid rgb(var(--stroke_black));
   display: block;
+  padding-top: 0;
 
   @media (min-width: 992px) {
     height: initial;
@@ -480,6 +481,10 @@
       @media (min-width: 992px) {
         display: none;
       }
+    }
+    
+    &__search {
+      display: none;
     }
 
     &__location,

@@ -9,6 +9,10 @@
 
 
 <header class="site-header compact">
+    {% include 'components/search.twig' with {
+        class: 'site-header__search',
+    } %}
+
     <div class="container">
         <div class="site-header__row">
             <div class="site-header__location site-header-location">

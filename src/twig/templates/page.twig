@@ -13,7 +13,12 @@
             ]
         } %}
 
-        <h1 class="title title-h1">{% block page_title %}{% endblock %}</h1>
+        <h1 class="page__title title title-h1">
+            {% block page_title %}{% endblock %}
+
+            {% block page_title_end %}
+            {% endblock %}
+        </h1>
 
         {% if block('page_text') is not empty %}
             <div class="page__description">

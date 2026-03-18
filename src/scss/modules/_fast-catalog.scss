@@ -1,4 +1,6 @@
 .fast-catalog {
+  $self: &;
+
   max-width: var(--settings-layout-container-width);
   margin-left: auto;
   margin-right: auto;
@@ -8,6 +10,12 @@
   border-radius: var(--settings-main-border-radius);
   overflow: auto;
   display: none;
+
+  &.is-page {
+    display: block;
+    background-color: transparent;
+    padding: 0;
+  }
 
   &__row {
     gap: 32px 12px;
@@ -20,6 +28,22 @@
 
     @media (max-width: 1199px) {
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    #{$self}.is-page & {
+      grid-template-columns: repeat(4, 1fr);
+
+      @media (max-width: 1199px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      @media (max-width: 991px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @media (max-width: 576px) {
+        grid-template-columns: repeat(1, 1fr);
+      }
     }
   }
 
