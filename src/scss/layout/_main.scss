@@ -1,3 +1,20 @@
 .site-main {
+  &--type-solid {
+    --page-indent: 80px;
 
+    @media (max-width: 991px) {
+      --page-indent: 40px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--page-indent);
+
+    padding-top: var(--settings-layout-container-indent);
+    padding-bottom: 80px;
+  }
+
+  .breadcrumbs-container {
+    margin-bottom: calc((var(--page-indent) * -1) / 2);
+  }
 }

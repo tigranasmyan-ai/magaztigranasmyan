@@ -8,7 +8,7 @@
     { href: 'cart.html', icon: 'cart', text: 'Корзина', width: 20, height: 20, counter: true }
 ] %}
 
-<header class="site-header {{ compact ? 'compact' : '' }} js-header">
+<header class="site-header {{ page_settings.compact ? 'compact' : '' }} js-header">
     <div class="site-header__container container">
         <div class="site-header__top">
             {# Город #}
@@ -116,7 +116,7 @@
                                                     old: '300 ₽'
                                                 } %}
 
-                                                {% include '@components/@shop/price.twig' %}
+                                                {% include '@components/@shop/cashback.twig' %}
                                             </div>
                                         </div>
                                     {% endif %}

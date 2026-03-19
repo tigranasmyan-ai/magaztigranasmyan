@@ -1,95 +1,104 @@
-{% embed 'templates/base.twig' with {
-    title: 'Главная',
-    class: {},
-    header_compact: true,
-    footer_compact: true,
+{% extends 'templates/base.twig' %}
+
+{% set page_settings = {
+    compact: true,
+    classes: {
+        body: 'cart-page',
+    },
+    breadcrumbs: [
+        { text: 'Главная', href: 'index.html' },
+        { text: 'Каталог', href: 'catalog.html' },
+        { text: 'Корзина', href: 'cart.html', active: true },
+    ]
 } %}
-    {% block content %}
-        <section class="section">
-            <div class="container">
-                <div class="section__main">
-                    <div class="title title-h1">
-                        Корзина
-                    </div>
 
-                    <div class="section__wrapper">
-                        <div class="section__content">
-                            {% for item in 1..10 %}
-                                {% include 'item/product/product-item-basket.twig' %}
-                            {% endfor %}
-                        </div>
+{% block content %}
 
-                        <div class="section__aside is-lg">
-                            <div>
-                                <div class="panel panel-sm">
-                                    <div class="cart-page-totals__head">
-                                        <div class="title title-h3">Итого</div>
-
-                                        <div>
-                                            {% include '@components/@shop/price.twig' with {
-                                                size: 'xl',
-                                                now: '1 300 ₽/шт',
-                                                old: '1 600 ₽/шт',
-                                                class: 'price',
-                                            } %}
-
-
-                                            {% include '@components/@shop/price.twig' with {
-                                                class: 'cart-product__cashback'
-                                            } %}
-                                        </div>
-                                    </div>
-
-                                    {% include '@components/forms/input.twig' with {
-                                        type: 'text',
-                                        icon_right: 'arrow-end',
-                                        id: 'LoginModalPassword',
-                                        required: true,
-                                        size: 'sm',
-                                        placeholder: 'Есть промокод?',
-                                    } %}
-
-                                    <a href=""
-                                       class="button button-default button-xl button-block cart-page-totals__button">
-                                        Перейти к оформлению
-                                    </a>
-
-                                    <a href="" class="button button-solid button-lg button-block">
-                                        Купить в 1 клик
-                                    </a>
-                                </div>
-
-                                <a href="" class="button button-block button-link">
-                                    Очистить корзину
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="container">
-                <div class="title title-h2">
-                    Вам может понравиться
+    <section class="section">
+        <div class="container">
+            <div class="section__main">
+                <div class="title title-h1">
+                    Корзина
                 </div>
 
-                <div class="swiper js-products-view-slider">
-                    <div class="swiper-wrapper">
+                <div class="cart-page__wrapper">
+                    <div class="cart-page__content">
                         {% for item in 1..10 %}
-                            <div class="swiper-slide">
-                                {% include 'item/product/product-item-viewed.twig' with {
-                                    badge: { text: '-10%', type: 'red' }
-                                } %}
-                            </div>
+                            {% include 'item/product/product-item-basket.twig' %}
                         {% endfor %}
                     </div>
 
-                    <div class="swiper-button-next swiper-arrow"></div>
-                    <div class="swiper-button-prev swiper-arrow"></div>
+                    <div class="cart-page__aside">
+                        <div>
+                            <div class="cart-page__totals">
+                                <div class="cart-page-totals__head">
+                                    <div class="title title-h3">Итого</div>
+
+                                    <div>
+                                        {% include '@components/@shop/price.twig' with {
+                                            size: 'xl',
+                                            now: '1 300 ₽/шт',
+                                            old: '1 600 ₽/шт',
+                                            class: 'price',
+                                        } %}
+
+
+                                        {% include '@components/@shop/cashback.twig' with {
+                                            class: 'cart-product__cashback'
+                                        } %}
+                                    </div>
+                                </div>
+
+                                {% include '@components/forms/input.twig' with {
+                                    type: 'text',
+                                    icon_right: 'arrow-end',
+                                    id: 'LoginModalPassword',
+                                    required: true,
+                                    size: 'sm',
+                                    placeholder: 'Есть промокод?',
+                                } %}
+
+                                <a href=""
+                                   class="button button-default button-xl button-block cart-page-totals__button">
+                                    Перейти к оформлению
+                                </a>
+
+                                <a href="" class="button button-solid button-lg button-block">
+                                    Купить в 1 клик
+                                </a>
+                            </div>
+
+                            <a href="" class="button button-block button-link">
+                                Очистить корзину
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    {% endblock %}
-{% endembed %}
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container section__main">
+            <div class="title title-h2">
+                Вам может понравиться
+            </div>
+
+            <div class="swiper js-products-view-slider">
+                <div class="swiper-wrapper">
+                    {% for item in 1..10 %}
+                        <div class="swiper-slide">
+                            {% include 'item/product/product-item-viewed.twig' with {
+                                badge: { text: '-10%', type: 'red' }
+                            } %}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="swiper-button-next swiper-arrow"></div>
+                <div class="swiper-button-prev swiper-arrow"></div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

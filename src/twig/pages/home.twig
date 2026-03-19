@@ -1,3 +1,5 @@
+{% extends 'templates/base.twig' %}
+
 {% import _self as ui %}
 
 {% macro home_section_head(text) %}
@@ -10,280 +12,280 @@
     </a>
 {% endmacro %}
 
-{% embed 'templates/base.twig' with {
-    title: 'Демоверсия Аспро: Премьер — готовый сайт на 1С-Битрикс',
-    class: {
+{% set page_settings = {
+    classes: {
         body: 'home-page',
         main: 'home-page__main',
     },
+    title: 'Демоверсия Аспро: Премьер — готовый сайт на 1С-Битрикс',
 } %}
-    {% block content %}
-        <div class="container">
-            <div class="home-page__top">
-                <div class="jumbotron">
-                    <div class="swiper">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                {% include 'item/jumbotron-item.twig' %}
-                            </div>
+
+{% block content %}
+    <div class="container">
+        <div class="home-page__top">
+            <div class="jumbotron">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            {% include 'item/jumbotron-item.twig' %}
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="swiper categories-slider js-catalog-card-slider">
-                    <div class="swiper-wrapper">
-                        {% for item in 1..15 %}
-                            <div class="swiper-slide">
-                                {% include 'item/category-item.twig' %}
-                            </div>
-                        {% endfor %}
-                    </div>
+            <div class="swiper categories-slider js-catalog-card-slider">
+                <div class="swiper-wrapper">
+                    {% for item in 1..15 %}
+                        <div class="swiper-slide">
+                            {% include 'item/category-item.twig' %}
+                        </div>
+                    {% endfor %}
+                </div>
 
-                    <div class="swiper-button-next swiper-arrow"></div>
-                    <div class="swiper-button-prev swiper-arrow"></div>
+                <div class="swiper-button-next swiper-arrow"></div>
+                <div class="swiper-button-prev swiper-arrow"></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="container section">
+        <div class="section__main">
+            {% set tabs = [
+                { id: 'popular', label: 'Популярные', active: true },
+                { id: 'new', label: 'Новинки' },
+                { id: 'sale', label: 'Акции' }
+            ] %}
+
+            {# HEAD #}
+            {% include '@components/ui/tab/tab-head.twig' with { tabs } %}
+
+            {# CONTENT #}
+            {% embed '@components/ui/tab/tab-content.twig' with { tabs } %}
+                {% block content %}
+                    {% if tab.id == 'popular' or tab.id == 'new' or tab.id == 'sale' %}
+                        <div class="product-items is-scrollable-mobile" data-view="grid">
+                            {% for item in 1..10 %}
+                                {% include 'item/product/product-item.twig' %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </section>
+
+    <section class="container section">
+        <div class="section__main">
+            {{ ui.home_section_head('Бренды') }}
+
+            <div class="brand-card-grid">
+                {% for item in 1..12 %}
+                    {% include 'item/brand-item.twig' %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="catalog-banners is-scrollable-mobile">
+            {% for item in 1..4 %}
+                {% include 'item/catalog-banner-item.twig' %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="container section">
+        <div class="section__main">
+            {{ ui.home_section_head('Отзывы') }}
+
+            <div class="swiper js-reviews-slider">
+                <div class="swiper-wrapper">
+                    {% for item in 1..10 %}
+                        <div class="swiper-slide">
+                            {% include 'item/review-item.twig' %}
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
+    </section>
 
-        <section class="container section">
-            <div class="section__main">
-                {% set tabs = [
-                    { id: 'popular', label: 'Популярные', active: true },
-                    { id: 'new', label: 'Новинки' },
-                    { id: 'sale', label: 'Акции' }
-                ] %}
+    <hr class="divider">
 
-                {# HEAD #}
-                {% include '@components/ui/tab/tab-head.twig' with { tabs } %}
+    <section class="container section">
+        <div class="section__main">
+            {{ ui.home_section_head('Услуги') }}
 
-                {# CONTENT #}
-                {% embed '@components/ui/tab/tab-content.twig' with { tabs } %}
-                    {% block content %}
-                        {% if tab.id == 'popular' or tab.id == 'new' or tab.id == 'sale' %}
-                            <div class="product-items is-scrollable-mobile" data-view="grid">
-                                {% for item in 1..10 %}
-                                    {% include 'item/product/product-item.twig' %}
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    {% endblock %}
-                {% endembed %}
-            </div>
-        </section>
-
-        <section class="container section">
-            <div class="section__main">
-                {{ ui.home_section_head('Бренды') }}
-
-                <div class="brand-card-grid">
-                    {% for item in 1..12 %}
-                        {% include 'item/brand-item.twig' %}
-                    {% endfor %}
-                </div>
-            </div>
-        </section>
-
-        <section class="container">
-            <div class="catalog-banners is-scrollable-mobile">
+            <div class="services-gird is-scrollable-mobile">
                 {% for item in 1..4 %}
-                    {% include 'item/catalog-banner-item.twig' %}
+                    {% include 'item/service-item.twig' %}
                 {% endfor %}
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="container section">
-            <div class="section__main">
-                {{ ui.home_section_head('Отзывы') }}
+    <section class="section section--theme-dark">
+        <div class="container section__main">
+            {{ ui.home_section_head('Акции') }}
 
-                <div class="swiper js-reviews-slider">
-                    <div class="swiper-wrapper">
-                        {% for item in 1..10 %}
-                            <div class="swiper-slide">
-                                {% include 'item/review-item.twig' %}
-                            </div>
-                        {% endfor %}
+            <div class="sales">
+                {% for item in 1..2 %}
+                    {% include 'item/sale-item.twig' %}
+                {% endfor %}
+            </div>
+
+            {% include '@components/button.twig' with {
+                button_size: 'lg',
+                button_text: 'Показать все',
+            } %}
+        </div>
+    </section>
+
+    <section class="container section">
+        <div class="section__main">
+            {{ ui.home_section_head('Время подкрепиться') }}
+
+            <div class="product-items is-scrollable-mobile" data-view="grid">
+                {% for item in 1..10 %}
+                    {% include 'item/product/product-item.twig' %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="container section">
+        <div class="section__main">
+            {{ ui.home_section_head('Блог') }}
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="home-page__description text-content">
+                        <p>
+                            В интернет-магазине вы найдете многое: от строительных материалов до товаров для
+                            творчества.
+                            Мы работаем с крупными брендами и проверенными индивидуальными предпринимателями. Будьте
+                            уверены в качестве наших товаров!
+                        </p>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <hr class="divider">
-
-        <section class="container section">
-            <div class="section__main">
-                {{ ui.home_section_head('Услуги') }}
-
-                <div class="services-gird is-scrollable-mobile">
-                    {% for item in 1..4 %}
-                        {% include 'item/service-item.twig' %}
-                    {% endfor %}
-                </div>
-            </div>
-        </section>
-
-        <section class="section section--theme-dark">
-            <div class="container section__main">
-                {{ ui.home_section_head('Акции') }}
-
-                <div class="sales">
-                    {% for item in 1..2 %}
-                        {% include 'item/sale-item.twig' %}
-                    {% endfor %}
-                </div>
-
-                {% include '@components/button.twig' with {
-                    button_size: 'lg',
-                    button_text: 'Показать все',
-                } %}
-            </div>
-        </section>
-
-        <section class="container section">
-            <div class="section__main">
-                {{ ui.home_section_head('Время подкрепиться') }}
-
-                <div class="product-items is-scrollable-mobile" data-view="grid">
-                    {% for item in 1..10 %}
-                        {% include 'item/product/product-item.twig' %}
-                    {% endfor %}
-                </div>
-            </div>
-        </section>
-
-        <section class="container section">
-            <div class="section__main">
-                {{ ui.home_section_head('Блог') }}
-
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="home-page__description text-content">
-                            <p>
-                                В интернет-магазине вы найдете многое: от строительных материалов до товаров для
-                                творчества.
-                                Мы работаем с крупными брендами и проверенными индивидуальными предпринимателями. Будьте
-                                уверены в качестве наших товаров!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row g-3">
-                    <div class="col-lg-6">
-                        {% include 'item/post/post-item-bg.twig' %}
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="posts is-scrollable-mobile" data-view="grid">
-                            {% for item in 1..2 %}
-                                {% include 'item/post/post-item-grid.twig' %}
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="container home-page-about">
             <div class="row g-3">
                 <div class="col-lg-6">
-                    <div class="panel home-page-about__wrapper">
-                        <div class="title title-h3">Интернет-магазин в Челябинске</div>
-
-                        <div class="text-content">
-                            <p>
-                                Аспро: Премьер — магазин полезных вещей для себя, дома, офиса и дачи. Здесь вы
-                                найдете
-                                товары под свои предпочтения: от аудиотехники и одежды до строительных материалов и
-                                велосипедов. Работаем с проверенными производителями с 2005 года. Доставляем товары
-                                точно в срок.
-                            </p>
-
-                            <p>
-                                В нашем магазине услуги доставки, сборки, установки и облуживания товаров продуманы
-                                до
-                                мелочей. Уделите внимание только подбору позиций в каталоге. Все остальные задачи
-                                выполнит наша команда!
-                            </p>
-                        </div>
-
-                        {% include '@components/button.twig' with {
-                            button_size: 'xl',
-                            button_text: ' О компании',
-                            button_class: 'home-page-about__button',
-                        } %}
-                    </div>
+                    {% include 'item/post/post-item-bg.twig' %}
                 </div>
 
                 <div class="col-lg-6">
-                    <div class="home-page-about__picture">
-                        <img src="https://premier-demo.ru/upload/iblock/23d/z803y75u7vhq7ojqasdbimqwvt921sjr.jpg"
-                             alt="">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section container">
-            <div class="section__main">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d97517.34939014436!2d44.515328000000004!3d40.199782400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sam!4v1773936129341!5m2!1sen!2sam"
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade" class="home-page__map"></iframe>
-            </div>
-        </section>
-
-        <section class="section section--theme-dark">
-            <div class="text-content container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet architecto beatae
-                    deserunt
-                    distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat,
-                    quos
-                    rem sunt unde veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet
-                    architecto beatae deserunt
-                    distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat,
-                    quos
-                    rem sunt unde veniam.</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet architecto beatae
-                    deserunt
-                    distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat,
-                    quos
-                    rem sunt unde veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet
-                    architecto beatae deserunt
-                    distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat,
-                    quos
-                    rem sunt unde veniam.</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet architecto beatae
-                    deserunt
-                    distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat,
-                    quos
-                    rem sunt unde veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet
-                    architecto beatae deserunt
-                    distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat,
-                    quos
-                    rem sunt unde veniam.</p>
-            </div>
-        </section>
-
-        <section class="container section">
-            <div class="section__main">
-                <h2 class="title title-h2">Вы смотрели</h2>
-
-                <div class="swiper js-products-view-slider">
-                    <div class="swiper-wrapper">
-                        {% for item in 1..10 %}
-                            <div class="swiper-slide">
-                                {% include 'item/product/product-item-viewed.twig' with {
-                                    badge: { text: '-10%', type: 'red' }
-                                } %}
-                            </div>
+                    <div class="posts is-scrollable-mobile" data-view="grid">
+                        {% for item in 1..2 %}
+                            {% include 'item/post/post-item-grid.twig' %}
                         {% endfor %}
                     </div>
-
-                    <div class="swiper-button-next swiper-arrow"></div>
-                    <div class="swiper-button-prev swiper-arrow"></div>
                 </div>
             </div>
-        </section>
-    {% endblock %}
-{% endembed %}
+        </div>
+    </section>
+
+    <section class="container home-page-about">
+        <div class="row g-3">
+            <div class="col-lg-6">
+                <div class="panel home-page-about__wrapper">
+                    <div class="title title-h3">Интернет-магазин в Челябинске</div>
+
+                    <div class="text-content">
+                        <p>
+                            Аспро: Премьер — магазин полезных вещей для себя, дома, офиса и дачи. Здесь вы
+                            найдете
+                            товары под свои предпочтения: от аудиотехники и одежды до строительных материалов и
+                            велосипедов. Работаем с проверенными производителями с 2005 года. Доставляем товары
+                            точно в срок.
+                        </p>
+
+                        <p>
+                            В нашем магазине услуги доставки, сборки, установки и облуживания товаров продуманы
+                            до
+                            мелочей. Уделите внимание только подбору позиций в каталоге. Все остальные задачи
+                            выполнит наша команда!
+                        </p>
+                    </div>
+
+                    {% include '@components/button.twig' with {
+                        button_size: 'xl',
+                        button_text: ' О компании',
+                        button_class: 'home-page-about__button',
+                    } %}
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="home-page-about__picture">
+                    <img src="https://premier-demo.ru/upload/iblock/23d/z803y75u7vhq7ojqasdbimqwvt921sjr.jpg"
+                         alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section container">
+        <div class="section__main">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d97517.34939014436!2d44.515328000000004!3d40.199782400000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sam!4v1773936129341!5m2!1sen!2sam"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" class="home-page__map"></iframe>
+        </div>
+    </section>
+
+    <section class="section section--theme-dark">
+        <div class="text-content container">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet architecto beatae
+                deserunt
+                distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat,
+                quos
+                rem sunt unde veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet
+                architecto beatae deserunt
+                distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat,
+                quos
+                rem sunt unde veniam.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet architecto beatae
+                deserunt
+                distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat,
+                quos
+                rem sunt unde veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet
+                architecto beatae deserunt
+                distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat,
+                quos
+                rem sunt unde veniam.</p>
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet architecto beatae
+                deserunt
+                distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat,
+                quos
+                rem sunt unde veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet
+                architecto beatae deserunt
+                distinctio doloribus ex excepturi fugiat ipsum minima nihil nulla numquam obcaecati placeat,
+                quos
+                rem sunt unde veniam.</p>
+        </div>
+    </section>
+
+    <section class="container section">
+        <div class="section__main">
+            <h2 class="title title-h2">Вы смотрели</h2>
+
+            <div class="swiper js-products-view-slider">
+                <div class="swiper-wrapper">
+                    {% for item in 1..10 %}
+                        <div class="swiper-slide">
+                            {% include 'item/product/product-item-viewed.twig' with {
+                                badge: { text: '-10%', type: 'red' }
+                            } %}
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="swiper-button-next swiper-arrow"></div>
+                <div class="swiper-button-prev swiper-arrow"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

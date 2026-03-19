@@ -1,0 +1,66 @@
+<div class="
+    menu-actions-item
+    menu-actions__item is-grid
+    js-header-action
+    {{ action_type == 'search' ? 'js-search-mobile-opener' : '' }}
+">
+    <a
+            href="{{ action_href }}"
+
+            class="menu-actions-item__link"
+
+            {% if action_type == 'logout' %}
+                data-bs-toggle="modal"
+                data-bs-target="#LoginModal"
+            {% endif %}
+
+            {% if action_type == 'phone' %}
+                data-bs-toggle="modal"
+                data-bs-target="#CallbackModal"
+            {% endif %}
+    >
+        <svg class="menu-actions-item__icon">
+            <use href="img/svg-icons-final.svg#{{ action_icon }}"></use>
+        </svg>
+
+        <span class="menu-actions-item__text">{{ action.text }}</span>
+
+        {% if action_counter %}
+            <span class="menu-actions-item__counter">1</span>
+        {% endif %}
+    </a>
+
+    <div class="site-header-popup js-header-action-dropdown">
+        <div class="site-header-popup__scroll">
+            {% for item in 1..10 %}
+                {% include 'item/product/product-item-short.twig' %}
+            {% endfor %}
+        </div>
+
+        <div class="site-header-popup__bottom">
+            {% if action.counter %}
+                {% if action.href == 'cart.html' %}
+                    <div class="site-header-popup__total">
+                        <span class="title title-h4">
+                            Итого
+                        </span>
+
+                        <div class="site-header-popup__shipping">
+                            {% include '@components/@shop/price.twig' with {
+                                size: 'lg',
+                                now: '600 ₽',
+                                old: '300 ₽'
+                            } %}
+
+                            {% include '@components/@shop/price.twig' %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endif %}
+
+            <a href="" class="button button-default button-lg site-header-popup__button">
+                Перейти в корзину
+            </a>
+        </div>
+    </div>
+</div>

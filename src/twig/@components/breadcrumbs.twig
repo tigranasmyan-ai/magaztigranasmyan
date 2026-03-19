@@ -1,18 +1,16 @@
-<nav aria-label="breadcrumb">
-    <ul class="breadcrumbs {{ class }}">
-        <li class="breadcrumbs__item">
-            <a href="/" class="breadcrumbs__link">
-                Главная
-            </a>
+<ul class="breadcrumbs {{ class }}">
+    <li class="breadcrumbs__item">
+        <a href="/" class="breadcrumbs__link">
+            Главная
+        </a>
+    </li>
+    {% for item in items %}
+        <li class="breadcrumbs__item {{ loop.last ? 'is-active' : '' }}" {{ loop.last ? 'aria-current="page"' : '' }}>
+            {% if not loop.last and item.href %}
+                <a href="{{ item.href }}" class="breadcrumbs__link">{{ item.text }}</a>
+            {% else %}
+                <span class="breadcrumbs__text">{{ item.text }}</span>
+            {% endif %}
         </li>
-        {% for item in items %}
-            <li class="breadcrumbs__item {{ loop.last ? 'is-active' : '' }}" {{ loop.last ? 'aria-current="page"' : '' }}>
-                {% if not loop.last and item.href %}
-                    <a href="{{ item.href }}" class="breadcrumbs__link">{{ item.text }}</a>
-                {% else %}
-                    <span class="breadcrumbs__text">{{ item.text }}</span>
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
-</nav>
+    {% endfor %}
+</ul>

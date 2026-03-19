@@ -12,48 +12,6 @@
     background-color: rgb(var(--darkerblack_bg_black));
   }
 
-  &__wrapper {
-    display: flex;
-    gap: 40px;
-  }
-
-  &__content {
-    flex-grow: 1;
-    display: flex;
-    gap: 40px;
-    flex-direction: column;
-  }
-
-  &__aside {
-    position: relative;
-
-    & > div {
-      position: sticky;
-      top: 100px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    &.is-lg {
-      @media (min-width: 992px) {
-        flex: 0 0 356px;
-        max-width: 356px;
-      }
-    }
-
-    @media (min-width: 992px) {
-      flex: 0 0 260px;
-      max-width: 260px;
-    }
-
-    body:not(:has(.catalog-page)) & {
-      @media (max-width: 991px) {
-        display: none;
-      }
-    }
-  }
-
   &__main {
     display: flex;
     flex-direction: column;
