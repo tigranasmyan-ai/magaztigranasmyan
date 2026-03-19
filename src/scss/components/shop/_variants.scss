@@ -5,6 +5,8 @@
 }
 
 .variant {
+  $self: &;
+
   &__list {
     display: flex;
     gap: 6px;
@@ -16,6 +18,11 @@
     line-height: calc(1em + 4px);
     margin-bottom: 4px;
     opacity: 0.7;
+
+    #{$self}.lg & {
+      font-size: calc(1rem - 3px);
+      line-height: calc(1em + 5px);
+    }
   }
 
   &__item {
@@ -26,6 +33,10 @@
     padding: 0;
     position: relative;
     border: 3px solid rgb(var(--white_text_black_reverse));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: rgb(var(--white_text_black));
 
     &.active {
       &::before {
@@ -41,7 +52,6 @@
       }
     }
 
-
     &::before {
       content: '';
       position: absolute;
@@ -55,6 +65,26 @@
       height: 100%;
       object-fit: cover;
       border-radius: 3px;
+    }
+
+    #{$self}.lg & {
+      width: 56px;
+      height: 56px;
+
+      @media (max-width: 991px) {
+        width: 36px;
+        height: 36px;
+      }
+
+      &.active {
+        &::before {
+          box-shadow: 0 0 0 2px rgb(var(--white_text_black)) inset;
+
+          @media (max-width: 991px) {
+            box-shadow: 0 0 0 1px rgb(var(--white_text_black)) inset;
+          }
+        }
+      }
     }
   }
 }

@@ -17,6 +17,11 @@
       &__title {
         opacity: 0.5;
       }
+
+      &__fast-view {
+        visibility: visible;
+        opacity: 1;
+      }
     }
   }
 
@@ -56,6 +61,11 @@
 .product-item[data-view="grid"] .product-item {
   $self: &;
 
+  &__link {
+    position: absolute;
+    inset: 0;
+  }
+
   &__badges {
     position: absolute;
     left: 12px;
@@ -76,14 +86,10 @@
   &__fast-view {
     visibility: hidden;
     opacity: 0;
+    z-index: 100;
 
     @media (max-width: 991px) {
       display: none;
-    }
-
-    #{$self}:hover & {
-      visibility: visible;
-      opacity: 1;
     }
   }
 

@@ -17,6 +17,7 @@
 @use "item/product/product-item-basket";
 @use "item/product/product-item-viewed";
 @use "item/product/product-item-short";
+@use "item/product/product-full";
 
 // Post
 @use "item/post/post-item-bg";
@@ -89,5 +90,6 @@
 @use "pages/page";
 @use "pages/catalog";
 @use "pages/auth";
+@use "pages/single-product";
 @use "pages/favorites";
 @use "pages/cart-page";

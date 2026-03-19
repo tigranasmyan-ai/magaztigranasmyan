@@ -28,7 +28,7 @@
     {% if label %}
         <label {% if id %}for="{{ id }}"{% endif %} class="form-label">{{ label }}</label>
     {% endif %}
-    
+
     <div class="{{ wrapper_classes }}">
         {% if icon_left %}
             {% include '@components/ui/icon.twig' with {
@@ -37,15 +37,15 @@
             } %}
         {% endif %}
 
-        <input 
-            type="{{ type }}"
-            class="{{ input_classes }}"
-            {% if id %}id="{{ id }}"{% endif %}
-            {% if name %}name="{{ name }}"{% endif %}
-            {% if value %}value="{{ value }}"{% endif %}
-            {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
-            {% if required %}required{% endif %}
-            {% if disabled %}disabled{% endif %}
+        <input
+                type="{{ type }}"
+                class="{{ input_classes }}"
+                {% if id %}id="{{ id }}"{% endif %}
+                {% if name %}name="{{ name }}"{% endif %}
+                {% if value %}value="{{ value }}"{% endif %}
+                {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
+                {% if required %}required{% endif %}
+                {% if disabled %}disabled{% endif %}
         >
 
         {% if icon_right and type != 'password' %}
@@ -68,6 +68,10 @@
             </button>
         {% endif %}
     </div>
+
+    {% if info %}
+        <div class="form-input__info">{{ info }}</div>
+    {% endif %}
 
     {% if error %}
         <div class="invalid-feedback">{{ error }}</div>

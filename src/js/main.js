@@ -538,4 +538,22 @@ $(document).ready(function () {
     });
 
     $('.js-counter__input').trigger('change');
+
+
+    /**
+     * Single product slider
+     */
+    const thumbs = new Swiper('.js-product-full-thumbs-slider', {
+        direction: 'vertical', // 👈 вертикально
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+        watchSlidesProgress: true,
+    });
+
+    const main = new Swiper('.js-product-full-main-slider', {
+        spaceBetween: 10,
+        thumbs: {
+            swiper: thumbs,
+        },
+    });
 });
