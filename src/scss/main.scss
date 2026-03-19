@@ -53,6 +53,7 @@
 @use "components/counter";
 @use "components/filter";
 @use "components/bar";
+@use "components/subscribe";
 
 // Shop
 @use "components/shop/variants";
@@ -87,4 +88,6 @@
 @use "pages/brands";
 @use "pages/page";
 @use "pages/catalog";
+@use "pages/auth";
+@use "pages/favorites";
 @use "pages/cart-page";

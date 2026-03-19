@@ -1,0 +1,20 @@
+.favorites-page {
+  &__wrapper {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__aside {
+    position: relative;
+
+    & > div {
+      position: sticky;
+      top: 100px;
+    }
+
+    @media (min-width: 992px) {
+      flex: 0 0 260px;
+      width: 260px;
+    }
+  }
+}

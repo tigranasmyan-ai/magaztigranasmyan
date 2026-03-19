@@ -94,15 +94,15 @@
                             <span class="menu-actions-item__text">{{ action.text }}</span>
                         </a>
 
-                        <div class="site-header-popup js-header-action-dropdown">
-                            <div class="site-header-popup__scroll">
-                                {% for item in 1..10 %}
-                                    {% include 'item/product/product-item-short.twig' %}
-                                {% endfor %}
-                            </div>
+                        {% if action.counter %}
+                            <div class="site-header-popup js-header-action-dropdown">
+                                <div class="site-header-popup__scroll">
+                                    {% for item in 1..10 %}
+                                        {% include 'item/product/product-item-short.twig' %}
+                                    {% endfor %}
+                                </div>
 
-                            <div class="site-header-popup__bottom">
-                                {% if action.counter %}
+                                <div class="site-header-popup__bottom">
                                     {% if action.href == 'cart.html' %}
                                         <div class="site-header-popup__total">
                                             <span class="title title-h4">
@@ -120,13 +120,13 @@
                                             </div>
                                         </div>
                                     {% endif %}
-                                {% endif %}
 
-                                <a href="" class="button button-default button-lg site-header-popup__button">
-                                    Перейти в корзину
-                                </a>
+                                    <a href="" class="button button-default button-lg site-header-popup__button">
+                                        Перейти в корзину
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>

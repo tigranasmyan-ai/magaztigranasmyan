@@ -1,0 +1,72 @@
+{% extends 'templates/base.twig' %}
+
+{% set page_settings = {
+    classes: {
+        body: 'auth-page',
+    },
+    breadcrumbs: [
+        { text: 'Авторизация', href: 'catalog.html' },
+        { text: 'Регистрация', href: 'cart.html', active: true },
+    ]
+} %}
+
+{% block content %}
+
+    <div class="section">
+        <div class="container">
+            <div class="section__main auth-page__main">
+                <h1 class="title title-h1">
+                    Регистрация
+                </h1>
+
+                <div class="auth-page__form">
+                    <form class="js-validation-form">
+                        {% include '@components/forms/input.twig' with {
+                            label: 'Логин *',
+                            type: 'email',
+                            id: 'RegistrationPageEmail',
+                            required: true
+                        } %}
+
+                        {% include '@components/forms/input.twig' with {
+                            label: 'Телефон *',
+                            type: 'text',
+                            id: 'RegistrationPagePhone',
+                            required: true,
+                            class: 'phone'
+                        } %}
+
+                        {% include '@components/forms/input.twig' with {
+                            label: 'Пароль *',
+                            type: 'password',
+                            id: 'RegistrationPagePassword',
+                            required: true,
+                        } %}
+
+                        {% include '@components/forms/input.twig' with {
+                            label: 'Подтверждение пароля *',
+                            type: 'password',
+                            id: 'RegistrationPagePasswordRepeat',
+                            required: true,
+                        } %}
+
+                        <div class="form-group">
+                            {% include '@components/forms/checkbox.twig' with {
+                                label: 'Я согласен(а) с условиями обработки персональных данных',
+                                id: 'RegistrationPageRemember',
+                                name: 'agreement',
+                                required: true,
+                                checked: true
+                            } %}
+                        </div>
+
+                        <button type="submit" class="button button-default button-block button-lg">
+                            Зарегистрироваться
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -12,6 +12,14 @@
     z-index: 50;
   }
 
+  &:hover {
+    .product-item {
+      &__title {
+        opacity: 0.5;
+      }
+    }
+  }
+
   @media (min-width: 992px) {
     &:not(.product-item--disabled-bottom) {
       &:hover {
@@ -119,6 +127,8 @@
 
   &__title {
     text-decoration: none;
+
+    transition: color .3s ease, opacity .3s ease;
 
     font-weight: 400;
 

@@ -45,6 +45,11 @@
 
   &__title {
     @include mixins.shorted_text(3);
+    transition: color .3s ease, opacity .3s ease;
+
+    #{$self}:hover & {
+      opacity: 0.7;
+    }
   }
 
   &__date {
@@ -86,6 +91,7 @@
 
   &__picture {
     height: 275px;
+    overflow: hidden;
 
     #{$self}:hover & {
       img {

@@ -2,19 +2,25 @@
   &--type-solid {
     --page-indent: 80px;
 
-    @media (max-width: 991px) {
-      --page-indent: 40px;
-    }
-
     display: flex;
     flex-direction: column;
     gap: var(--page-indent);
 
-    padding-top: var(--settings-layout-container-indent);
+    padding-top: 32px;
     padding-bottom: 80px;
+
+    @media (max-width: 991px) {
+      padding-bottom: 40px;
+
+      --page-indent: 40px;
+    }
   }
 
   .breadcrumbs-container {
-    margin-bottom: calc((var(--page-indent) * -1) / 2);
+    margin-bottom: -50px;
+
+    @media (max-width: 991px) {
+      margin-bottom: -15px;
+    }
   }
 }

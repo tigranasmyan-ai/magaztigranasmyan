@@ -1,39 +1,61 @@
-{% embed 'templates/base.twig' with {
-    title: 'Главная',
-    class: {},
+{% extends 'templates/base.twig' %}
+
+{% set page_settings = {
+    classes: {
+        body: 'sales-page',
+    },
+    breadcrumbs: [
+        { text: 'Главная', href: 'index.html' },
+        { text: 'Каталог', href: 'catalog.html' },
+        { text: 'Корзина', href: 'cart.html', active: true },
+    ]
 } %}
-    {% block content %}
-        <section class="section">
-            <div class="container section__main">
-                {% include '@components/breadcrumbs.twig' with {
-                    items: [
-                        { text: 'Бренды' }
-                    ]
-                } %}
 
-                {% set tabs = [
-                    {'id': 'SalesPageActiveList', 'label': 'Активные акции', 'active': true, 'disabled': false},
-                    {'id': 'SalesPageArchiveList', 'label': 'Архив', 'active': false, 'disabled': false},
-                ] %}
+{% block content %}
+    <section class="section">
+        <div class="container section__main">
+            <h1 class="title title-h1">Акции</h1>
 
-                <div class="tabs-head is-scrollable-mobile ">
-                    {% for tab in tabs %}
-                        <a href="" class="tabs-head__link {% if tab.active %}active{% endif %}">
-                            {{ tab.label }}
-                        </a>
-                    {% endfor %}
-                </div>
+            <div class="text-content">
+                <p>
+                    В разделе собраны все акции интернет-магазина: сезонные предложения, разовые и постоянные
+                    распродажи. Это отличная возможность сэкономить на покупке отдельного товара или целого набора.
+                    Акции действуют как для новых покупателей, так и для постоянных клиентов. Обращайте внимание на
+                    сроки акций и не забывайте о том, что количество товара ограничено. Следите за нашими предложениями
+                    и приобретайте товары с выгодой до 50%!
+                </p>
 
-                <div class="row row-cols-lg-2 row-cols-md-3 row-cols-2 g-md-3 g-2">
-                    {% for item in 1..4 %}
-                        <div class="col">
-                            {% include 'item/sale-item.twig' with {
-                                badge: true
-                            } %}
-                        </div>
-                    {% endfor %}
-                </div>
+                <p>
+                    В разделе собраны все акции интернет-магазина: сезонные предложения, разовые и постоянные
+                    распродажи. Это отличная возможность сэкономить на покупке отдельного товара или целого набора.
+                    Акции действуют как для новых покупателей, так и для постоянных клиентов. Обращайте внимание на
+                    сроки акций и не забывайте о том, что количество товара ограничено. Следите за нашими предложениями
+                    и приобретайте товары с выгодой до 50%!
+                </p>
             </div>
-        </section>
-    {% endblock %}
-{% endembed %}
+
+            {% set tabs = [
+                {'id': 'SalesPageActiveList', 'label': 'Активные акции', 'active': true, 'disabled': false},
+                {'id': 'SalesPageArchiveList', 'label': 'Архив', 'active': false, 'disabled': false},
+            ] %}
+
+            <div class="tabs-head is-scrollable-mobile ">
+                {% for tab in tabs %}
+                    <a href="" class="tabs-head__link {% if tab.active %}active{% endif %}">
+                        {{ tab.label }}
+                    </a>
+                {% endfor %}
+            </div>
+
+            <div class="row row-cols-lg-2 row-cols-md-3 row-cols-2 g-md-3 g-2">
+                {% for item in 1..4 %}
+                    <div class="col">
+                        {% include 'item/sale-item.twig' with {
+                            badge: true
+                        } %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

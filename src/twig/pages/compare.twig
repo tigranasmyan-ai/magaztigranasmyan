@@ -1,104 +1,113 @@
-{% embed 'templates/base.twig' with {
-    title: 'Главная',
-    class: {},
+{% extends 'templates/base.twig' %}
+
+{% set page_settings = {
+    classes: {
+        body: 'compare-page',
+    },
+    breadcrumbs: [
+        { text: 'Главная', href: 'index.html' },
+        { text: 'Каталог', href: 'catalog.html' },
+        { text: 'Корзина', href: 'cart.html', active: true },
+    ]
 } %}
-    {% block content %}
-        <div class="section">
-            <div class="container">
-                <div class="section__main">
-                    {% set letters_ru = [
-                        'Пищевые добавки',
-                        'Творческие наборы'
-                    ] %}
 
-                    <h1 class="title title-h1">Сравнение товаров</h1>
+{% block content %}
+    <div class="section container">
+        <div class="section__main">
+            {% set letters_ru = [
+                'Пищевые добавки',
+                'Творческие наборы'
+            ] %}
 
-                    <div class="compare-page__tabs">
-                        <nav class="tabs-head" id="ComparePageCategories" role="tablist">
-                            {% for letter in letters_ru %}
-                                <a href="" class="{{ loop.first ? 'active' : '' }} tabs-head__link">
-                                    {{ letter }}
+            <h1 class="title title-h1">Сравнение товаров</h1>
 
-                                    <span class="tabs-head__link-counter">23</span>
-                                </a>
-                            {% endfor %}
-                        </nav>
-                    </div>
+            <div class="compare-page__tabs">
+                <nav class="tabs-head" id="ComparePageCategories" role="tablist">
+                    {% for letter in letters_ru %}
+                        <a href="" class="{{ loop.first ? 'active' : '' }} tabs-head__link">
+                            {{ letter }}
 
-                    <div>
-                        {% include '@components/forms/switch.twig' with {
-                            id: 'extra-photo',
-                            checked: true,
-                            text_on: 'Только отличия',
-                            text_off: 'Только различия',
-                        } %}
-                    </div>
+                            <span class="tabs-head__link-counter">23</span>
+                        </a>
+                    {% endfor %}
+                </nav>
+            </div>
 
-                    <div class="tab-content" id="ComparePageCategories">
-                        {% for letter in letters_ru %}
-                            <div class="tab-pane fade {{ loop.first ? 'active show' : '' }}" id="tab-{{ letter }}" role="tabpanel"
-                                 aria-labelledby="tab-{{ letter }}-tab">
-                                <div class="swiper js-compare-products-slider">
-                                    <div class="swiper-wrapper">
-                                        {% for item in 1..10 %}
-                                            <div class="swiper-slide">
-                                                {% include 'item/product/product-item.twig' with { disabled_bottom: true } %}
-                                            </div>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
+            <div>
+                {% include '@components/forms/switch.twig' with {
+                    id: 'extra-photo',
+                    checked: true,
+                    text_on: 'Только отличия',
+                    text_off: 'Только различия',
+                } %}
+            </div>
 
-                    <div class="compare-page__actions">
-                        {% for item in [
-                            'Материал',
-                            'Страна производства',
-                            'Стирка',
-                            'Сезон',
-                            'Тип',
-                        ] %}
-                            <a href="" class="button button-sm button-solid">
-                                + {{ item }}
-                            </a>
-                        {% endfor %}
-                    </div>
-
-                    <div>
-                        <div class="swiper js-compare-products-details">
+            <div class="tab-content" id="ComparePageCategories">
+                {% for letter in letters_ru %}
+                    <div class="tab-pane fade {{ loop.first ? 'active show' : '' }}" id="tab-{{ letter }}"
+                         role="tabpanel"
+                         aria-labelledby="tab-{{ letter }}-tab">
+                        <div class="swiper js-compare-products-slider">
                             <div class="swiper-wrapper">
-                                {% for y in 1..10 %}
+                                {% for item in 1..6 %}
                                     <div class="swiper-slide">
-                                        <div class="compare-list">
-                                            {% for x in 1..10 %}
-                                                <div class="compare-list__item compare-item">
-                                                    <button type="button" class="compare-item__remove">
-                                                        <svg width="18" height="18">
-                                                            <use xlink:href="img/svg-icons.svg#remove"></use>
-                                                        </svg>
-                                                    </button>
-
-                                                    <div class="compare-item__label">Аромат</div>
-
-                                                    {% if loop.first %}
-                                                        <div class="compare-item__value">Подробная инструкция по изготовлению
-                                                        </div>
-                                                    {% else %}
-                                                        <a href="" class="compare-item__value is-link">Подробная инструкция по изготовлению</a>
-                                                    {% endif %}
-
-                                                </div>
-                                            {% endfor %}
-                                        </div>
+                                        {% include 'item/product/product-item.twig' with { disabled_bottom: true } %}
                                     </div>
                                 {% endfor %}
                             </div>
                         </div>
+                    </div>
+                {% endfor %}
+            </div>
 
+            <div class="compare-page__actions">
+                {% for item in [
+                    'Материал',
+                    'Страна производства',
+                    'Стирка',
+                    'Сезон',
+                    'Тип',
+                ] %}
+                    <a href="" class="button button-sm button-solid">
+                        + {{ item }}
+                    </a>
+                {% endfor %}
+            </div>
+
+            <div>
+                <div class="swiper js-compare-products-details">
+                    <div class="swiper-wrapper">
+                        {% for y in 1..6 %}
+                            <div class="swiper-slide">
+                                <div class="compare-list">
+                                    {% for x in 1..4 %}
+                                        <div class="compare-list__item compare-item">
+                                            <button type="button" class="compare-item__remove">
+                                                <svg width="18" height="18">
+                                                    <use xlink:href="img/svg-icons.svg#remove"></use>
+                                                </svg>
+                                            </button>
+
+                                            <div class="compare-item__label">Аромат</div>
+
+                                            {% if loop.first %}
+                                                <div class="compare-item__value">Подробная инструкция по
+                                                    изготовлению
+                                                </div>
+                                            {% else %}
+                                                <a href="" class="compare-item__value is-link">Подробная инструкция
+                                                    по изготовлению</a>
+                                            {% endif %}
+
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
+
             </div>
         </div>
-    {% endblock %}
-{% endembed %}
+    </div>
+{% endblock %}

@@ -1,6 +1,6 @@
 @use "abstracts/mixins";
 
-.product-card[data-view="table"] {
+.product-item[data-view="table"] {
   padding-top: 24px;
   padding-bottom: 24px;
   border-top: 1px solid rgb(var(--stroke_black));
@@ -30,7 +30,7 @@
   }
 }
 
-.product-card[data-view="table"] .product-card{
+.product-item[data-view="table"] .product-item {
   $self: &;
 
   &__checkbox {

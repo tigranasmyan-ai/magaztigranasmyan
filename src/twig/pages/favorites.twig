@@ -1,43 +1,45 @@
-{% embed 'templates/base.twig' with {
-    title: 'Главная',
-    class: {},
+{% extends 'templates/base.twig'  %}
+
+{% set page_settings = {
+    classes: {
+        body: 'favorites-page',
+    },
+    breadcrumbs: [
+        { text: 'Главная', href: 'index.html' },
+        { text: 'Каталог', href: 'catalog.html' },
+        { text: 'Корзина', href: 'cart.html', active: true },
+    ]
 } %}
-    {% block content %}
-        <section class="section">
-            <div class="container section__main">
-                {% include '@components/breadcrumbs.twig' with {
-                    items: [
-                        { text: 'Бренды' }
-                    ]
-                } %}
 
-                <div class="title title-h1">Избранные товары</div>
+{% block content %}
+    <section class="section">
+        <div class="container section__main">
+            <h1 class="title title-h1">Избранные товары</h1>
 
-                <div class="section__wrapper">
-                    <div class="section__aside">
-                        <div>
-                            {% include '@components/menu/menu-list.twig' with {
-                                items: [
-                                    { text: 'Подписки', href: '#' },
-                                    { text: ' Избранные товары', href: '#' },
-                                    { text: 'Помощь', href: '#' },
-                                    { text: 'Бонусы', href: '#' },
-                                ]
-                            } %}
-                        </div>
+            <div class="favorites-page__wrapper">
+                <div class="favorites-page__aside">
+                    <div>
+                        {% include '@components/menu/menu-list.twig' with {
+                            items: [
+                                { text: 'Подписки', href: '#' },
+                                { text: ' Избранные товары', href: '#' },
+                                { text: 'Помощь', href: '#' },
+                                { text: 'Бонусы', href: '#' },
+                            ]
+                        } %}
                     </div>
+                </div>
 
-                    <div class="section__content">
-                        <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-md-3 g-2">
-                            {% for item in 1..10 %}
-                                <div class="col">
-                                    {% include 'item/product/product-item.twig' %}
-                                </div>
-                            {% endfor %}
-                        </div>
+                <div class="favorites-page__content">
+                    <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-md-3 g-2">
+                        {% for item in 1..10 %}
+                            <div class="col">
+                                {% include 'item/product/product-item.twig' %}
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-        </section>
-    {% endblock %}
-{% endembed %}
+        </div>
+    </section>
+{% endblock %}

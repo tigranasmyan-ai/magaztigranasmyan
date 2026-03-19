@@ -1,89 +1,93 @@
-{% embed 'templates/base.twig' with {
-    title: 'Главная',
-    class: {},
+{% extends 'templates/base.twig' %}
+
+{% set page_settings = {
+    classes: {
+        body: 'static-page',
+    },
+    breadcrumbs: [
+        { text: 'Главная', href: 'index.html' },
+        { text: 'Каталог', href: 'catalog.html' },
+        { text: 'Корзина', href: 'cart.html', active: true },
+    ]
 } %}
-    {% block content %}
-        <section class="section">
-            <div class="container section__main">
-                {% include '@components/breadcrumbs.twig' with {
-                    items: [
-                        { text: 'Бренды' }
-                    ]
-                } %}
 
-                <h1 class="title title-h1">Соглашение на обработку персональных данных</h1>
+{% block content %}
+    <section class="section">
+        <div class="container section__main">
+            <h1 class="title title-h1">Соглашение на обработку персональных данных</h1>
 
-                <div class="text-content">
-                    {% for item in 1..6 %}
-                        <h{{ loop.index }}>Heading {{ loop.index }}</h{{ loop.index }}>
-
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid atque commodi consectetur
-                            doloremque et, exercitationem harum, inventore laboriosam minus nam natus nulla obcaecati officiis
-                            possimus quidem soluta totam ullam voluptates.
-                        </p>
-
-                        <hr>
-                    {% endfor %}
-
-                    <ul>
-                        <li>Pellentesque pellentesque eget tempor tellus.</li>
-                        <li>Pellentesque pellentesque eget tempor tellus.</li>
-                        <li>Pellentesque pellentesque eget tempor tellus.</li>
-                        <li>
-                            Pellentesque pellentesque eget tempor tellus.
-
-                            <ul>
-                                <li>Pellentesque pellentesque eget tempor tellus.</li>
-                                <li>Pellentesque pellentesque eget tempor tellus.</li>
-                                <li>Pellentesque pellentesque eget tempor tellus.</li>
-                                <li>
-                                    Pellentesque pellentesque eget tempor tellus.
-
-                                    <ol>
-                                        <li>Pellentesque pellentesque eget tempor tellus.</li>
-                                        <li>Pellentesque pellentesque eget tempor tellus.</li>
-                                        <li>Pellentesque pellentesque eget tempor tellus.</li>
-                                        <li>Pellentesque pellentesque eget tempor tellus.</li>
-                                    </ol>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                    <ol>
-                        <li>Pellentesque pellentesque eget tempor tellus.</li>
-                        <li>Pellentesque pellentesque eget tempor tellus.</li>
-                        <li>Pellentesque pellentesque eget tempor tellus.</li>
-                        <li>Pellentesque pellentesque eget tempor tellus.</li>
-                    </ol>
+            <div class="text-content">
+                {% for item in 1..6 %}
+                    <h{{ loop.index }}>Heading {{ loop.index }}</h{{ loop.index }}>
 
                     <p>
-                        Pellentesque pellentesque eget tempor tellus. Fusce lacllentesque eget tempor tellus ellentesque
-                        pelleinia
-                        tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor
-                        tellus.
-                        Fusce lacinia tempor malesuada.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid atque commodi consectetur
+                        doloremque et, exercitationem harum, inventore laboriosam minus nam natus nulla obcaecati
+                        officiis
+                        possimus quidem soluta totam ullam voluptates.
                     </p>
 
-                    <table>
-                        <thead>
-                        <tr>
-                            {% for item in 1..5 %}
-                                <th>item {{ loop.index }}</th>
-                            {% endfor %}
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            {% for item in 1..5 %}
-                                <td>item {{ loop.index }}</td>
-                            {% endfor %}
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    <hr>
+                {% endfor %}
+
+                <ul>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                    <li>
+                        Pellentesque pellentesque eget tempor tellus.
+
+                        <ul>
+                            <li>Pellentesque pellentesque eget tempor tellus.</li>
+                            <li>Pellentesque pellentesque eget tempor tellus.</li>
+                            <li>Pellentesque pellentesque eget tempor tellus.</li>
+                            <li>
+                                Pellentesque pellentesque eget tempor tellus.
+
+                                <ol>
+                                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ol>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                </ol>
+
+                <p>
+                    Pellentesque pellentesque eget tempor tellus. Fusce lacllentesque eget tempor tellus ellentesque
+                    pelleinia
+                    tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget
+                    tempor
+                    tellus.
+                    Fusce lacinia tempor malesuada.
+                </p>
+
+                <table>
+                    <thead>
+                    <tr>
+                        {% for item in 1..5 %}
+                            <th>item {{ loop.index }}</th>
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        {% for item in 1..5 %}
+                            <td>item {{ loop.index }}</td>
+                        {% endfor %}
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-        </section>
-    {% endblock %}
-{% endembed %}
+        </div>
+    </section>
+{% endblock %}
