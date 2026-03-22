@@ -1,0 +1,149 @@
+{% extends 'templates/base.twig' %}
+
+{% set page_settings = {
+    classes: {
+        body: 'account-page',
+    },
+    breadcrumbs: [
+        { text: 'Профиль', href: 'cart.html', active: true },
+    ]
+} %}
+
+{% block content %}
+
+    <section class="section">
+        <div class="container">
+            <div class="section__main">
+                <div class="title title-h1">
+                    Заказ №742 от 22 февраля 2026
+                </div>
+
+                <div class="section__wrapper">
+                    <div class="section__aside">
+                        {% include '@components/menu/menu-list.twig' with {
+                            items: [
+                                {text: 'Мой кабинет', href: 'account.html'},
+                                {text: 'Личные данные', href: 'account-data.html'},
+                                {text: 'Заказы'},
+                                {text: 'Профили заказов', href: 'account-profiles.html'},
+                                {text: 'Избранные товары', href: 'favorites.html'},
+                                {text: 'Помощь', href: 'help.html'},
+                                {text: 'Выйти'},
+                            ]
+                        } %}
+                    </div>
+
+                    <div class="section__content">
+                        <div class="order-item-full">
+                            <div class="order-item-full__left">
+                                <div class="panel order-item-full-panel">
+                                    <div class="order-item-full-panel__head">
+                                        <div class="title title-h4">Покупатель</div>
+                                    </div>
+
+                                    <div class="row gx-0 gy-3">
+                                        {% for item in 1..5 %}
+                                            <div class="col-sm-6">
+                                                <small class="order-item-full__label">Ф.И.О.</small>
+
+                                                <small>test34</small>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                                <div class="panel order-item-full-panel">
+                                    <div class="order-item-full-panel__head">
+                                        <div class="title title-h4">Способ получения</div>
+
+                                        <span>Не отгружено</span>
+                                    </div>
+
+                                    <div class="row gx-0 gy-3">
+                                        <div class="col-sm-6">
+                                            <small class="order-item-full__label">Служба доставки</small>
+
+                                            <small>Доставка курьером</small>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <small class="order-item-full__label">Сумма</small>
+
+                                            <small class="order-item-full__price">500 ₽</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel sm order-item-full-panel">
+                                    <div class="order-item-full-panel__head">
+                                        <div class="title title-h4">Способ оплаты</div>
+
+                                        <span>Не отгружено</span>
+                                    </div>
+
+                                    <div class="row gx-0 gy-3">
+                                        <div class="col-sm-6">
+                                            <small class="order-item-full__label">Служба доставки</small>
+
+                                            <small>Доставка курьером</small>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <small class="order-item-full__label">Сумма</small>
+
+                                            <small class="order-item-full__price">500 ₽</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="order-item-full__right">
+                                <div>
+                                    <div class="alert alert-danger">
+                                        Ожидает оплату
+                                    </div>
+
+                                    <div class="order-item-full-totals">
+                                        <div class="order-item-full__prices">
+                                            <div>
+                                                <span>Товары, 2 шт.</span>
+                                                <span>1 400 ₽</span>
+                                            </div>
+
+                                            <div>
+                                                <span>Доставка</span>
+                                                <span>500 ₽</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="order-item-full-totals__head">
+                                            <div class="title title-h4">Итого</div>
+
+                                            <div>
+                                                {% include '@components/@shop/price.twig' with {
+                                                    price_size: 'lg',
+                                                } %}
+                                            </div>
+                                        </div>
+
+                                        <div class="order-item-full-totals__buttons">
+                                            <a href="checkout.html"
+                                               class="button button-default button-xl button-block">
+                                                Оплатить заказ
+                                            </a>
+
+                                            <a href="" class="button button-solid button-lg button-block">
+                                                Повторить заказ
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

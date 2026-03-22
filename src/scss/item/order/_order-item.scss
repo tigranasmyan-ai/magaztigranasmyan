@@ -1,0 +1,56 @@
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    z-index: 50;
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__left {
+    flex: 0 0 250px;
+    max-width: 250px;
+  }
+
+  &__info {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: calc(1rem - 3px);
+    line-height: calc(1em + 5px);
+  }
+
+  &__number {
+    font-size: calc(1rem - 3px);
+    line-height: calc(1em + 5px);
+    color: rgb(var(--secondary));
+  }
+
+  &__status {
+    font-weight: 500;
+
+    &.is-red {
+      color: red;
+    }
+  }
+
+  &__center {
+    flex-grow: 1;
+  }
+}

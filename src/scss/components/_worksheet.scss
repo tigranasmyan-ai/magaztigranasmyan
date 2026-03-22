@@ -1,0 +1,59 @@
+.worksheet {
+  $self: &;
+
+  position: relative;
+
+  &-sm {
+    justify-content: space-between;
+  }
+
+  padding: 24px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  &__chevron {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    stroke: rgb(var(--white_text_black));
+    width: 6px;
+    height: 12px;
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__contacts {
+    display: flex;
+    gap: 12px 24px;
+    font-size: calc(1rem - 3px);
+    line-height: calc(1em + 5px);
+    color: rgb(var(--secondary));
+    margin-top: auto;
+    flex-wrap: wrap;
+  }
+
+  &__description {
+    color: rgb(var(--secondary));
+    font-size: calc(1rem - 3px);
+    line-height: calc(1em + 5px);
+
+    #{$self}.sm & {
+      margin-top: 4px;
+    }
+
+    #{$self}.lg & {
+      margin-bottom: 4px;
+    }
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    fill: rgb(var(--settings-theme-primary));
+  }
+}

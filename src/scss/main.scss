@@ -24,6 +24,10 @@
 @use "item/post/post-item-bg";
 @use "item/post/post-item";
 
+// Order
+@use "item/order/order-item";
+@use "item/order/order-item-full";
+
 // Items
 @use "item/brand-item";
 @use "item/jumbotron-item";
@@ -51,6 +55,8 @@
 @use "components/search";
 @use "components/gallery";
 @use "components/panel";
+@use "components/alert";
+@use "components/worksheet";
 @use "components/breadcrumbs";
 @use "components/counter";
 @use "components/payments";
@@ -88,7 +94,6 @@
 // Pages
 @use "pages/home";
 @use "pages/account";
-@use "pages/order";
 @use "pages/help";
 @use "pages/blog-page";
 @use "pages/compare-page";

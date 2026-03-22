@@ -15,7 +15,7 @@
         <div class="container">
             <div class="section__main">
                 <div class="title title-h1">
-                    Заказ №742 от 22 февраля 2026
+                    Заказы
                 </div>
 
                 <div class="section__wrapper">
@@ -34,152 +34,44 @@
                     </div>
 
                     <div class="section__content">
-                        <div class="order-page">
-                            <div class="order-page__left">
-                                <div class="row gy-3">
-                                    <div class="col-12">
-                                        <div class="panel sm order-history-panel">
-                                            <div class="order-history-panel__head">
-                                                <div class="title title-h4">Покупатель</div>
-                                            </div>
+                        {% for item in 1..5 %}
+                            <div class="order-item panel panel-hover-shadow">
+                                <a href="" class="order-item__link"></a>
+                                
+                                <div class="order-item__left">
+                                    <div class="title title-h4">Номер заказа</div>
 
-                                            <div class="row gx-0 gy-3">
-                                                {% for item in 1..5 %}
-                                                    <div class="col-6">
-                                                        <small class="order-history-panel__label">Ф.И.О.</small>
-
-                                                        <small>test34</small>
-                                                    </div>
-                                                {% endfor %}
-                                            </div>
+                                    <div class="order-item__info">
+                                        <div class="order-item__number">
+                                            123456789
                                         </div>
-                                    </div>
 
-                                    <div class="col-12">
-                                        <div class="panel sm order-history-panel">
-                                            <div class="order-history-panel__head">
-                                                <div class="title title-h4">Способ получения</div>
-
-                                                <span>Не отгружено</span>
-                                            </div>
-
-                                            <div class="row gx-0 gy-3">
-                                                <div class="col-6">
-                                                    <small class="order-history-panel__label">Служба доставки</small>
-
-                                                    <small>Доставка курьером</small>
-                                                </div>
-
-                                                <div class="col-6">
-                                                    <small class="order-history-panel__label">Сумма</small>
-
-                                                    <small>500 ₽</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="panel sm order-history-panel">
-                                            <div class="order-history-panel__head">
-                                                <div class="title title-h4">Способ оплаты</div>
-
-                                                <span>Не отгружено</span>
-                                            </div>
-
-                                            <div class="row gx-0 gy-3">
-                                                <div class="col-6">
-                                                    <small class="order-history-panel__label">Служба доставки</small>
-
-                                                    <small>Доставка курьером</small>
-                                                </div>
-
-                                                <div class="col-6">
-                                                    <small class="order-history-panel__label">Сумма</small>
-
-                                                    <small>500 ₽</small>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="product-kit__list">
-                                            {% for item in 1..2 %}
-                                                <div class="product-kit__item product-kit-item">
-                                                    <a href="" class="product-kit-item__img">
-                                                        <img class="img-responsive image-rounded-x lazyloaded"
-                                                             loading="lazy" decoding="async"
-                                                             src="https://premier-demo.ru//upload/resize_cache/iblock/266/48_48_1/hxl42oxlaontvtgopj9qojkzi4lqcs2v.jpg">
-                                                    </a>
-
-                                                    <div>
-                                                        <a href="" class="product-kit-item__title title title-h6">
-                                                            Платье с цветами M
-                                                        </a>
-                                                    </div>
-
-                                                    <div class="product-kit-item__end">
-                                                        <div class="product-kit-item__price is-desktop">
-                                                            3 500 ₽ x 1 шт
-                                                        </div>
-
-                                                        <button class="product-kit-item__delete">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                 height="16">
-                                                                <use xlink:href="img/svg/icons.svg#close"></use>
-                                                            </svg>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            {% endfor %}
+                                        <div class="order-item__status is-red">
+                                            Ожидает оплаты
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="order-page__right">
-                                <div>
-                                    <div class="order-page-totals">
+                                <div class="order-item__center">
+                                    {% include '@components/@shop/price.twig' with {
+                                        class: 'search-product__price',
+                                        size: 'sm',
+                                        now: '1 300 ₽/шт',
+                                        old: '1 600 ₽/шт'
+                                    } %}
+                                </div>
 
-                                        <div class="order-page-totals__list">
-                                            <div>
-                                                <span>Товары, 2 шт.</span>
-                                                <span>1 400 ₽</span>
-                                            </div>
+                                <div class="order-item__buttons">
+                                    <a href="" class="button button-sm button-default">
+                                        Повторить заказ
+                                    </a>
 
-                                            <div>
-                                                <span>Доставка</span>
-                                                <span>500 ₽</span>
-                                            </div>
-                                        </div>
-
-
-                                        <hr class="divider order-page-totals__hr"></hr>
-
-                                        <div class="order-page-totals__head">
-                                            <div class="title title-h4">Итого</div>
-
-                                            <div>
-                                                {% include '@components/@shop/price.twig' with {
-                                                    price_size: 'lg',
-                                                } %}
-                                            </div>
-                                        </div>
-
-                                        <div class="order-page-totals__buttons">
-                                            <a href="checkout.html" class="button button-default button-xl button-block">
-                                                Оплатить заказ
-                                            </a>
-
-                                            <a href="" class="button button-solid button-lg button-block">
-                                                Повторить заказ
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <a href="" class="button button-sm button-solid">
+                                        Отменить заказ
+                                    </a>
                                 </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

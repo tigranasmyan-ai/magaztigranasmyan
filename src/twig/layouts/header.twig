@@ -105,9 +105,9 @@
                 </div>
 
                 {% for action in actions %}
-                    <div class="menu-actions-item menu-actions__item is-grid js-header-action {{ action.class }} {{ action.icon == 'search-action' ? 'js-search-mobile-opener' : '' }}">
+                    <div class="menu-actions-item menu-actions__item is-grid js-header-action {{ action.class }} {{ action.icon == 'search-18-18' ? 'js-search-mobile-opener' : '' }}">
                         <a href="{{ action.href }}" class="menu-actions-item__link"
-                           {% if action.icon == 'log-out' %}data-bs-toggle="modal"
+                           {% if action.icon == 'log-in' %}data-bs-toggle="modal"
                            data-bs-target="#LoginModal"{% endif %}
                                 {% if action.icon == 'phone-action' %}data-bs-toggle="modal" data-bs-target="#CallbackModal"{% endif %}>
                             <span class="menu-actions-item__top">

@@ -1,3 +1,5 @@
+@use 'abstracts/mixins';
+
 .panel {
   padding: 32px;
   border: 1px solid rgb(var(--stroke_black));
@@ -13,5 +15,9 @@
     @media (max-width: 991px) {
       padding: 16px;
     }
+  }
+
+  &-hover-shadow {
+    @include mixins.card_hover_shadow_effect();
   }
 }
