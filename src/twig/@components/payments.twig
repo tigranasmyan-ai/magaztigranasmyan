@@ -3,7 +3,7 @@
 <div class="payments">
     {% for method in methods %}
         <div class="payments__item">
-            <span class="payments__icon {{ method }}" title="{{ method|capitalize }}"></span>
+            <div class="payments__icon {{ method }}"></div>
         </div>
     {% endfor %}
 </div>

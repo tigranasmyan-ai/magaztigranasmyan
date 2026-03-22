@@ -1,0 +1,59 @@
+{% extends 'templates/base.twig' %}
+
+{% set page_settings = {
+    classes: {
+        body: 'service-page',
+    },
+    breadcrumbs: [
+        { text: 'Услуги', href: 'sales.html' },
+    ]
+} %}
+
+{% block content %}
+
+    <section class="section">
+        <div class="container">
+            <div class="section__main">
+                <div class="title title-h1">
+                    Обслуживание генераторов
+
+                </div>
+
+                <div class="section__wrapper">
+                    <div class="section__aside">
+                        {% include '@components/menu/menu-list.twig' with {
+                            items: [
+                                {text: ' Монтаж оборудования'},
+                                {text: ' Обслуживание генераторов'},
+                                {text: 'Ремонт техники'},
+                            ]
+                        } %}
+                    </div>
+
+                    <div class="section__content">
+                        <div class="row gx-0 g-4">
+                            <div class="text-content">
+                                <p>
+                                    Специализируемся на услугах различных направлений — выполняем установку, монтаж и
+                                    настройку оборудования, предоставляем аренду товаров из каталога нашего
+                                    интернет-магазина. Выполняем работы в день заказа, делаем все быстро и качественно!
+                                </p>
+                            </div>
+
+                            <div>
+                                <div class="row g-lg-4 g-2">
+                                    {% for item in 1..10 %}
+                                        <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
+                                            {% include 'item/service-item.twig' %}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -106,6 +106,8 @@
                         </div>
                     {% endfor %}
                 </div>
+
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
@@ -136,6 +138,8 @@
 
             {% include '@components/button.twig' with {
                 button_size: 'lg',
+                button_url: 'sales.html',
+                url: 'sales.html',
                 button_text: 'Показать все',
             } %}
         </div>

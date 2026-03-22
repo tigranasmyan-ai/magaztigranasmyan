@@ -26,8 +26,15 @@
   }
 
   .logo {
-    color: rgb(var(--settings-theme-primary));
-    fill: rgb(var(--fill_dark_light));
+    path {
+      &:first-child {
+        fill: rgb(var(--settings-theme-primary));
+      }
+
+      &:last-child {
+        fill: rgb(var(--white_text_black));
+      }
+    }
 
     @media (max-width: 991px) {
       svg {

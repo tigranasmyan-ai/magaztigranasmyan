@@ -1,0 +1,40 @@
+{% extends 'templates/base.twig' %}
+
+{% set page_settings = {
+    classes: {
+        body: 'service-page',
+    },
+    breadcrumbs: [
+        { text: 'Услуги', href: 'sales.html' },
+        { text: 'Обслуживание генераторов', href: 'cart.html', active: true },
+    ]
+} %}
+
+{% block content %}
+
+    <section class="section">
+        <div class="container">
+            <div class="section__main">
+                <div class="title title-h1">
+                    Услуги
+                </div>
+
+                <div class="section__wrapper">
+                    <div class="section__aside">
+                        {% include '@components/menu/menu-list.twig' with {
+                            items: [
+                                {text: ' Монтаж оборудования'},
+                                {text: ' Обслуживание генераторов'},
+                                {text: 'Ремонт техники'},
+                            ]
+                        } %}
+                    </div>
+
+                    <div class="section__content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -25,9 +25,11 @@
     overflow: hidden;
     text-overflow: ellipsis;
     cursor: pointer;
-    color: var(--white_text_black);
+    color: rgb(var(--white_text_black)) !important;
     border-radius: var(--settings-main-border-radius);
     transition: background-color .3s ease;
+
+    font-size: 15px;
 
     &:hover {
       background-color: rgb(var(--card_bg_active));

@@ -257,12 +257,12 @@ $(document).ready(function () {
         }
     });
 
-    $('.js-product-card-gallery-dot').hover(function () {
-        $(this).closest('.js-product-card').find('.js-product-card-gallery-picture').removeClass('active').eq($(this).index()).addClass('active');
-        $(this).closest('.js-product-card').find('.js-product-card-gallery-bullet').removeClass('active').eq($(this).index()).addClass('active');
+    $('.js-product-item-gallery-dot').hover(function () {
+        $(this).closest('.js-product-item').find('.js-product-item-gallery-picture').removeClass('active').eq($(this).index()).addClass('active');
+        $(this).closest('.js-product-item').find('.js-product-item-gallery-bullet').removeClass('active').eq($(this).index()).addClass('active');
     }, function () {
-        $(this).closest('.js-product-card').find('.js-product-card-gallery-picture').removeClass('active').eq(0).addClass('active');
-        $(this).closest('.js-product-card').find('.js-product-card-gallery-bullet').removeClass('active').eq(0).addClass('active');
+        $(this).closest('.js-product-item').find('.js-product-item-gallery-picture').removeClass('active').eq(0).addClass('active');
+        $(this).closest('.js-product-item').find('.js-product-item-gallery-bullet').removeClass('active').eq(0).addClass('active');
     });
 
     new Swiper('.js-reviews-slider', {
@@ -274,6 +274,9 @@ $(document).ready(function () {
             991: {
                 slidesPerView: 2,
             },
+        },
+        pagination: {
+            el: ".swiper-pagination",
         },
     });
 

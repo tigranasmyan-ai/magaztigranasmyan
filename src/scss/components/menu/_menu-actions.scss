@@ -3,6 +3,12 @@
 .menu-actions-item {
   $self: &;
 
+  padding: 0;
+  background-color: transparent;
+  border: none;
+
+  color: rgb(var(--white_text_black));
+
   position: relative;
 
   &.disabled-desktop {

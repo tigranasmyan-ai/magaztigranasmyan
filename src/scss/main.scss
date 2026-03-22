@@ -53,6 +53,7 @@
 @use "components/panel";
 @use "components/breadcrumbs";
 @use "components/counter";
+@use "components/payments";
 @use "components/filter";
 @use "components/bar";
 @use "components/subscribe";
@@ -96,5 +97,4 @@
 @use "pages/catalog";
 @use "pages/auth";
 @use "pages/single-product";
-@use "pages/favorites";
 @use "pages/cart-page";
