@@ -105,6 +105,8 @@ body {
   background-color: rgb(var(--black_bg_black));
   color: rgb(var(--white_text_black));
 
+  fill: rgb(var(--white_text_black));
+
   @media (max-width: 991px) {
     font-size: 15px;
   }

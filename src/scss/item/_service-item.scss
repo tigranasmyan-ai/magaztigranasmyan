@@ -5,6 +5,10 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px;
+
+    &.is-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 
   @media (max-width: 991px) {
@@ -36,6 +40,23 @@
 
   @media (max-width: 991px) {
     height: 350px;
+  }
+
+  &.is-solid {
+    height: initial;
+
+    &:hover {
+      background-color: rgb(var(--card_bg_hover));
+    }
+  }
+
+  &__text {
+    @include mixins.shorted_text(4);
+    color: rgb(var(--secondary));
+    margin-bottom: 24px;
+
+    font-size: calc(1rem - 2px);
+    line-height: calc(1em + 6px);
   }
 
   &__picture {

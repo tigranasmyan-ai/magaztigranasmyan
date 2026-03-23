@@ -1,13 +1,11 @@
 .alert {
   padding: 12px;
   border-radius: var(--settings-main-border-radius);
-
-  font-size: calc(1rem - 3px);
-  line-height: calc(1em + 7px);
+  font-size: 14px;
 
   &-danger {
     background-color: rgba(255, 112, 129, .1);
     border: 1px solid rgba(255, 112, 129, .2);
-    color: rgb(255, 112, 129);
+    color: rgb(255, 112, 129);;
   }
 }

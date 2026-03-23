@@ -14,3 +14,64 @@
     margin-bottom: 32px;
   }
 }
+
+.widget-order {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  @media (max-width: 991px) {
+    gap: 24px;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 14px;
+    }
+  }
+
+  &__text {
+    max-width: 500px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    & > *:last-child {
+      @media (min-width: 1199px) {
+        min-width: 320px;
+      }
+    }
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    & > div {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+  }
+}

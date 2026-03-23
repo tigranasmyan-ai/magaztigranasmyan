@@ -603,4 +603,6 @@ $(document).ready(function () {
         $box.addClass('active');
         $input.prop('checked', true).trigger('change');
     });
+
+    $('select').niceSelect();
 });

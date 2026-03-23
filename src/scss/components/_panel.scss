@@ -4,9 +4,14 @@
   padding: 32px;
   border: 1px solid rgb(var(--stroke_black));
   border-radius: var(--settings-main-border-radius);
+  background: rgb(var(--card_bg_black));
 
   @media (max-width: 991px) {
     padding: 24px;
+  }
+
+  &-xs {
+    padding: 16px!important;
   }
 
   &-sm {

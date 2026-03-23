@@ -1,0 +1,82 @@
+<div class="order-item panel panel-hover-shadow">
+    <a href="account-order-item.html" class="order-item__link"></a>
+
+    <div class="order-item__left">
+        <div class="title title-h4">Номер заказа</div>
+
+        <div class="order-item__info">
+            <div class="order-item__number">
+                123456789
+            </div>
+
+            <div class="order-item__status is-red">
+                Ожидает оплаты
+            </div>
+        </div>
+    </div>
+
+    <div class="order-item__center">
+        <div class="order-item-step">
+            <span>
+                <svg width="16" height="16" class="order-item-step__icon">
+                    <use xlink:href="img/svg/icons.svg#attention-16-16"></use>
+                </svg>
+            </span>
+
+            <div>
+                <span class="order-item-step__text">Принят, ожидается оплата</span>
+
+                <div class="order-item-step__arrows">
+                    <span class="active"></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="order-item-road">
+                <div class="active">
+                    <span>Принят, ожидается оплата</span>
+
+                    <span>Заказ принят, но пока не обрабатывается (например, заказ только что создан или ожидается оплата заказа)</span>
+                </div>
+
+                <div>
+                    <span>Принят, ожидается оплата</span>
+
+                    <span>Заказ принят, но пока не обрабатывается (например, заказ только что создан или ожидается оплата заказа)</span>
+                </div>
+
+                <div>
+                    <span>Принят, ожидается оплата</span>
+
+                    <span>Заказ принят, но пока не обрабатывается (например, заказ только что создан или ожидается оплата заказа)</span>
+                </div>
+            </div>
+        </div>
+
+        {% include '@components/@shop/price.twig' with {
+            class: 'search-product__price',
+            size: 'sm',
+            now: '1 300 ₽/шт',
+            old: '1 600 ₽/шт'
+        } %}
+    </div>
+
+    <div class="order-item__images">
+        {% for item in 1..2 %}
+            <a href="">
+                <img src="https://premier-demo.ru/upload/resize_cache/iblock/3fe/56_56_1/480xo3atxr0fcpdmek2l1c2q2cxnjmki.jpg" alt="">
+            </a>
+        {% endfor %}
+    </div>
+
+    <div class="order-item__buttons">
+        <a href="" class="button button-sm button-default">
+            Повторить заказ
+        </a>
+
+        <a href="" class="button button-sm button-solid">
+            Отменить заказ
+        </a>
+    </div>
+</div>

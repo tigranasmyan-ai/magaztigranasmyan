@@ -79,6 +79,7 @@
 @use "components/button";
 @use "components/section";
 @use "components/badge";
+@use "components/grid-actions";
 @use "components/theme-switch";
 
 // Forms
@@ -96,10 +97,10 @@
 @use "pages/account";
 @use "pages/help";
 @use "pages/blog-page";
+@use "pages/services";
 @use "pages/compare-page";
 @use "pages/brands";
 @use "pages/checkout";
-@use "pages/page";
 @use "pages/catalog";
 @use "pages/auth";
 @use "pages/single-product";

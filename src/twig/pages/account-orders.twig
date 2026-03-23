@@ -1,81 +1,20 @@
-{% extends 'templates/base.twig' %}
+{% extends 'templates/account.twig' %}
 
-{% set page_settings = {
-    classes: {
-        body: 'account-page',
-    },
-    breadcrumbs: [
-        { text: 'Профиль', href: 'cart.html', active: true },
-    ]
-} %}
+{% block account_page %}
 
-{% block content %}
+    <div class="account-page-selects">
+        {% for item in 1..3 %}
+            <select class="form-input form-input--sm">
+                <option value="1">Любой статус заказа</option>
+                <option value="1">Любой статус заказа</option>
+                <option value="1">Любой статус заказа</option>
+                <option value="1">Любой статус заказа</option>
+            </select>
+        {% endfor %}
+    </div>
 
-    <section class="section">
-        <div class="container">
-            <div class="section__main">
-                <div class="title title-h1">
-                    Заказы
-                </div>
-
-                <div class="section__wrapper">
-                    <div class="section__aside">
-                        {% include '@components/menu/menu-list.twig' with {
-                            items: [
-                                {text: 'Мой кабинет', href: 'account.html'},
-                                {text: 'Личные данные', href: 'account-data.html'},
-                                {text: 'Заказы'},
-                                {text: 'Профили заказов', href: 'account-profiles.html'},
-                                {text: 'Избранные товары', href: 'favorites.html'},
-                                {text: 'Помощь', href: 'help.html'},
-                                {text: 'Выйти'},
-                            ]
-                        } %}
-                    </div>
-
-                    <div class="section__content">
-                        {% for item in 1..5 %}
-                            <div class="order-item panel panel-hover-shadow">
-                                <a href="" class="order-item__link"></a>
-                                
-                                <div class="order-item__left">
-                                    <div class="title title-h4">Номер заказа</div>
-
-                                    <div class="order-item__info">
-                                        <div class="order-item__number">
-                                            123456789
-                                        </div>
-
-                                        <div class="order-item__status is-red">
-                                            Ожидает оплаты
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="order-item__center">
-                                    {% include '@components/@shop/price.twig' with {
-                                        class: 'search-product__price',
-                                        size: 'sm',
-                                        now: '1 300 ₽/шт',
-                                        old: '1 600 ₽/шт'
-                                    } %}
-                                </div>
-
-                                <div class="order-item__buttons">
-                                    <a href="" class="button button-sm button-default">
-                                        Повторить заказ
-                                    </a>
-
-                                    <a href="" class="button button-sm button-solid">
-                                        Отменить заказ
-                                    </a>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    {% for item in 1..5 %}
+        {% include 'item/order-item.twig' %}
+    {% endfor %}
 
 {% endblock %}

@@ -1,11 +1,18 @@
-<div class="service-item">
-    <a href="" class="service-item__picture">
-        <img src="https://premier-demo.ru/upload/iblock/b45/gtswttsrxl4gv7ku38e9id772k0f7j2a.jpg"
-             alt="">
-    </a>
+<div class="service-item {{ type_solid ? 'is-solid' : '' }}">
+    {% if type_solid != true %}
+        <a href="single-service.html" class="service-item__picture">
+            <img src="https://premier-demo.ru/upload/iblock/b45/gtswttsrxl4gv7ku38e9id772k0f7j2a.jpg"
+                 alt="">
+        </a>
+    {% endif %}
 
     <div class="service-item__content">
         <a href="" class="service-item__title title title-h6">Монтаж оборудования</a>
+
+        <div class="service-item__text">
+            Оказываем услуги по сборке и установке оборудования. Выполняем работу в день обращения или обговариваем
+            удобное время. Делаем все аккуратно и по согласованию с заказчиком.
+        </div>
 
         <div class="service-item__info">
             {% include '@components/@shop/price.twig' with {

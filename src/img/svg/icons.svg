@@ -239,6 +239,10 @@
         <path d="M10 3L14 8M14 8L10 13M14 8H2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
 
+    <symbol id="arrow-end" xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 16 10">
+        <path id="Rounded_Rectangle_934_copy_3" data-name="Rounded Rectangle 934 copy 3" class="cls-1" d="M654.7,381.707l-3.991,3.985a1,1,0,0,1-1.41-1.414L651.576,382H640a1,1,0,0,1,0-2h11.589l-2.3-2.31a1,1,0,0,1,1.41-1.414l3.991,4.017A1,1,0,0,1,654.7,381.707Z" transform="translate(-639 -376)"></path>
+    </symbol>
+
     <!-- pointer arrows -->
     <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 12" fill="none" id="right-pointer">
         <path d="M9 1L13 6M13 6L9 11M13 6H1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

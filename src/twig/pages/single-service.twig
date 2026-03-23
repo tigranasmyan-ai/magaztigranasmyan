@@ -2,7 +2,7 @@
 
 {% set page_settings = {
     classes: {
-        body: 'service-page',
+        body: 'service-page-single',
     },
     breadcrumbs: [
         { text: 'Услуги', href: 'sales.html' },
@@ -15,9 +15,9 @@
     <section class="section">
         <div class="container">
             <div class="section__main">
-                <div class="title title-h1">
-                    Услуги
-                </div>
+                <h1 class="title title-h1">
+                    Обслуживание генераторов
+                </h1>
 
                 <div class="section__wrapper">
                     <div class="section__aside">
@@ -31,6 +31,123 @@
                     </div>
 
                     <div class="section__content">
+                        <div class="service-page-single__picture">
+                            <img src="https://premier-demo.ru/upload/iblock/964/9x9ysmxoayvgcygjc5of0148n18wjqns.jpg"
+                                 alt=""
+                                 class="fluid">
+                        </div>
+
+                        <div class="panel widget-order">
+                            <div class="widget-order__head">
+                                <div class="title title-h3">Заказать услугу</div>
+
+                                <div>
+                                    {% include '@components/@shop/price.twig' with {
+                                        price_size: 'lg',
+                                        now: '1 300 ₽/шт',
+                                        old: '1 600 ₽/шт'
+                                    } %}
+
+                                    {% include '@components/ui/badge.twig' with {
+                                        badge_text: badge.text|default('-10%'),
+                                        badge_type: badge.type|default('red'),
+                                        badge_size: badge.size|default('sm'),
+                                        badge_tag: 'div'
+                                    } %}
+                                </div>
+                            </div>
+
+                            <div class="widget-order__body">
+                                <div class="text-content widget-order__text">
+                                    Оформите заявку на услугу, мы свяжемся с вами в ближайшее время и ответим на все
+                                    интересующие вопросы.
+                                </div>
+
+                                <div class="widget-order__buttons">
+                                    <a data-bs-toggle="modal" data-bs-target="#AskAQuestion"
+                                       class="button button-solid button-lg">
+                                        ?
+                                    </a>
+
+                                    <a data-bs-toggle="modal" data-bs-target="#AskAQuestion"
+                                       class="button button-default button-lg">
+                                        Заказать услугу
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-content">
+                            <p>
+                                Генераторы служат надежной страховкой в случае отключения электроэнергии. От их
+                                бесперебойной работы зависит комфорт и безопасность в экстренных ситуациях.
+                            </p>
+
+                            <p>
+                                Чтобы генератор всегда был готов к работе, необходимо своевременно проводить
+                                техобслуживание. Это исключит возможность неожиданных поломок в моменты, когда
+                                оборудование нужно больше всего.
+                            </p>
+
+                            <h2>Какие проблемы решает техобслуживание?</h2>
+
+                            <ol>
+                                <li>
+                                    Предотвращение поломок. Регулярная проверка и замена изношенных частей исключают
+                                    риск внезапных отказов.
+                                </li>
+
+                                <li>
+                                    Экономия на ремонтах. Замена расходных материалов и мелкий ремонт обходятся
+                                    значительно дешевле, чем капитальный ремонт или покупка нового оборудования.
+                                </li>
+
+                                <li>
+                                    Продление срока службы оборудования. Систематическая диагностика и тонкая настройка
+                                    увеличивают продолжительность эксплуатации генераторов.
+                                </li>
+                            </ol>
+
+                            <h2>Почему стоит доверять профессионалам?</h2>
+
+                            <p>
+                                Профессиональное техобслуживание обеспечивает точное выполнение всех процедур согласно
+                                стандартам производителя и требованиям безопасности. Это гарантирует, что оборудование
+                                будет работать эффективно и надежно в любых условиях. Поддержание генераторов в
+                                оптимальном состоянии избавляет от стресса и беспокойства по поводу возможных проблем в
+                                самые неподходящие моменты.
+                            </p>
+
+                            <h2>
+                                Как заказать услугу?
+                            </h2>
+
+                            <p>
+                                Для получения консультации или заказа техобслуживания оставьте заявку. Команда
+                                специалистов поможет подобрать индивидуальное решение, учитывая особенности оборудования
+                                и требования вашей деятельности.
+                            </p>
+                        </div>
+
+                        <div class="section__main">
+                            <div class="title title-h2">Другие услуги</div>
+
+                            <div class="services-gird is-3 is-scrollable-mobile">
+                                {% for item in 1..3 %}
+                                    {% include 'item/service-item.twig' with { type_solid: true } %}
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <section class="section__main">
+                            <div class="title title-h2">С услугой заказывают</div>
+
+                            <div class="product-items is-4 is-scrollable-mobile" data-view="grid">
+                                {% for item in 1..3 %}
+                                    {% include 'item/product/product-item.twig' with { disabled_bottom: true } %}
+                                {% endfor %}
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
