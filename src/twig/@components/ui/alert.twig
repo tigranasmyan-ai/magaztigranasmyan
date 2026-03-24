@@ -1,0 +1,29 @@
+{% set base_class = 'alert' %}
+{% set theme_class = theme ? base_class ~ '--theme-' ~ theme : '' %}
+{% set classes = [base_class, theme_class, class]|join(' ')|trim %}
+
+<div class="{{ classes }}" role="alert">
+    {% if icon %}
+        <svg class="alert__icon" width="24" height="24">
+            <use xlink:href="img/svg/icons.svg#{{ icon }}"></use>
+        </svg>
+    {% endif %}
+    
+    <div class="alert__content">
+        {% if title %}
+             <div class="alert__title">{{ title }}</div>
+        {% endif %}
+        {% if text %}
+             <div class="alert__text">{{ text }}</div>
+        {% endif %}
+        {{ content }}
+    </div>
+
+    {% if dismissible %}
+        <button type="button" class="alert__close js-alert-close" aria-label="Close">
+            <svg width="16" height="16">
+                <use xlink:href="img/svg/icons.svg#close"></use>
+            </svg>
+        </button>
+    {% endif %}
+</div>

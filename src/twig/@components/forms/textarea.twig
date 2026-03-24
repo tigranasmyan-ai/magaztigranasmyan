@@ -1,0 +1,44 @@
+{% set label = label|default(null) %}
+{% set id = id|default(null) %}
+{% set name = name|default(null) %}
+{% set value = value|default(null) %}
+{% set placeholder = placeholder|default(null) %}
+{% set required = required|default(false) %}
+{% set disabled = disabled|default(false) %}
+{% set error = error|default(null) %}
+{% set class = class|default(null) %}
+{% set size = size|default(null) %}
+{% set theme = theme|default(null) %}
+{% set rows = rows|default(5) %}
+
+{% set input_classes = 'form-input form-textarea' %}
+{% if size %}{% set input_classes = input_classes ~ ' form-input--' ~ size %}{% endif %}
+{% if theme %}{% set input_classes = input_classes ~ ' form-input--theme-' ~ theme %}{% endif %}
+{% if error %}{% set input_classes = input_classes ~ ' is-invalid' %}{% endif %}
+{% if class %}{% set input_classes = input_classes ~ ' ' ~ class %}{% endif %}
+
+<div>
+    {% if label %}
+        <label {% if id %}for="{{ id }}"{% endif %} class="form-label">{{ label }}</label>
+    {% endif %}
+
+    <div class="form-input-wrapper">
+        <textarea
+                class="{{ input_classes }}"
+                {% if id %}id="{{ id }}"{% endif %}
+                {% if name %}name="{{ name }}"{% endif %}
+                {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
+                {% if required %}required{% endif %}
+                {% if disabled %}disabled{% endif %}
+                {% if rows %}rows="{{ rows }}"{% endif %}
+        >{{ value }}</textarea>
+    </div>
+
+    {% if info %}
+        <div class="form-input__info">{{ info }}</div>
+    {% endif %}
+
+    {% if error %}
+        <div class="invalid-feedback">{{ error }}</div>
+    {% endif %}
+</div>

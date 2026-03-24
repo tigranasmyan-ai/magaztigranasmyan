@@ -1,0 +1,330 @@
+{% extends 'templates/base.twig' %}
+
+{% set page_settings = {
+    classes: {
+        body: 'ui-page',
+    },
+    breadcrumbs: [
+        { text: 'Главная', href: 'index.html' },
+        { text: 'UI Kit', active: true },
+    ]
+} %}
+
+{% block content %}
+    <style>
+        .ui-section {
+            margin-bottom: 60px;
+        }
+
+        .ui-section__title {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .ui-example {
+            margin-bottom: 30px;
+        }
+
+        .ui-example__title {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ui-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+    </style>
+
+    <div class="section">
+        <div class="container">
+            <h1 class="title title-h1" style="margin-bottom: 40px;">UI-кит — Компоненты формы</h1>
+
+            {% set main_tabs = [
+                { id: 'forms_category', label: 'Формы', active: true },
+                { id: 'products_category', label: 'Товары' },
+                { id: 'buttons_category', label: 'Кнопки' },
+                { id: 'typography_category', label: 'Типографика' }
+            ] %}
+
+            {# MAIN TABS HEAD #}
+            <div style="margin-bottom: 30px;">
+                {% include '@components/ui/tab/tab-head.twig' with { tabs: main_tabs } %}
+            </div>
+
+            {# MAIN TABS CONTENT #}
+            {% embed '@components/ui/tab/tab-content.twig' with { tabs: main_tabs } %}
+                {% block content %}
+                    {% if tab.id == 'forms_category' %}
+                        {% set form_tabs = [
+                            { id: 'inputs', label: 'Поля ввода', active: true },
+                            { id: 'textareas', label: 'Текстовые области' },
+                            { id: 'controls', label: 'Переключатели' },
+                            { id: 'sliders', label: 'Диапазон цен' }
+                        ] %}
+
+                        <div class="ui-nested-tabs" style="margin-bottom: 30px;">
+                            {% include '@components/ui/tab/tab-head.twig' with { tabs: form_tabs } %}
+                        </div>
+
+                        {% embed '@components/ui/tab/tab-content.twig' with { tabs: form_tabs } %}
+                            {% block content %}
+                                {% if tab.id == 'inputs' %}
+                                    <div class="ui-section">
+                                        <div class="ui-grid">
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Стандартное поле</div>
+                                                {% include '@components/forms/input.twig' with { label: 'Заголовок', placeholder: 'Введите текст', id: 'input_default' } %}
+                                            </div>
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Обязательное поле</div>
+                                                {% include '@components/forms/input.twig' with { label: 'Обязательный заголовок *', placeholder: 'Обязательное поле', id: 'input_required', required: true } %}
+                                            </div>
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Отключенное поле</div>
+                                                {% include '@components/forms/input.twig' with { label: 'Отключенный заголовок', placeholder: 'Поле отключено', id: 'input_disabled', disabled: true, value: 'Значение в отключенном поле' } %}
+                                            </div>
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Поле с ошибкой</div>
+                                                {% include '@components/forms/input.twig' with { label: 'Поле с ошибкой', id: 'input_error', error: 'Это поле обязательно для заполнения', value: 'Некорректное значение' } %}
+                                            </div>
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Поле с подсказкой</div>
+                                                {% include '@components/forms/input.twig' with { label: 'Поле с подсказкой', id: 'input_info', info: 'Это вспомогательная информация для этого поля' } %}
+                                            </div>
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Поле с паролем</div>
+                                                {% include '@components/forms/input.twig' with { label: 'Пароль', type: 'password', id: 'input_password', placeholder: 'Введите пароль' } %}
+                                            </div>
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Поле с иконкой слева</div>
+                                                {% include '@components/forms/input.twig' with { label: 'Поиск', id: 'input_icon_left', icon_left: 'search-18-18', placeholder: 'Поиск...' } %}
+                                            </div>
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Поле с иконкой справа (Поиск)</div>
+                                                {% include '@components/forms/input.twig' with { label: 'Глобальный поиск', id: 'input_icon_right_search', icon_right: 'search', placeholder: 'Поиск везде...' } %}
+                                            </div>
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Темное поле</div>
+                                                {% include '@components/forms/input.twig' with { label: 'Темная тема', id: 'input_darken', theme: 'darken', placeholder: 'Темный фон' } %}
+                                            </div>
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Поле ввода телефона</div>
+                                                {% include '@components/forms/input.twig' with { label: 'Номер телефона', id: 'input_phone', class: 'phone', placeholder: '+7 (___) ___-__-__' } %}
+                                            </div>
+                                        </div>
+
+                                        <div class="ui-example" style="margin-top: 30px;">
+                                            <div class="ui-example__title">Размеры</div>
+                                            <div class="row g-4">
+                                                <div class="col-md-4">
+                                                    {% include '@components/forms/input.twig' with { label: 'Маленькое поле', id: 'input_sm', size: 'sm', placeholder: 'Малый размер' } %}
+                                                </div>
+                                                <div class="col-md-4">
+                                                    {% include '@components/forms/input.twig' with { label: 'Стандартное поле', id: 'input_md', placeholder: 'Стандартный размер' } %}
+                                                </div>
+                                                <div class="col-md-4">
+                                                    {% include '@components/forms/input.twig' with { label: 'Большое поле', id: 'input_lg', size: 'lg', placeholder: 'Большой размер' } %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% if tab.id == 'textareas' %}
+                                    <div class="ui-section">
+                                        <div class="ui-grid">
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Стандартная текстовая область</div>
+                                                {% include '@components/forms/textarea.twig' with { label: 'Сообщение', placeholder: 'Введите ваше сообщение', id: 'textarea_default', rows: 4 } %}
+                                            </div>
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Отключенная текстовая область</div>
+                                                {% include '@components/forms/textarea.twig' with { label: 'Отключенный заголовок', placeholder: 'Текстовая область отключена', id: 'textarea_disabled', disabled: true, value: 'Значение в отключенной текстовой области', rows: 4 } %}
+                                            </div>
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Текстовая область с ошибкой</div>
+                                                {% include '@components/forms/textarea.twig' with { label: 'Заголовок с ошибкой', id: 'textarea_error', error: 'Пожалуйста, введите корректное сообщение', rows: 4 } %}
+                                            </div>
+                                            <div class="ui-example">
+                                                <div class="ui-example__title">Размеры</div>
+                                                {% include '@components/forms/textarea.twig' with { label: 'Маленькая текстовая область', id: 'textarea_sm', size: 'sm', rows: 2 } %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% if tab.id == 'controls' %}
+                                    <div class="ui-section">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <h3 class="ui-section__title title title-h3">Чекбоксы</h3>
+                                                <div class="ui-example">
+                                                    <div class="ui-example__title">Размеры</div>
+                                                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                                                        {% include '@components/forms/checkbox.twig' with { label: 'Маленький чекбокс', id: 'cb_sm', size: 'sm' } %}
+                                                        {% include '@components/forms/checkbox.twig' with { label: 'Стандартный чекбокс', id: 'cb_md' } %}
+                                                        {% include '@components/forms/checkbox.twig' with { label: 'Большой чекбокс', id: 'cb_lg', size: 'lg' } %}
+                                                    </div>
+                                                </div>
+                                                <div class="ui-example">
+                                                    <div class="ui-example__title">Состояния</div>
+                                                    {% include '@components/forms/checkbox.twig' with { label: 'Выбранный чекбокс', id: 'checkbox_2', checked: true } %}
+                                                </div>
+                                                <div class="ui-example">
+                                                    {% include '@components/forms/checkbox.twig' with { label: 'Отключенный чекбокс', id: 'checkbox_3', disabled: true } %}
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <h3 class="ui-section__title title title-h3">Радиокнопки</h3>
+                                                <div class="ui-example">
+                                                    <div class="ui-example__title">Размеры</div>
+                                                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                                                        {% include '@components/forms/radio.twig' with { label: 'Маленькая радиокнопка', id: 'r_sm', name: 'r_size', size: 'sm' } %}
+                                                        {% include '@components/forms/radio.twig' with { label: 'Стандартная радиокнопка', id: 'r_md', name: 'r_size' } %}
+                                                        {% include '@components/forms/radio.twig' with { label: 'Большая радиокнопка', id: 'r_lg', name: 'r_size', size: 'lg' } %}
+                                                    </div>
+                                                </div>
+                                                <div class="ui-example">
+                                                    <div class="ui-example__title">Состояния</div>
+                                                    {% include '@components/forms/radio.twig' with { label: 'Вариант 1', id: 'radio_1', name: 'radio_group', checked: true } %}
+                                                </div>
+                                                <div class="ui-example">
+                                                    {% include '@components/forms/radio.twig' with { label: 'Отключенная радиокнопка', id: 'radio_3', name: 'radio_group_2', disabled: true } %}
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <h3 class="ui-section__title title title-h3">Переключатели (Switch)</h3>
+                                                <div class="ui-example">
+                                                    <div class="ui-example__title">Размеры</div>
+                                                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                                                        {% include '@components/forms/switch.twig' with { label: 'Маленький переключатель', id: 's_sm', size: 'sm' } %}
+                                                        {% include '@components/forms/switch.twig' with { label: 'Стандартный переключатель', id: 's_md' } %}
+                                                        {% include '@components/forms/switch.twig' with { label: 'Большой переключатель', id: 's_lg', size: 'lg' } %}
+                                                    </div>
+                                                </div>
+                                                <div class="ui-example">
+                                                    <div class="ui-example__title">Состояния</div>
+                                                    {% include '@components/forms/switch.twig' with { label: 'Включено', id: 'switch_2', checked: true } %}
+                                                </div>
+                                                <div class="ui-example">
+                                                    {% include '@components/forms/switch.twig' with { label: 'Переключатель с подписями', id: 'switch_labels', text_on: 'ВКЛ', text_off: 'ВЫКЛ' } %}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% if tab.id == 'sliders' %}
+                                    <div class="ui-section">
+                                        <div class="ui-example">
+                                            <div class="ui-example__title">Стандартный слайдер диапазона</div>
+                                            {% include '@components/forms/range-slider.twig' with { min: 0, max: 50000, start_min: 5000, start_max: 35000, step: 100 } %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endblock %}
+                        {% endembed %}
+                    {% endif %}
+
+                    {% if tab.id == 'products_category' %}
+                        {% set product_tabs = [
+                            { id: 'product_grid', label: 'Плитка', active: true },
+                            { id: 'product_list', label: 'Список' },
+                            { id: 'product_table', label: 'Таблица' },
+                        ] %}
+
+                        <div class="ui-nested-tabs" style="margin-bottom: 30px;">
+                            {% include '@components/ui/tab/tab-head.twig' with { tabs: product_tabs } %}
+                        </div>
+
+                        {% embed '@components/ui/tab/tab-content.twig' with { tabs: product_tabs } %}
+                            {% block content %}
+                                {% if tab.id == 'product_grid' %}
+                                    <div class="ui-section">
+                                        <div class="row g-6">
+                                            <div class="col-md-4">
+                                                {% include 'item/product/product-item.twig' %}
+                                            </div>
+                                            <div class="col-md-4">
+                                                {% include 'item/product/product-item.twig' with { disabled_bottom: true } %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% if tab.id == 'product_list' %}
+                                    <div class="ui-section">
+                                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                                            {% include 'item/product/product-item-list.twig' %}
+                                            {% include 'item/product/product-item-list.twig' %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% if tab.id == 'product_table' %}
+                                    <div class="ui-section">
+                                        {% include 'item/product/product-item-table.twig' %}
+                                    </div>
+                                {% endif %}
+                            {% endblock %}
+                        {% endembed %}
+                    {% endif %}
+
+                    {% if tab.id == 'buttons_category' %}
+                        <div class="ui-section">
+                            <div class="ui-grid">
+                                <div class="ui-example">
+                                    <div class="ui-example__title">Основная (Primary)</div>
+                                    {% include '@components/button.twig' with { button_text: 'Основная кнопка' } %}
+                                </div>
+                                <div class="ui-example">
+                                    <div class="ui-example__title">Большая</div>
+                                    {% include '@components/button.twig' with { button_text: 'Большая кнопка', button_size: 'lg' } %}
+                                </div>
+                                <div class="ui-example">
+                                    <div class="ui-example__title">Маленькая</div>
+                                    {% include '@components/button.twig' with { button_text: 'Маленькая кнопка', button_size: 'sm' } %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if tab.id == 'typography_category' %}
+                        <div class="ui-section">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h1 class="title title-h1">Заголовок 1</h1>
+                                    <h2 class="title title-h2">Заголовок 2</h2>
+                                    <h3 class="title title-h3">Заголовок 3</h3>
+                                    <h4 class="title title-h4">Заголовок 4</h4>
+                                    <h5 class="title title-h5">Заголовок 5</h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-content">
+                                        <p>Обычный текст. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <ul>
+                                            <li>Элемент маркированного списка 1</li>
+                                            <li>Элемент маркированного списка 2</li>
+                                        </ul>
+                                        <ol>
+                                            <li>Элемент нумерованного списка 1</li>
+                                            <li>Элемент нумерованного списка 2</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endblock %}
+            {% endembed %}
+        </div>
+    </div>
+{% endblock %}

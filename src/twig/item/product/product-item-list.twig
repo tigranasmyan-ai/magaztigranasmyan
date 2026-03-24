@@ -1,0 +1,159 @@
+<div class="product-item js-product-item" data-view="list">
+    <div class="product-item__left">
+        <div class="product-item__badges product-badges">
+            {% include '@components/ui/badge.twig' with { text: 'Хит', type: 'green', tag: 'div' } %}
+            {% include '@components/ui/badge.twig' with { text: 'Новинка', type: 'orange', tag: 'div' } %}
+            {% include '@components/ui/badge.twig' with { text: 'Советуем', type: 'purple', tag: 'div' } %}
+        </div>
+
+        <div class="gallery">
+            <div class="gallery__pictures">
+                {% for item in [
+                    'https://premier-demo.ru/upload/iblock/3d4/uyjic0vgy8mh1albyq5r2lx819li05tv.jpg',
+                    'https://premier-demo.ru/upload/iblock/758/dt2wunwv2okax8uscj0hf1gf7exgbzos.jpg',
+                    'https://premier-demo.ru/upload/iblock/cf4/m8koh4m75jq99ykk8l0wg2ohq2xu59f2.jpg',
+                ] %}
+                    <div class="gallery__picture js-product-item-gallery-picture {{ loop.first ? 'active' : '' }}">
+                        <img src="{{ item }}" alt="">
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="gallery__dots">
+                {% for item in 1..3 %}
+                    <div class="gallery__dot js-product-item-gallery-dot"></div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="product-item__pagination gallery__pagination">
+            <span class="active js-product-item-gallery-bullet"></span>
+            <span class="js-product-item-gallery-bullet"></span>
+            <span class="js-product-item-gallery-bullet"></span>
+            <span class="js-product-item-gallery-bullet"></span>
+        </div>
+
+        <a data-bs-toggle="modal" data-bs-target="#ProductFastView" class="product-item__fast-view fast-view-button">Быстрый просмотр</a>
+    </div>
+
+    <div class="product-item__wrapper">
+        <div class="product-item__content">
+            <div>
+                <a href="" class="product-item__title title-h6 title">
+                    Комплект ванна K-Rossei + смеситель Cателия
+                </a>
+
+                <div class="product-item__info info-box">
+                    <div class="info-box__item">
+                        <div class="info-box__icon">
+                            <svg width="14" height="15">
+                                <use xlink:href="img/svg/icons.svg#star"></use>
+                            </svg>
+                        </div>
+
+                        <span class="info-box__text">9</span>
+                    </div>
+
+                    <div class="info-box__item">
+                        <div class="info-box__icon is-comment">
+                            <svg width="13" height="12">
+                                <use xlink:href="img/svg/icons.svg#review"></use>
+                            </svg>
+                        </div>
+
+                        <span class="info-box__text">0</span>
+                    </div>
+
+                    <div class="info-box__item">
+                        <div class="status">
+                            <svg width="13" height="12">
+                                <use xlink:href="img/svg/icons.svg#instock"></use>
+                            </svg>
+
+                            <span class="status__text">В наличии</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="product-item__variants variants">
+                    {% for item in 1..2 %}
+                        <div class="variant">
+                            <div class="variant__title">Цвет: 232 Нежный кашемир</div>
+
+                            <div class="variant__list">
+                                {% for item in 1..12 %}
+                                    <button type="button" class="variant__item {{ loop.index == 1 ? 'active' : '' }}">
+                                        <img src="https://premier-demo.ru/upload/iblock/ca7/cyah1pp4hju0qyqahn0u32rv5hplyn17.jpg"
+                                             alt="">
+                                    </button>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="product-item__text">
+                    Ванная комната в стиле ретро — продукция брендов Rossei и Cателия. Стиль, прочность и долговечность.
+                    Компактный вариант для небольших помещений. Сохраните пространство и удобство. Рекомендуем подключать
+                    жесткий тип подводки — он устойчив к химическим и термическим воздействиям, выдерживает перепады
+                    температур.
+                </div>
+
+                <div class="product-item__properties properties properties-md">
+                    <div class="properties__item">
+                        <span>Материал:</span>
+                        <span><a href="">Дерево</a>, <a href="">Пластик</a></span>
+                    </div>
+
+                    <div class="properties__item">
+                        <span>Общая мощность, Вт:</span>
+                        <span>12</span>
+                    </div>
+
+                    <div class="properties__item">
+                        <span>Габариты (ВхШхГ), см:</span>
+                        <span>13х34х6</span>
+                    </div>
+
+                    <div class="properties__item">
+                        <span>Дополнительно:</span>
+                        <span>Кодирование звука в MP3 формат</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-item__right">
+            <div class="product-item__top">
+                {% include '@components/@shop/price.twig' with {
+                    size: 'lg',
+                } %}
+
+                {% include '@components/ui/badge.twig' with {
+                    badge_text: badge.text|default('-10%'),
+                    badge_type: badge.type|default('red'),
+                    badge_size: badge.size|default('sm'),
+                    badge_tag: 'div'
+                } %}
+            </div>
+
+            {% include '@components/@shop/cashback.twig' with {
+                class: 'product-item__cashback',
+            } %}
+
+            <div class="product-item__bottom">
+                <div class="product-item__buttons">
+                    <button class="button button-default button-block button-lg">В корзину</button>
+                    <button class="button button-transparent-bg button-block button-sm">Купить в 1 клик</button>
+                </div>
+
+                {% include '@components/@shop/actions.twig' with {
+                    actions_list: ['favorite', 'wish'],
+                    actions_classes: 'product-item__actions',
+                } %}
+            </div>
+        </div>
+    </div>
+</div>

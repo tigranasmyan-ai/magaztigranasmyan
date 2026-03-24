@@ -1,0 +1,26 @@
+{% set counter_classes = 'counter js-counter' %}
+{% if class %}{% set counter_classes = counter_classes ~ ' ' ~ class %}{% endif %}
+
+<div class="{{ counter_classes }}" 
+     {% if min is defined %}data-min="{{ min }}"{% endif %} 
+     {% if max is defined %}data-max="{{ max }}"{% endif %} 
+     {% if step is defined %}data-step="{{ step }}"{% endif %}>
+    <button type="button" class="counter__btn counter__btn--minus js-counter__btn--minus">
+        <svg width="12" height="2">
+            <use xlink:href="img/svg/icons.svg#minus"></use>
+        </svg>
+    </button>
+    
+    <input type="number" 
+           class="counter__input js-counter__input" 
+           value="{{ value|default(1) }}" 
+           {% if id %}id="{{ id }}"{% endif %}
+           {% if name %}name="{{ name }}"{% endif %}
+           readonly>
+    
+    <button type="button" class="counter__btn counter__btn--plus js-counter__btn--plus">
+        <svg width="12" height="12">
+            <use xlink:href="img/svg/icons.svg#plus"></use>
+        </svg>
+    </button>
+</div>

@@ -1,0 +1,53 @@
+.counter {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgb(var(--secondary-black-dark-light-bg));
+  border-radius: var(--settings-main-border-radius);
+  padding: 4px;
+  height: 30px;
+  user-select: none;
+
+  &__btn {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    color: rgb(var(--white_text_black));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--settings-main-border-radius);
+    transition: all 0.2s ease;
+    padding: 0;
+
+
+    &[disabled] {
+      opacity: 0.3;
+      pointer-events: none;
+    }
+  }
+
+  &__input {
+    width: 30px;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(var(--white_text_black));
+    padding: 0;
+    margin: 0;
+    -moz-appearance: textfield;
+    appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
