@@ -57,7 +57,6 @@ function styles() {
       }),
     )
     .pipe(groupMediaQueries())
-    .pipe(cleanCSS())
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(paths.dist.css))
     .pipe(browserSync.stream());

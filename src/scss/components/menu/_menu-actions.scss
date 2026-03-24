@@ -70,6 +70,9 @@
     white-space: nowrap;
     z-index: 2;
 
+    color: rgb(var(--settings-theme-primary-text));
+    background-color: rgba(var(--settings-theme-primary-secondary));
+
     #{$self}.is-grid & {
       position: absolute;
       top: 0;
@@ -80,8 +83,6 @@
     #{$self}.is-list & {
       margin-left: auto;
     }
-
-    @include mixins.set_main_theme;
   }
 
   &__text {
