@@ -1,0 +1,1 @@
+import noUiSlider from"nouislider";import"nouislider/dist/nouislider.css";function initRangeSliders(){}export{initRangeSliders};
