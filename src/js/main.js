@@ -72,13 +72,13 @@ $(document).ready(function () {
     }
 
     // Initialize toggle text based on the theme already set in <head>
-    updateThemeText($html.attr("data-theme"));
+    updateThemeText($html.attr("data-color-scheme"));
 
     $(document).on('click', themeToggleSelector, function () {
-        let currentTheme = $html.attr("data-theme");
+        let currentTheme = $html.attr("data-color-scheme");
         let newTheme = currentTheme === "dark" ? "light" : "dark";
 
-        $html.attr("data-theme", newTheme);
+        $html.attr("data-color-scheme", newTheme);
         localStorage.setItem("theme", newTheme);
         updateThemeText(newTheme);
     });

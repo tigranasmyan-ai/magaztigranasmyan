@@ -1,6 +1,6 @@
 .gallery {
   background-color: #F8F8FC;
-  border-radius: var(--settigs-image-border-radius);
+  border-radius: var(--settings-image-border-radius);
   padding-top: 100%;
   position: relative;
   overflow: hidden;
@@ -55,7 +55,7 @@
       mix-blend-mode: darken;
 
       pointer-events: none;
-      border-radius: var(--settigs-image-border-radius);
+      border-radius: var(--settings-image-border-radius);
     }
   }
 

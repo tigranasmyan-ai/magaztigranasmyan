@@ -48,7 +48,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-radius: var(--settigs-image-border-radius);
+      border-radius: var(--settings-image-border-radius);
       transition: background 0.3s ease;
 
       &:hover {
@@ -83,7 +83,7 @@
     position: absolute;
     white-space: nowrap;
     cursor: pointer;
-    border-radius: var(--settigs-image-border-radius);
+    border-radius: var(--settings-image-border-radius);
     text-align: left;
     box-shadow: 0 5px 30px rgba(34, 34, 40, 0.08);
     max-width: 450px;
