@@ -36,3 +36,41 @@
     background: #ff4f64;
   }
 }
+/* badges */
+.badge-sale {
+    background-color: #ffeca8;
+    color: #222;
+}
+
+.badge-new {
+    background-color: #32cb41;
+    color: #fff;
+}
+
+.badge-hit {
+    background-color: #ff7455;
+    color: #fff;
+}
+
+.badge-recomend {
+    background-color: #a56ffd;
+    color: #fff;
+}
+
+.badge-countdown {
+    background: #FFE5E3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px;
+}
+
+.badge-countdown svg {
+    transform: translateY(1px);
+}
+
+.badge-countdown span {
+    display: flex;
+    gap: 3px;
+    color: rgb(34, 34, 34);
+}

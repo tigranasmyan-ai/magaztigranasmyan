@@ -146,6 +146,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-wrap: wrap;
   }
 
   &__social-item {
@@ -155,19 +156,64 @@
     height: 24px;
     display: block;
     position: relative;
-    background: url(../img/social.svg) calc(var(--sprite-step) * var(--icon-position)) 0 no-repeat;
+    background: url(/design/img/social.svg) calc(var(--sprite-step) * var(--icon-position)) 0 no-repeat;
     transition: opacity 0.2s ease;
 
     &:hover {
       opacity: 0.7;
     }
 
-    &--vkontakte {
-      --icon-position: 4;
-    }
+    $social-icons: (
+      office365: 0,
+      zoom: 1,
+      viber: 1,
+      telegram: 2,
+      tiktok: 3,
+      vkontakte: 4,
+      yandex-zen: 5,
+      odn: 6,
+      youtube: 7,
+      rutube: 11,
+      ozon: 12,
+      yandex: 14,
+      mailru2: 15,
+      mymailru: 15,
+      wb: 15,
+      pinterest: 16,
+      facebook: 17,
+      twitter: 18,
+      snapchat: 19,
+      tenchat: 20,
+      linkedin: 21,
+      instagram: 22,
+      avito: 23,
+      google: 24,
+      livejournal: 25,
+      bitrix: 26,
+      dropbox: 28,
+      skype: 28,
+      box: 29,
+      apple: 31,
+      openid-mail-ru: 32,
+      openid: 33,
+      liveid: 34,
+      liveinternet: 34,
+      blogger: 35,
+      acloud: 36,
+      aspro-link: 37,
+      vkvideo: 47,
+      max: 48,
+      whatsapp: 0
+    );
 
-    &--viber {
-       --icon-position: 1;
+    @each $name, $position in $social-icons {
+      &--#{$name} {
+        --icon-position: #{$position};
+      }
     }
   }
+}
+
+.inst {
+  --icon-position: 22;
 }

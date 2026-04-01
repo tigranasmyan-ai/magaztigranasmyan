@@ -3441,7 +3441,7 @@ hr.divider {
   height: 24px;
   display: block;
   position: relative;
-  background: url(../img/social.svg) calc(var(--sprite-step) * var(--icon-position)) 0 no-repeat;
+  background: url(design/img/social.svg) calc(var(--sprite-step) * var(--icon-position)) 0 no-repeat;
   transition: opacity 0.2s ease;
 }
 
@@ -3928,7 +3928,7 @@ hr.divider {
 
 .payments__icon {
   vertical-align: middle;
-  background: url(../img/payment.svg) 0 0 no-repeat;
+  background: url(design/img/payment.svg) 0 0 no-repeat;
 }
 
 .payments__icon.visa {

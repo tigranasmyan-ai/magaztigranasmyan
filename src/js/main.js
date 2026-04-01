@@ -147,7 +147,7 @@ $(document).ready(function () {
 
     new Swiper('.js-header-catalog-card-slider', {
         slidesPerView: 'auto',
-        spaceBetween: 24,
+        spaceBetween: 0,
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',

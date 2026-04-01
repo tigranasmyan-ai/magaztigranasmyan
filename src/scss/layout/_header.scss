@@ -341,16 +341,18 @@
   }
 
   &__item {
-    color: rgb(var(--settings-theme-primary-text));;
+    color: rgb(var(--settings-theme-primary-text));
     gap: 8px;
     text-decoration: none;
-    transition: color 0.3s ease, opacity 0.3s ease;
-    height: 50px;
+    transition: background-color 0.3s ease;
+    height: 52px;
     display: flex;
     align-items: center;
+    padding-left: 12px;
+    padding-right: 12px;
 
     &:hover {
-      opacity: 0.8;
+      background-color: rgb(var(--settings-theme-primary-text), 0.1);
     }
   }
 
@@ -373,6 +375,7 @@
     align-items: center;
     padding-left: 12px;
     padding-right: 12px;
+    margin-right: 12px;
 
     font-size: calc(1rem - 1px);
     line-height: calc(1em + 7px);
@@ -414,7 +417,6 @@
     border-top: 1px solid rgb(var(--stroke_black));
     display: flex;
     flex-direction: column;
-    gap: 24px;
   }
 
   &__total {
@@ -482,4 +484,61 @@
       }
     }
   }
+}
+.site-header-catalog__btn:not(.is-fixed) {
+    min-width: 151px;
+}
+
+.site-header-catalog__btn:not(.is-fixed):hover {
+    background-color: rgb(var(--settings-theme-primary));
+    color: var(--button-text-color);
+    border-color: rgb(var(--settings-theme-primary));
+}
+
+.site-header-catalog__btn:not(.is-fixed):hover span,
+.site-header-catalog__btn:not(.is-fixed):hover svg {
+    opacity: 0.7;
+}
+
+.site-header-categories__item {
+    transition: color 0.3s ease-in-out;
+}
+
+.site-header-categories__item:hover {
+    background: transparent;
+    opacity: 0.7;
+}
+
+.site-header-categories {
+    overflow: hidden;
+    position: relative;
+}
+
+.site-header-categories::before,
+.site-header-categories::after {
+    content: '';
+    width: 20px;
+    background: rgba(var(--settings-theme-primary));
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 20;
+    border-radius: 0 var(--settings-main-border-radius) var(--settings-main-border-radius) 0;
+}
+
+.site-header-categories::after {
+    right: initial;
+    left: 0;
+}
+
+.site-header-categories .swiper-button-prev,
+.site-header-categories .swiper-button-next {
+    z-index: 50;
+}
+
+@media (max-width: 1199px) {
+    .site-header__actions {
+        gap: 4px;
+    }
 }

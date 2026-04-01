@@ -9,3 +9,10 @@
     padding-right: var(--settings-layout-container-indent);
   }
 }
+.fill-theme-svg {
+    fill: rgb(var(--settings-theme-primary));
+}
+
+.fill-dark-light {
+    fill: rgb(var(--white_text_black));
+}

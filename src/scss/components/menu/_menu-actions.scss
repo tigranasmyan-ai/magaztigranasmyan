@@ -29,7 +29,7 @@
     align-items: center;
 
     #{$self}.is-list & {
-      min-height: 35px;
+      min-height: 42px;
       gap: 12px;
     }
 
@@ -70,7 +70,7 @@
     white-space: nowrap;
     z-index: 2;
 
-    color: rgb(var(--settings-theme-primary-text));
+    color: rgb(var(--settings-theme-primary-text-secondary));
     background-color: rgba(var(--settings-theme-primary-secondary));
 
     #{$self}.is-grid & {
@@ -86,8 +86,6 @@
   }
 
   &__text {
-    font-size: .875rem;
-    line-height: calc(1rem + 3px);
     max-width: 120px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -95,13 +93,32 @@
     flex-shrink: 0;
 
     #{$self}.is-grid & {
+      font-size: .875rem;
+      line-height: calc(1rem + 3px);
+
       @media (max-width: 1199px) {
         display: none;
       }
+    }
+
+    #{$self}.is-list & {
+      font-size: calc(1rem - 1px);
+      line-height: calc(1em + 7px);
     }
 
     #{$self}:hover & {
       opacity: 0.7;
     }
   }
+}
+.bar .menu-actions-item__link .js-compare-informer-counter,
+.bar .menu-actions-item__link .js-wishlist-informer-counter {
+    margin-left: auto;
+}
+
+.menu-actions-item__link {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    border: none;
 }

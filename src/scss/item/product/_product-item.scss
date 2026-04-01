@@ -188,3 +188,11 @@
     }
   }
 }
+.product-item__sku {
+    opacity: 0.5;
+    font-size: 12px;
+}
+
+.product-item[data-view=grid]:hover .product-item__title {
+    opacity: 0.7;
+}

@@ -48,10 +48,8 @@
     }
 
     img {
-      max-height: 100%;
-
       object-fit: cover;
-      max-width: 100%;
+      max-width: 80%;
       mix-blend-mode: darken;
 
       pointer-events: none;
@@ -73,4 +71,7 @@
     height: 100%;
     width: 20px;
   }
+}
+.gallery__picture img {
+    max-width: 100%;
 }

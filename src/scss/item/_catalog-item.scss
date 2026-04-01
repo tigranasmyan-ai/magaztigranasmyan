@@ -57,7 +57,7 @@
       display: block;
     }
 
-    &:not(.show-all) > div:nth-child(-n+5) {
+    &:not(.show-all) > div:nth-child(-n+3) {
       display: block;
     }
   }
@@ -87,7 +87,18 @@
   }
 
   &__text {
-    @include mixins.link_decoration;
+    --underline-opacity: 16%;
+
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-color:  transparent;
+    text-underline-offset: 4px;
+
+    transition: text-decoration-color .3s ease, opacity .3s ease;
+
+    &:hover {
+      text-decoration-color: color-mix(in oklab, rgb(var(--white_text_black)) var(--underline-opacity), transparent);
+    }
   }
 
   &__icon {
@@ -127,4 +138,7 @@
       text-decoration-style: dotted;
     }
   }
+}
+.catalog-item__title:hover {
+    text-underline-offset: 2px;
 }

@@ -1,5 +1,6 @@
 .categories-slider {
   position: relative;
+  width: 100%;
 
   @media (max-width: 991px) {
     margin-left: calc(var(--settings-layout-container-indent) * -1);

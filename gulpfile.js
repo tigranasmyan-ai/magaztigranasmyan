@@ -144,10 +144,7 @@ function watch() {
   gulp.watch(paths.src.js, gulp.parallel(scripts, vendorScripts));
 }
 
-const build = gulp.series(
-  clean,
-  gulp.parallel(templates, styles, vendorStyles, images, scripts, vendorScripts),
-);
+const build = gulp.parallel(templates, styles, vendorStyles, images, scripts, vendorScripts);
 const dev = gulp.series(build, watch);
 
 exports.templates = templates;

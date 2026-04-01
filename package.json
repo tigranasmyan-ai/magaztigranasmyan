@@ -30,6 +30,7 @@
     "sass": "^1.97.3"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.8",
     "nouislider": "^15.8.1"
   }
 }

@@ -155,3 +155,19 @@
     }
   }
 }
+/* filter */
+.form-filter {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.filter__button.is-apply {
+    display: block !important;
+}
+
+.filter-catalog__nav a.active,
+.filter-catalog__main.active {
+    background-color: rgb(var(--card_bg_active));
+    border-radius: var(--settings-main-border-radius);
+}

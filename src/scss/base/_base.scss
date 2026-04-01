@@ -1,3 +1,5 @@
+@use "abstracts/mixins";
+
 :root {
   // Типографика
   --settings-typography-font-size: 16px;
@@ -19,6 +21,7 @@
   --settings-theme-primary: 242, 114, 44;
   --settings-theme-primary-secondary: 234, 24, 243;
   --settings-theme-primary-text: 255, 255, 255;
+  --settings-theme-primary-text-secondary: 255, 255, 255;
 
   // Системные цвета
   --basic_text_black: 85, 85, 88;
@@ -99,6 +102,24 @@
   --tag_hover: 75, 75, 81;
 }
 
+* {
+  @media (min-width: 991px) {
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(var(--white_text_black), 0.4);
+      border-radius: 10px;
+      border: 2px solid transparent;
+    }
+  }
+}
+
 body {
   font-family: var(--settings-typography-font-family-secondary), sans-serif;
   font-size: var(--settings-typography-font-size);
@@ -140,6 +161,7 @@ body {
 
   @media (max-width: 991px) {
     padding-top: 60px;
+    padding-bottom: 60px;
   }
 
   &.site-short {

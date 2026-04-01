@@ -1,9 +1,9 @@
 /**
  Установки основного цвета темы
  */
-@mixin set_main_theme($opacity: 1) {
+@mixin set_main_theme() {
   color: rgb(var(--settings-theme-primary-text));
-  background-color: rgba(var(--settings-theme-primary), $opacity);
+  background-color: rgb(var(--settings-theme-primary));
 }
 
 /**

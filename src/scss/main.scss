@@ -49,6 +49,7 @@
 @use "components/menu/menu-list";
 @use "components/menu/menu-mega";
 @use "components/menu/menu-actions";
+@use "components/menu/fixed-bottom-menu";
 
 // Components
 @use "components/contacts";
@@ -63,6 +64,7 @@
 @use "components/filter";
 @use "components/bar";
 @use "components/subscribe";
+@use "components/pagination";
 
 // Shop
 @use "components/shop/variants";
