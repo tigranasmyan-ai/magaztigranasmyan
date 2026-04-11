@@ -99,3 +99,7 @@
     padding-left: 8px;
     width: initial;
 }
+.variant.lg .variant__item:not(.is-img) {
+  font-size: calc(1rem - 1px);
+  height: 46px;
+}

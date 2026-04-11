@@ -129,3 +129,8 @@
     }
   }
 }
+.service-item {
+  @media (max-width: 991px) {
+    height: initial;
+  }
+}

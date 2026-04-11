@@ -34,3 +34,8 @@
     flex-wrap: wrap;
   }
 }
+.product-item-viewed__info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

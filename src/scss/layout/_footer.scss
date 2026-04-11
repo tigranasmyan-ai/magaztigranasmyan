@@ -194,3 +194,11 @@
 .site-footer .theme-switch .theme-switch__text {
     font-size: 13px;
 }
+
+.site-footer {
+  overflow: hidden;
+
+  &__top {
+    overflow: initial;
+  }
+}

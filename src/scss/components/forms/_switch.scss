@@ -143,3 +143,12 @@
     }
   }
 }
+
+.switch {
+  &__on, &__off {
+    color: #999;
+  }
+  &__slider::before {
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 30%);
+  }
+}

@@ -122,3 +122,7 @@
     border-color: hsl(var(--settings-theme-primary));
   }
 }
+
+.checkbox__box::after {
+  border-color: rgb(var(--settings-theme-primary-text));
+}

@@ -510,3 +510,29 @@
   }
 }
 
+
+.site-header {
+  &-catalog__btn {
+    transition: opacity .3s ease-in-out;
+    svg, span {
+      transition: opacity .3s ease-in-out;
+    }
+    &:not(.is-fixed) {
+      border-right-color: rgba(var(--settings-theme-primary-text), 0.1) !important;
+    }
+  }
+
+  &-categories__item {
+    transition: opacity .3s ease-in-out;
+  }
+
+  &-popup__bottom {
+    gap: 24px;
+  }
+
+  @media (max-width: 1366px) {
+    &-location {
+      display: none;
+    }
+  }
+}

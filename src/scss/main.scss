@@ -87,6 +87,7 @@
 
 // Forms
 @use "components/forms/input";
+@use "components/forms/file";
 @use "components/forms/checkbox";
 @use "components/forms/switch";
 @use "components/forms/radio";
@@ -97,6 +98,7 @@
 
 // Pages
 @use "pages/home";
+@use "pages/error-page";
 @use "pages/account";
 @use "pages/help";
 @use "pages/blog-page";

@@ -142,3 +142,15 @@
 .catalog-item__title:hover {
     text-underline-offset: 2px;
 }
+
+.catalog-item-link__icon {
+  display: inline-block;
+  position: static;
+  transform: none;
+  width: 0;
+  transition: none;
+
+  &.active {
+    transform: rotate(180deg) translateY(-13px) translateX(-8px);
+  }
+}

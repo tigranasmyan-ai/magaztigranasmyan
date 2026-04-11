@@ -96,3 +96,7 @@
     }
   }
 }
+.swiper-button-prev,
+.swiper-button-next {
+  transition: background-color 0.3s, fill 0.3s, color 0.3s, stroke 0.3s;
+}

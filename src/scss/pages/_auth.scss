@@ -19,3 +19,22 @@
 .page-auth .breadcrumbs {
     justify-content: center;
 }
+
+.auth-with-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 36px;
+
+  &__item {
+    height: 48px;
+    background-color: rgb(var(--darkerblack_bg_black));
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    border-radius: var(--settings-main-border-radius);
+  }
+}

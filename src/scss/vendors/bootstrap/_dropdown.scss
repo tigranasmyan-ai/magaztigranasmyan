@@ -90,3 +90,16 @@
     }
   }
 }
+.dropdown-toggle {
+  &::after {
+    width: 5px;
+    height: 3px;
+    background: url('/design/img/svg/down.svg') no-repeat center/cover;
+    border: none;
+    margin: 0;
+    transition: transform .3s ease;
+  }
+  &.show::after {
+    transform: scaleY(-1);
+  }
+}

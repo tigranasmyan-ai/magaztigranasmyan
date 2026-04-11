@@ -305,3 +305,39 @@
     }
   }
 }
+.product-full {
+  &__panel .counter {
+    width: 100%;
+    justify-content: space-between;
+    height: 40px;
+  }
+  &__prices small {
+    font-size: 11px;
+  }
+  &-gallery__main .swiper-slide a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &-info__row .swiper {
+    width: 100%;
+  }
+
+  &-gallery__nav .swiper-arrow,
+  &-info__row .swiper-arrow {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    margin-top: -15px;
+  }
+}
+
+.is-accessory {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
