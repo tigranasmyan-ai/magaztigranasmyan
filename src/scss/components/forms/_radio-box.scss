@@ -24,8 +24,8 @@
   }
 
   &.active {
-    box-shadow: inset 0 0 0 1px rgb(var(--settings-theme-primary));
-    border-color: rgb(var(--settings-theme-primary));
+    box-shadow: inset 0 0 0 1px hsl(var(--settings-theme-primary));
+    border-color: hsl(var(--settings-theme-primary));
   }
 
   &__check {
@@ -39,7 +39,7 @@
 
     #{$self}.active & {
       border-width: 5px;
-      border-color: rgb(var(--settings-theme-primary));
+      border-color: hsl(var(--settings-theme-primary));
     }
   }
 

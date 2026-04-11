@@ -71,7 +71,7 @@
     z-index: 2;
 
     color: rgb(var(--settings-theme-primary-text-secondary));
-    background-color: rgba(var(--settings-theme-primary-secondary));
+    background-color: hsl(var(--settings-theme-primary-secondary));
 
     #{$self}.is-grid & {
       position: absolute;

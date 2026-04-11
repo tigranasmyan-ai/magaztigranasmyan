@@ -18,8 +18,16 @@
   --settings-image-border-radius: 10px;
 
   // Основной цвет сайта
-  --settings-theme-primary: 242, 114, 44;
-  --settings-theme-primary-secondary: 234, 24, 243;
+  --settings-theme-primary-h: 198;
+  --settings-theme-primary-s: 94%;
+  --settings-theme-primary-l: 52%;
+  --settings-theme-primary-lightness-hover-diff: -6%;
+  --settings-theme-primary: var(--settings-theme-primary-h), var(--settings-theme-primary-s), var(--settings-theme-primary-l);
+  --settings-theme-primary-hover: var(--settings-theme-primary-h), var(--settings-theme-primary-s), calc(var(--settings-theme-primary-l) + var(--settings-theme-primary-lightness-hover-diff));
+
+  --settings-theme-primary-secondary: 198, 94%, 20%;
+  --settings-theme-primary-secondary-lightness-hover-diff: -10%;
+
   --settings-theme-primary-text: 255, 255, 255;
   --settings-theme-primary-text-secondary: 255, 255, 255;
 

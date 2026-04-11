@@ -62,13 +62,13 @@
 
   // Variants
   &-default {
-    background-color: rgb(var(--settings-theme-primary));
+    background-color: hsl(var(--settings-theme-primary));
     color: var(--button-text-color);
-    border-color: rgb(var(--settings-theme-primary));
+    border-color: hsl(var(--settings-theme-primary));
 
     &:hover {
-      background-color: color-mix(in srgb, rgb(var(--settings-theme-primary)), black 20%);
-      border-color: color-mix(in srgb, rgb(var(--settings-theme-primary)), black 20%);
+      background-color: hsl(var(--settings-theme-primary-hover));
+      border-color: hsl(var(--settings-theme-primary-hover));
     }
   }
 
@@ -93,9 +93,9 @@
     border-color: rgba(var(--basic_text_black), 0.2);
 
     &:hover {
-      background-color: rgb(var(--settings-theme-primary));
+      background-color: hsl(var(--settings-theme-primary));
       color: var(--button-text-color);
-      border-color: rgb(var(--settings-theme-primary));
+      border-color: hsl(var(--settings-theme-primary));
     }
   }
 

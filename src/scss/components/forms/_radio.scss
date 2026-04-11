@@ -14,8 +14,8 @@
     width: 0;
 
     &:checked ~ .radio__box {
-      background-color: rgb(var(--settings-theme-primary));
-      border-color: rgb(var(--settings-theme-primary));
+      background-color: hsl(var(--settings-theme-primary));
+      border-color: hsl(var(--settings-theme-primary));
 
       &::after {
         display: block;
@@ -101,6 +101,6 @@
   }
 
   &:hover &__input:not(:disabled) ~ .radio__box {
-    border-color: rgb(var(--settings-theme-primary));
+    border-color: hsl(var(--settings-theme-primary));
   }
 }

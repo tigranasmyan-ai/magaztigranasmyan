@@ -1,19 +1,47 @@
 @use "abstracts/mixins";
 
+@keyframes bulletFill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
 .swiper {
   &-arrow {
     z-index: 50;
     width: 40px;
+    min-width: 40px;
     height: 40px;
     border-radius: 50%;
     box-shadow: 0 5px 20px rgba(0, 0, 0, .07);
-    background: rgb(var(--arrows_bg_black));
-    transition: background-color .3s ease, color .3s ease;
-    color: rgb(var(--white_text_black));
+    transition: background-color .3s ease, stroke .3s ease;
+    border: none;
 
-    &:hover {
-      @include mixins.set_main_theme();
+    &.is-white {
+      background: rgb(var(--arrows_bg_black));
+      color: rgb(var(--white_text_black));
+      stroke: rgb(var(--white_text_black));
+
+      &:hover {
+        @include mixins.set_main_theme();
+        stroke: rgb(var(--settings-theme-primary-text));
+      }
     }
+
+    &.is-black-opacity {
+      background-color: rgba(34, 34, 40, .24);
+      stroke: white;
+    }
+
+    &__svg {
+      width: 6px!important;
+      height: 12px!important;
+    }
+
+    &::after {
+      display: none;
+    }
+
 
     &.swiper-button-disabled {
       opacity: 0;
@@ -27,17 +55,44 @@
 
 
 .swiper-pagination {
+  --swiper-pagination-theme-opacity: 1;
+  --swiper-pagination-theme: var(--stroke_black);
+
   position: static;
-  margin-top: 20px;
+
+  &.is-black-opacity {
+    --swiper-pagination-theme-opacity: 0.4;
+    --swiper-pagination-theme: 34, 34, 40;
+  }
+
+  &.is-white-opacity {
+    --swiper-pagination-theme-opacity: 0.2;
+    --swiper-pagination-theme: 255, 255, 255;
+  }
 
   &-bullet {
-    width: 4px;
-    height: 4px;
+    width: 3px;
+    height: 3px;
     border-radius: 4px;
-    background-color: rgb(var(--stroke_black));
+    background-color: rgba(var(--swiper-pagination-theme), var(--swiper-pagination-theme-opacity));
+    position: relative;
+    overflow: hidden;
 
     &.swiper-pagination-bullet-active {
-      width: 24px;
+      width: 48px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        transform: scaleX(0);
+        transform-origin: left;
+        background-color: rgba(var(--swiper-pagination-theme), 1);
+        animation: bulletFill 5s linear forwards;
+      }
     }
   }
 }

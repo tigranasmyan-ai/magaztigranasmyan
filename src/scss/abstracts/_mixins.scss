@@ -1,14 +1,8 @@
-/**
- Установки основного цвета темы
- */
 @mixin set_main_theme() {
   color: rgb(var(--settings-theme-primary-text));
-  background-color: rgb(var(--settings-theme-primary));
+  background-color: hsl(var(--settings-theme-primary));
 }
 
-/**
-  Обрезать строку по высоте
- */
 @mixin shorted_text ($line_count: 3) {
   -webkit-line-clamp: #{$line_count};
   display: -webkit-box;

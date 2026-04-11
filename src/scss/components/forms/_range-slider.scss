@@ -63,7 +63,7 @@
     margin-bottom: -1px;
 
     .noUi-connect {
-      background: rgb(var(--settings-theme-primary));
+      background: hsl(var(--settings-theme-primary));
     }
 
     .noUi-connects {
@@ -76,7 +76,7 @@
       right: -10px;
       top: -7px;
       background: white;
-      border: 2px solid rgb(var(--settings-theme-primary));
+      border: 2px solid hsl(var(--settings-theme-primary));
       border-radius: 50%;
       box-shadow: none;
       cursor: pointer;

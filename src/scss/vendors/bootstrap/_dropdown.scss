@@ -37,6 +37,26 @@
   }
 }
 
+.dropdown-item {
+  &.active,
+  &:hover,
+  &:active {
+    background-color: rgb(var(--card_bg_active)) !important;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &.active {
+    font-weight: 500;
+
+    svg {
+      width: 12px;
+      height: 9px;
+      stroke: rgb(var(--white_text_black));
+    }
+  }
+}
+
 .nice-select .list {
   background: rgb(var(--card_bg_black));
   text-align: left;

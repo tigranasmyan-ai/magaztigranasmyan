@@ -167,7 +167,7 @@
     }
 
     &:hover {
-      color: rgb(var(--settings-theme-primary));
+      color: hsl(var(--settings-theme-primary));
     }
   }
 
@@ -184,10 +184,10 @@
     transition: background-color .3s ease;
 
     &.active {
-      color: rgb(var(--settings-theme-primary));
+      color: hsl(var(--settings-theme-primary));
 
       svg {
-        fill: rgb(var(--settings-theme-primary));
+        fill: hsl(var(--settings-theme-primary));
       }
     }
 

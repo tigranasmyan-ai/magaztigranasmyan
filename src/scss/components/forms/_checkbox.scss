@@ -4,7 +4,7 @@
   gap: 12px;
   cursor: pointer;
   user-select: none;
-  align-items: center;
+  align-items: flex-start;
 
   .error {
     display: none;
@@ -18,8 +18,8 @@
     width: 0;
 
     &:checked ~ .checkbox__box {
-      background-color: rgb(var(--settings-theme-primary));
-      border-color: rgb(var(--settings-theme-primary));
+      background-color: hsl(var(--settings-theme-primary));
+      border-color: hsl(var(--settings-theme-primary));
 
       &::after {
         display: block;
@@ -101,7 +101,7 @@
     }
 
     a {
-      color: rgb(var(--settings-theme-primary));
+      color: hsl(var(--settings-theme-primary));
       text-decoration: underline;
 
       &:hover {
@@ -119,6 +119,6 @@
   }
 
   &:hover &__input:not(:disabled) ~ .checkbox__box {
-    border-color: rgb(var(--settings-theme-primary));
+    border-color: hsl(var(--settings-theme-primary));
   }
 }

@@ -44,7 +44,7 @@
 
     #{$self}:hover &, &:not(.collapsed) {
       svg {
-        stroke: rgb(var(--settings-theme-primary));
+        stroke: hsl(var(--settings-theme-primary));
         transform: rotate(135deg) scale(1.1);
       }
     }

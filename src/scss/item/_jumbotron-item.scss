@@ -21,11 +21,17 @@
     }
   }
 
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
   &__controls {
     display: flex;
     position: absolute;
-    bottom: 15px;
-    right: 15px;
+    bottom: 25px;
+    right: 25px;
     align-items: center;
     z-index: 50;
     gap: 12px;
@@ -82,12 +88,10 @@
   }
 
   &__title {
-    &.theme-white {
-      color: white;
-    }
+    color: #282828;
 
-    &:not(.theme-white) {
-      color: #282828;
+    .theme-white & {
+      color: white;
     }
 
     @media (max-width: 767px) {
@@ -113,14 +117,11 @@
     margin-top: 15px;
     margin-bottom: 35px;
 
+    color: #282828;
     line-height: 1.6;
 
-    &.theme-white {
+    .theme-white & {
       color: white;
-    }
-
-    &:not(.theme-white) {
-      color: #282828;
     }
 
     @media (max-width: 767px) {

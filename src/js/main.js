@@ -1,6 +1,16 @@
 $(document).ready(function () {
     const animationDuration = 200;
 
+
+    new Swiper('.js-swiper-accessories-slider', {
+        slidesPerView: 2,
+        spaceBetween: 12,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
     /**
      * Search
      */
@@ -573,8 +583,7 @@ $(document).ready(function () {
      * Single product slider
      */
     const thumbs = new Swiper('.js-product-full-thumbs-slider', {
-        direction: 'vertical', // 👈 вертикально
-        slidesPerView: 'auto',
+        slidesPerView: 4,
         spaceBetween: 10,
         watchSlidesProgress: true,
     });
@@ -605,4 +614,35 @@ $(document).ready(function () {
     });
 
     $('select').niceSelect();
+
+    new Swiper('.js-jumbotron-slider', {
+        spaceBetween: 24,
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        on: {
+            slideChange: function () {
+                const activeSlide = this.slides[this.activeIndex];
+                const pagination = this.pagination.el;
+
+                console.log(activeSlide);
+
+                if (activeSlide.classList.contains('theme-white')) {
+                    pagination.classList.add('is-black-opacity');
+                    pagination.classList.remove('is-white-opacity');
+                } else {
+                    pagination.classList.remove('is-black-opacity');
+                    pagination.classList.add('is-white-opacity');
+                }
+            }
+        }
+    });
 });

@@ -47,7 +47,7 @@
     }
 
     &:nth-child(3) {
-      fill: rgb(var(--settings-theme-primary));
+      fill: hsl(var(--settings-theme-primary));
     }
 
     #{$self}:not(.active) & {

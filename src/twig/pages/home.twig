@@ -23,13 +23,94 @@
 {% block content %}
     <div class="container">
         <div class="home-page__top">
-            <div class="jumbotron">
-                <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            {% include 'item/jumbotron-item.twig' %}
+            <div class="swiper jumbotron js-jumbotron-slider">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="jumbotron__slide">
+                            <div class="jumbotron__wrapper">
+                                <h2 class="jumbotron__title title title-h1">
+                                    Полное погружение в мир виртуальной реальности
+                                </h2>
+
+                                <div class="jumbotron__text">
+                                    Ваш постоянный источник энергии.
+                                    Универсален для любой ситуаций: <br>
+                                    от оснащения электропитанием
+                                </div>
+
+                                <div class="jumbotron__actions">
+                                    <a href="" class="jumbotron__button button button-lg button-default">В каталог</a>
+                                    <a href="" class="jumbotron__button button button-lg button-transparent">В каталог</a>
+                                </div>
+                            </div>
+
+                            <picture class="jumbotron__picture">
+                                <source media="(max-width: 991px)" srcset="https://premier-demo.ru/upload/iblock/04e/c4b0gseapzp7hop5a4058aiy52s60onu.jpg">
+
+                                <img src="https://premier-demo.ru/upload/iblock/04e/c4b0gseapzp7hop5a4058aiy52s60onu.jpg" alt="Responsive Image">
+                            </picture>
                         </div>
                     </div>
+
+                    <div class="swiper-slide theme-white">
+                        <div class="jumbotron__slide">
+                            <div class="jumbotron__wrapper">
+                                <h2 class="jumbotron__title title title-h1">
+                                    Полное погружение в мир виртуальной реальности
+                                </h2>
+
+                                <div class="jumbotron__text">
+                                    Ваш постоянный источник энергии.
+                                    Универсален для любой ситуаций: <br>
+                                    от оснащения электропитанием
+                                </div>
+
+                                <a href="" class="jumbotron__button button button-lg button-default">В каталог</a>
+                            </div>
+
+                            <picture class="jumbotron__picture">
+                                <source media="(max-width: 991px)" srcset="https://premier-demo.ru/upload/iblock/04e/c4b0gseapzp7hop5a4058aiy52s60onu.jpg">
+
+                                <img src="https://premier-demo.ru/upload/iblock/04e/c4b0gseapzp7hop5a4058aiy52s60onu.jpg" alt="Responsive Image">
+                            </picture>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="jumbotron__slide">
+                            <div class="jumbotron__wrapper">
+                                <h2 class="jumbotron__title title title-h1">
+                                    Полное погружение в мир виртуальной реальности
+                                </h2>
+
+                                <div class="jumbotron__text">
+                                    Ваш постоянный источник энергии.
+                                    Универсален для любой ситуаций: <br>
+                                    от оснащения электропитанием
+                                </div>
+
+                                <a href="" class="jumbotron__button button button-lg button-default">В каталог</a>
+                            </div>
+
+                            <picture class="jumbotron__picture">
+                                <source media="(max-width: 991px)" srcset="https://premier-demo.ru/upload/iblock/04e/c4b0gseapzp7hop5a4058aiy52s60onu.jpg">
+
+                                <img src="https://premier-demo.ru/upload/iblock/04e/c4b0gseapzp7hop5a4058aiy52s60onu.jpg" alt="Responsive Image">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="jumbotron__controls">
+                    <div class="swiper-pagination-jumbotron swiper-pagination is-black-opacity"></div>
+
+                    <button type="button" class="swiper-button-prev swiper-arrow is-black-opacity">
+                        <svg width="6" height="12" class="swiper-arrow__svg"><use xlink:href="img/svg/icons.svg#left-hollow"></use></svg>
+                    </button>
+
+                    <button type="button" class="swiper-button-next swiper-arrow is-black-opacity">
+                        <svg width="6" height="12" class="swiper-arrow__svg"><use xlink:href="img/svg/icons.svg#right-hollow"></use></svg>
+                    </button>
                 </div>
             </div>
 

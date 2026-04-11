@@ -80,7 +80,7 @@
 
   &__input:checked ~ .switch__container {
     .switch__slider {
-      background-color: rgb(var(--settings-theme-primary));
+      background-color: hsl(var(--settings-theme-primary));
       &::before {
         transform: translateX(16px);
 

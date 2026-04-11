@@ -26,16 +26,6 @@
   }
 
   .logo {
-    path {
-      &:first-child {
-        fill: rgb(var(--settings-theme-primary));
-      }
-
-      &:last-child {
-        fill: rgb(var(--white_text_black));
-      }
-    }
-
     @media (max-width: 991px) {
       svg {
         width: 120px;
@@ -43,6 +33,7 @@
       }
     }
   }
+
 
   &__left {
     display: flex;
@@ -170,7 +161,7 @@
     gap: 32px;
 
     @media (max-width: 1199px) {
-      gap: 0;
+      gap: 4px;
     }
   }
 
@@ -243,6 +234,17 @@
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         border-right: 1px solid rgba(var(--settings-theme-primary-text), 0.1);
+        min-width: 151px;
+
+        &:hover {
+          background-color: hsl(var(--settings-theme-primary));
+          color: var(--button-text-color);
+          border-color: hsl(var(--settings-theme-primary));
+
+          svg, span {
+            opacity: 0.7;
+          }
+        }
       }
     }
 
@@ -292,6 +294,26 @@
   margin: 0;
   padding-left: 24px;
   padding-right: 24px;
+  overflow: hidden;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    width: 20px;
+    background: hsl(var(--settings-theme-primary));
+    top: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 20;
+    border-radius: 0 var(--settings-main-border-radius) var(--settings-main-border-radius) 0;
+  }
+
+  &::after {
+    right: initial;
+    left: 0;
+  }
 
   .swiper-button-disabled {
     display: none !important;
@@ -318,6 +340,7 @@
     box-shadow: 0 5px 20px rgba(0, 0, 0, .07);
     background-color: rgb(var(--black_bg_black));
     stroke: rgb(var(--white_text_black));
+    z-index: 50;
 
     svg {
       width: 8px;
@@ -344,7 +367,7 @@
     color: rgb(var(--settings-theme-primary-text));
     gap: 8px;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease-in-out;
     height: 52px;
     display: flex;
     align-items: center;
@@ -352,7 +375,8 @@
     padding-right: 12px;
 
     &:hover {
-      background-color: rgb(var(--settings-theme-primary-text), 0.1);
+      background-color: transparent;
+      opacity: 0.7;
     }
   }
 
@@ -485,60 +509,4 @@
     }
   }
 }
-.site-header-catalog__btn:not(.is-fixed) {
-    min-width: 151px;
-}
 
-.site-header-catalog__btn:not(.is-fixed):hover {
-    background-color: rgb(var(--settings-theme-primary));
-    color: var(--button-text-color);
-    border-color: rgb(var(--settings-theme-primary));
-}
-
-.site-header-catalog__btn:not(.is-fixed):hover span,
-.site-header-catalog__btn:not(.is-fixed):hover svg {
-    opacity: 0.7;
-}
-
-.site-header-categories__item {
-    transition: color 0.3s ease-in-out;
-}
-
-.site-header-categories__item:hover {
-    background: transparent;
-    opacity: 0.7;
-}
-
-.site-header-categories {
-    overflow: hidden;
-    position: relative;
-}
-
-.site-header-categories::before,
-.site-header-categories::after {
-    content: '';
-    width: 20px;
-    background: rgba(var(--settings-theme-primary));
-    top: 0;
-    right: 0;
-    bottom: 0;
-    position: absolute;
-    z-index: 20;
-    border-radius: 0 var(--settings-main-border-radius) var(--settings-main-border-radius) 0;
-}
-
-.site-header-categories::after {
-    right: initial;
-    left: 0;
-}
-
-.site-header-categories .swiper-button-prev,
-.site-header-categories .swiper-button-next {
-    z-index: 50;
-}
-
-@media (max-width: 1199px) {
-    .site-header__actions {
-        gap: 4px;
-    }
-}

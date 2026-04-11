@@ -10,7 +10,7 @@
   }
 }
 .fill-theme-svg {
-    fill: rgb(var(--settings-theme-primary));
+    fill: hsl(var(--settings-theme-primary));
 }
 
 .fill-dark-light {

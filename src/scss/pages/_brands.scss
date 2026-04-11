@@ -59,7 +59,7 @@
 
       &.active {
         @include mixins.set_main_theme();
-        border-color: rgb(var(--settings-theme-primary));
+        border-color: hsl(var(--settings-theme-primary));
       }
 
       &:not(.active):hover {
