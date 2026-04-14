@@ -96,3 +96,96 @@
   align-items: center;
   justify-content: center;
 }
+
+/* Добавленные правила из others.css */
+.module-sales__wrapper {
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.module-services__wrapper,
+.module-sales__wrapper {
+  display: flex;
+  gap: 48px;
+  flex-direction: column;
+}
+
+.widget-sale {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.widget-sale .button {
+  width: 300px;
+}
+
+.widget-sale__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.widget-sale__body {
+  max-width: 600px;
+}
+
+.module-sales__picture img {
+  width: 100%;
+  border-radius: var(--settings-image-border-radius);
+  height: auto;
+}
+
+.sale-inline-item .sale-item__category {
+  margin-bottom: 8px;
+  display: block;
+}
+
+
+.sale-inline-item__top {
+  height: 250px;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin-bottom: 15px;
+  border-radius: var(--settings-image-border-radius);
+}
+
+.sale-inline-item .sale-item__badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.sale-inline-item__top img {
+  inset: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.module-sales__top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: calc(1rem - 2px);
+  line-height: calc(1em + 6px);
+  margin-bottom: 24px;
+}
+
+.sale-name-panel {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  font-size: calc(1rem - 2px);
+  line-height: calc(1em + 6px);
+  gap: 12px;
+  text-decoration: none;
+}
+
+.sale-name-panel:hover {
+  opacity: 0.8;
+}

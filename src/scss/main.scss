@@ -66,6 +66,8 @@
 @use "components/cookie";
 @use "components/subscribe";
 @use "components/pagination";
+@use "components/tooltip";
+@use "components/selected-product";
 
 // Shop
 @use "components/shop/variants";

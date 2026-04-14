@@ -1,0 +1,60 @@
+/* Selected product block moved from others.css */
+.selected-product {
+  border: 1px solid rgb(var(--stroke_black));
+  border-radius: var(--settings-main-border-radius);
+  display: flex;
+  gap: 24px;
+  padding: 20px;
+}
+
+.selected-product__image {
+  width: 42px;
+  height: auto;
+}
+
+.selected-product__title {
+  font-weight: 500;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+.selected-product__props {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  font-size: calc(1rem - 3px);
+  line-height: calc(1em + 5px);
+}
+
+.selected-product__link {
+  font-size: calc(1rem - 3px);
+  line-height: calc(1em + 5px);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .2em;
+  text-decoration-style: dotted;
+  text-decoration-color: color-mix(in oklab, rgb(var(--white_text_black)) 32%, transparent);
+}
+
+.selected-product__info {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.selected-product__props > span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.selected-product__props > span > span:first-child {
+  color: #8D8D8D;
+}
+
+@media (max-width: 991px) {
+  .selected-product__info {
+    flex-direction: column;
+  }
+}

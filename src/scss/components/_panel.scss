@@ -26,3 +26,79 @@
     @include mixins.card_hover_shadow_effect();
   }
 }
+
+/* Добавлено из others.css: специальные правила для module-page */
+.module-page {
+  .panel {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: calc(1rem - 1px);
+    line-height: calc(1em + 7px);
+  }
+
+  a.panel {
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+  }
+
+  a.panel:hover {
+    box-shadow: 0 5px 30px rgba(34, 34, 40, .08);
+    background-color: rgb(var(--darkerblack_bg_black));
+    border-color: rgb(var(--darkerblack_bg_black));
+  }
+
+  .panel:not(.last) {
+    background-color: rgb(var(--darkerblack_bg_black));
+    border-color: rgb(var(--darkerblack_bg_black));
+  }
+
+  .panel-title {
+    color: #8D8D8D;
+    font-size: calc(1rem - 3px);
+    line-height: calc(1em + 5px);
+  }
+
+  .panel > *:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__map {
+    max-height: 840px;
+    width: 100%;
+    border-radius: var(--settings-image-border-radius);
+    height: 100%;
+  }
+
+  &__image {
+    border-radius: var(--settings-image-border-radius);
+    width: 100%;
+    object-fit: cover;
+    max-height: 840px;
+    height: 100%;
+  }
+}
+
+/* Мобильные корректировки из others.css */
+@media (max-width: 991px) {
+  .module-page__image {
+    max-height: 450px;
+  }
+
+  .widget-sale__head {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .widget-sale .button {
+    width: 100%;
+  }
+
+  .selected-product__info {
+    flex-direction: column;
+  }
+}

@@ -145,7 +145,7 @@
   border-top: 1px solid rgb(var(--stroke_black));
 
   &:not(:last-child) {
-    padding-bottom: 24px;
+    padding-bottom: 0;
   }
 
   &__top {
@@ -232,6 +232,11 @@
     line-height: calc(1em + 5px);
     color: #8D8D8D;
   }
+
+  /* Добавлено из others.css */
+  .reviews__gallery {
+    margin-top: 15px;
+  }
 }
 
 .reviews-item-content__top {
@@ -259,7 +264,7 @@
   &__actions {
     display: flex;
     gap: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 0;
     flex-wrap: wrap;
     align-items: center;
 
@@ -283,7 +288,7 @@
   }
 
   &__gallery {
-    margin-bottom: 24px;
+    margin-bottom: 0;
     display: flex;
     gap: 8px;
     flex-wrap: wrap;
@@ -337,19 +342,30 @@
   line-height: calc(1em + 8px);
 }
 
-.rating-progress-block {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+.reviews-rating.sm {
   font-size: 14px;
+  gap: 5px;
 }
 
-.rating-progress {
+.reviews-item__content {
   display: flex;
+  flex-direction: column;
   gap: 4px;
-  fill: #ccc;
+}
 
-  .active {
-    fill: #ecc358;
-  }
+.reviews-item__picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.reviews__gallery img {
+  height: 50px;
+}
+
+.reviews-wrapper__right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }

@@ -50,3 +50,36 @@
     }
   }
 }
+
+/* Добавлено из others.css: reviews specific tabs */
+.reviews-tabs {
+  padding: 2px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--settings-main-border-radius);
+  background-color: rgb(var(--secondary-black-dark-light-bg));
+  gap: 4px;
+}
+
+.reviews-tabs a,
+.reviews-tabs span {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: var(--settings-main-border-radius);
+  font-size: .9375rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.reviews-tabs a:hover {
+  background-color: rgb(var(--stroke_black));
+}
+
+.reviews-tabs span,
+.reviews-tabs .active {
+  background: rgb(var(--black_bg_black));
+}

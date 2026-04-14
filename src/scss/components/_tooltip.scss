@@ -1,0 +1,32 @@
+/* Tooltip styles moved from others.css */
+.tooltip {
+  position: absolute;
+  border-radius: var(--settings-main-border-radius);
+  pointer-events: none;
+  display: none;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .12);
+  font-size: 12px;
+  background: rgb(var(--card_bg_hover_black));
+  color: rgb(var(--white_text_black));
+  max-width: 300px;
+  padding: 8px;
+  z-index: 500;
+  transform: translateX(-50%);
+}
+
+.hint__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-align: center;
+  padding: 0;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  font-size: 11px;
+  border: 1px solid rgb(var(--stroke_black));
+}
+
+/* filter-item__head .hint__icon handled in _filter.scss */
+
