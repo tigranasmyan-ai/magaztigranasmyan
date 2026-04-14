@@ -25,8 +25,7 @@
   --settings-theme-primary: var(--settings-theme-primary-h), var(--settings-theme-primary-s), var(--settings-theme-primary-l);
   --settings-theme-primary-hover: var(--settings-theme-primary-h), var(--settings-theme-primary-s), calc(var(--settings-theme-primary-l) + var(--settings-theme-primary-lightness-hover-diff));
 
-  --settings-theme-primary-secondary: 198, 94%, 20%;
-  --settings-theme-primary-secondary-lightness-hover-diff: -10%;
+  --settings-theme-primary-secondary: 200, 50, 24;
 
   --settings-theme-primary-text: 255, 255, 255;
   --settings-theme-primary-text-secondary: 255, 255, 255;
